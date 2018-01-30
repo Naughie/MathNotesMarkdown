@@ -9,7 +9,6 @@ TARDIR = ./html
 TARGETS = $(subst $(SRCDIR)/,$(TARDIR)/,$(SOURCES:.md=.html))
 COMPILE = $(COMPILER) $(PDFLAGS) -c $(CSS) --template=$(TEMPLATE)
 GIT = git
-ADDOPTS = -A
 MESSAGE = "Snapshot"
 
 define pandoc
@@ -20,7 +19,7 @@ endef
 all: clean $(TARGETS) git
 
 git:
-	$(GIT) add $(ADDOPTS) && $(GIT) commit -m $(MESSAGE) && $(GIT) push origin master
+	$(GIT) add -A && $(GIT) commit -m $(MESSAGE) && $(GIT) push origin master
 
 $(foreach source,$(SOURCES),$(eval $(call pandoc,$(source))))
 
