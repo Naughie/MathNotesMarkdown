@@ -7,14 +7,20 @@ SRCDIR = ./md
 SOURCES = $(wildcard $(SRCDIR)/*/*.md)
 TARDIR = ./html
 TARGETS = $(subst $(SRCDIR)/,$(TARDIR)/,$(SOURCES:.md=.html))
-COMMAND = $(COMPILER) $(PDFLAGS) -c $(CSS) --template=$(TEMPLATE)
+COMPILE = $(COMPILER) $(PDFLAGS) -c $(CSS) --template=$(TEMPLATE)
+GIT = git
+ADDOPTS = -A
+MESSAGE = "Snapshot"
 
 define pandoc
 $(subst $(SRCDIR)/,$(TARDIR)/,$(1:.md=.html)): $(1)
-	$(COMMAND) -o $(subst $(SRCDIR)/,$(TARDIR)/,$(1:.md=.html)) $1
+	$(COMPILE) -o $(subst $(SRCDIR)/,$(TARDIR)/,$(1:.md=.html)) $1
 endef
 
-all: clean $(TARGETS)
+all: clean $(TARGETS) git
+
+git:
+	$(GIT) add $(ADDOPTS) && $(GIT) commit -m $(MESSAGE) && $(GIT) push origin master
 
 $(foreach source,$(SOURCES),$(eval $(call pandoc,$(source))))
 
