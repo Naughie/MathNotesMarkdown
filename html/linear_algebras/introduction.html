@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="M. Nakata">
+  <title>線形空間</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="./css/notes.css">
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [["$","$"], ["\\(","\\)"]],
+      },
+      displayAlign: "left",
+      TeX: {
+        equationNumbers: {
+          autoNumber: "AMS",
+        },
+        TagSide: "left",
+      },
+    });
+  </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML&locale=ja"></script>
+  <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">線形空間</h1>
+<h2 class="author">M. Nakata</h2>
+</header>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li>斎藤正彦『線型代数入門』（東京大学出版会）</li>
+<li>新井朝雄『物理現象の数学的諸原理 現代数理物理学入門』（共立出版）</li>
+<li>Loring W. Tu. <em>An Introduction to Manifolds</em>. Springer.</li>
+</ul>
+<h1 id="linear-algebra-introduction">導入</h1>
+<p>ここでは主に有限次元ベクトル空間について考える．無限次元ベクトル空間は難しいが，そこに内積が定義されていると幾分か簡単になる．内積が定義されたベクトル空間は（プレ）ヒルベルト空間とよばれ，関数解析学で扱う．ベクトル空間は群の表現論やLie代数，多様体など，数学のあらゆる分野で基礎的な理論となる．ベクトル空間を一般化した加群とよばれるものはホモロジー代数の中心をなす．物理学においても，古典論ではベクトル解析やテンソル解析は欠かせないし，相対論では微分幾何学が，量子論ではヒルベルト空間の理論が使われる．このように，数学を学ぶうえで微分積分学と並んで最も重要になるのが線形代数学である．</p>
+<h2 id="vector-spaces">ベクトル空間</h2>
+<h4 id="vector-space-def" class="definition">定義</h4>
+<p>Abel群 <span class="math inline">\(V\)</span> に体 <span class="math inline">\(F\)</span> が作用していて次の<strong>分配律</strong>（<em>distributive laws</em>）をみたすとき，<span class="math inline">\(V\)</span> を <span class="math inline">\(F\)</span> 上の<strong>ベクトル空間</strong>（<em>vector space</em>）あるいは<strong>線形空間</strong>（<em>linear space</em>）という：</p>
+<ul>
+<li>任意の <span class="math inline">\(u, v \in V\)</span> と任意の <span class="math inline">\(\mu, \lambda \in F\)</span> に対して，<span class="math inline">\(\lambda (u + v) = \lambda u + \lambda v,\ (\lambda + \mu) v = \lambda v + \mu v\)</span>.</li>
+</ul>
+<p><span class="math inline">\(V\)</span> の元を<strong>ベクトル</strong>（<em>vector</em>），<span class="math inline">\(F\)</span> の元を<strong>スカラー</strong>（<em>scalar</em>）とよぶ．<span class="math inline">\(F\)</span> のことを<strong>係数体</strong>（<em>coefficient field</em>）とよび，<span class="math inline">\(F\)</span> による作用を<strong>スカラー倍</strong>（<em>scalar multiple</em>）という．<span class="math inline">\(F = \boldsymbol R\)</span> のとき，とくに<strong>実ベクトル空間</strong>（<em>real vector space</em>），<span class="math inline">\(F = \boldsymbol C\)</span> のとき<strong>複素ベクトル空間</strong>（<em>complex vector space</em>）という．<span class="math inline">\(\Box\)</span></p>
+<h4 id="linear-subspace" class="definition">定義</h4>
+<p>体 <span class="math inline">\(F\)</span> 上のベクトル空間 <span class="math inline">\(V\)</span> の部分集合 <span class="math inline">\(U\)</span> が <span class="math inline">\(V\)</span> の<strong>線型部分空間</strong>（<em>linear subspace</em>）あるいは<strong>部分ベクトル空間</strong>（<em>vector subspace</em>）であるとは，<span class="math inline">\(0 \in U\)</span> であって任意のベクトル <span class="math inline">\(u, v \in U\)</span> とスカラー <span class="math inline">\(\lambda \in F\)</span> に対して <span class="math inline">\(u + v, \lambda u \in U\)</span> が成立つことをいう．言い換えれば，<span class="math inline">\(U\)</span> が <span class="math inline">\(V\)</span> と同じ演算についてそれ自身ベクトル空間になっているとき，線型部分空間という．<span class="math inline">\(\Box\)</span></p>
+<h4 id="operation-of-spaces" class="definition">定義</h4>
+<p><span class="math inline">\(V\)</span> を体 <span class="math inline">\(F\)</span> 上のベクトル空間とする．ベクトル <span class="math inline">\(v \in V\)</span>，スカラー <span class="math inline">\(\lambda \in F\)</span> および <span class="math inline">\(V\)</span> の2つの線型部分空間 <span class="math inline">\(U_1, U_2 \subset V\)</span> に対して <span class="math display">\[\begin{align*}
+Fv &amp;= \{ \lambda&#39; v \,:\,\lambda&#39; \in F \},\\
+\lambda U_1 &amp;= \{ \lambda u \,:\,u \in U_1 \},\\
+U_1 + U_2 &amp;= \{ u_1 + u_2 \,:\,u_1 \in U_1,\ u_2 \in U_2 \},\\
+U_1 - U_2 &amp;= \{ u_1 - u_2 \,:\,u_1 \in U_1,\ u_2 \in U_2 \}
+\end{align*}\]</span> とおく．<span class="math inline">\(\Box\)</span></p>
+<h4 id="linear-independence" class="definition">定義</h4>
+<p><span class="math inline">\(V\)</span> を体 <span class="math inline">\(F\)</span> 上のベクトル空間とする．<span class="math inline">\(V\)</span> の部分集合 <span class="math inline">\(\{ u_1, \dotsc, u_n \} \subset V\)</span> が<strong>線形独立</strong>（<em>linear independent</em>）あるいは<strong>一次独立</strong>であるとは，あるスカラー <span class="math inline">\(\lambda_1, \dotsc, \lambda_n \in F\)</span> に対して <span class="math inline">\(\lambda_1 u_1 + \dotsb + \lambda_n u_n = 0\)</span> となれば <span class="math inline">\(\lambda_1 = \dotsb = \lambda_n = 0\)</span> であることをいう．線形独立でないとき，<strong>線形従属</strong>（<em>linear dependent</em>）であるという．<span class="math inline">\(\Box\)</span></p>
+<h4 id="spanned-space" class="definition">定義</h4>
+<p><span class="math inline">\(V\)</span> を体 <span class="math inline">\(F\)</span> 上のベクトル空間とする．<span class="math inline">\(V\)</span> の部分集合 <span class="math inline">\(U \subset V\)</span> に対して， <span class="math display">\[
+\mathrm{span}\,U = \{ \sum_{i = 1}^n \lambda_i u_i \,:\,n \in \boldsymbol N,\ \lambda_i \in F,\ u_i \in U \ (1 \le i \le n) \}
+\]</span> とおく．<span class="math inline">\(U\)</span> が有限個のベクトル <span class="math inline">\(\{ u_1, \dotsc, u_n \}\)</span> から成るとき， <span class="math display">\[
+\mathrm{span}\,U = \sum Fu_i
+\]</span> である．<span class="math inline">\(\sum_{i = 1}^n \lambda_i u_i \ (\lambda_i \in F, u_i \in U)\)</span> で表される <span class="math inline">\(\mathrm{span}\,U\)</span> の各ベクトルのことを <span class="math inline">\(u_1, \dotsc, u_n\)</span> の<strong>線形結合</strong>（<em>linear combination</em>）とよぶ．</p>
+<p><span class="math inline">\(\mathrm{span}\,U\)</span> を <span class="math inline">\(U\)</span> によって<strong>張られる</strong>（<em>spanned</em>）空間といい，<span class="math inline">\(U\)</span> は <span class="math inline">\(\mathrm{span}\,U\)</span> を<strong>張る</strong>（<em>spans</em>）という．<span class="math inline">\(\Box\)</span></p>
+<h4 id="basis-for-vector-space" class="definition">定義</h4>
+<p><span class="math inline">\(V\)</span> を体 <span class="math inline">\(F\)</span> 上のベクトル空間，<span class="math inline">\(B \subset V\)</span> をその部分集合とする．<span class="math inline">\(B\)</span> が線形独立でかつ <span class="math inline">\(V\)</span> を張るとき，<span class="math inline">\(B\)</span> を <span class="math inline">\(V\)</span> の<strong>基底</strong>（<em>basis</em>）という．<span class="math inline">\(B\)</span> の各ベクトルが <span class="math inline">\(\Lambda\)</span> を添字集合として <span class="math inline">\(e_\lambda \ (\lambda \in \Lambda)\)</span> と書けるとき，<span class="math inline">\(B\)</span> を <span class="math inline">\((e_\lambda)_{\lambda \in \Lambda}\)</span> あるいは単に <span class="math inline">\((e_\lambda)\)</span> と表す．<span class="math inline">\(\Box\)</span></p>
+<h4 id="number-of-basis-is-inv" class="lemma">補題</h4>
+<p>体 <span class="math inline">\(F\)</span> 上のベクトル空間 <span class="math inline">\(V\)</span> の基底 <span class="math inline">\(B\)</span> で <span class="math inline">\(|B| = n \lt \infty\)</span> なるものが存在すれば，任意の <span class="math inline">\(n + 1\)</span> 個のベクトルは線形従属である．</p>
+<h4 id="証明" class="proof">証明</h4>
+<p><span class="math inline">\(B = (e_i)_{i = 1}^n \subset V\)</span> を <span class="math inline">\(V\)</span> の基底とすると，任意の <span class="math inline">\(n + 1\)</span> 個のベクトル <span class="math inline">\(v_1, \dotsc, v_{n+1} \in V\)</span> は <span class="math display">\[\begin{align}
+v_i = \sum_{j = 1}^n v_i^{(j)} e_j \quad (i = 1, \dotsc, n + 1)
+\end{align}\]</span> と書ける．もしこれらが線形独立ならば，スカラー <span class="math inline">\(\lambda_1, \dotsc, \lambda_{n+1} \in F\)</span> が <span class="math inline">\(\sum_{i = 1}^{n + 1} \lambda_i v_i = 0\)</span> をみたすとき <span class="math inline">\(\lambda_1 = \dotsb = \lambda_{n + 1} = 0\)</span> である．一方， <span class="math display">\[\begin{align*}
+\sum_{i = 1}^{n + 1} \lambda_i v_i = \sum_{i = 1}^{n + 1} \lambda_i \sum_{j = 1}^n v_i^{(j)} e_j = \sum_{j = 1}^n \left( \sum_{i = 1}^{n + 1} \lambda_i v_i^{(j)} \right) e_j
+\end{align*}\]</span> だから，<span class="math inline">\(B\)</span> の線形独立性より，<span class="math inline">\(\sum_{i = 1}^{n + 1} \lambda_i v_i^{(j)} = 0,\ j = 1, \dotsc, n\)</span>．これを <span class="math inline">\(n + 1\)</span> 個の変数 <span class="math inline">\(\lambda_1, \dotsc, \lambda_{n+1}\)</span> について解くと，行列論により非自明な解が存在する，すなわち <span class="math inline">\(\sum_{i = 1}^{n + 1} \lambda_i v_i^{(j)} = 0,\ j = 1, \dotsc, n\)</span> であって，ある <span class="math inline">\(\lambda_k\)</span> について <span class="math inline">\(\lambda_k \neq 0\)</span> となるようなスカラー <span class="math inline">\(\lambda_1, \dotsc, \lambda_{n+1} \in F\)</span> が存在する．これは <span class="math inline">\(\{ v_1, \dotsc, v_{n + 1} \}\)</span> が線形従属であることを意味する． <span class="math inline">\(\Box\)</span></p>
+<h4 id="dimension-of-vector-space" class="definition">定義</h4>
+<p><a href="#number-of-basis-is-inv">補題</a>より，ベクトル空間 <span class="math inline">\(V\)</span> に <span class="math inline">\(|B| = n \lt \infty\)</span> なる基底 <span class="math inline">\(B \subset V\)</span> が存在するとき，<span class="math inline">\(n\)</span> は基底の取り方に依らない． これを <span class="math inline">\(\dim V = n\)</span> と書いて <span class="math inline">\(V\)</span> の<strong>次元</strong>（<em>dimension</em>）という．このとき <span class="math inline">\(V\)</span> は<strong>有限次元</strong>（<em>finite dimensional</em>）であるといい，<span class="math inline">\(\dim V \lt \infty\)</span> とも表す．</p>
+<p>どのような自然数 <span class="math inline">\(n \in \boldsymbol N\)</span> に対しても，<span class="math inline">\(|B| = n\)</span> となる線形独立な部分集合 <span class="math inline">\(B \subset V\)</span> が存在するとき，<span class="math inline">\(V\)</span> は<strong>無限次元</strong>（<em>infinite dimensional</em>）といい，<span class="math inline">\(\dim V = \infty\)</span> と表す．<span class="math inline">\(\Box\)</span></p>
+<h4 id="components-of-vector-in-finite-dimensional-space" class="definition">定義</h4>
+<p>体 <span class="math inline">\(F\)</span> 上の <span class="math inline">\(n\)</span> 次元ベクトル空間 <span class="math inline">\(V\)</span> に基底 <span class="math inline">\(B = (e_i)\)</span> を1つ定めると，<span class="math inline">\(V\)</span> の任意のベクトル <span class="math inline">\(v \in V\)</span> は <span class="math inline">\((e_i)\)</span> の線形結合で表せる．<span class="math inline">\(v = \sum_{i = 1}^n v_i e_i\)</span> のとき，<span class="math inline">\(v_i \in F\)</span> を <span class="math inline">\(v\)</span> の基底 <span class="math inline">\(B\)</span> に関する<strong>第 <span class="math inline">\(i\)</span> 成分</strong>（<em><span class="math inline">\(i\)</span>-th component</em>）という．このとき，<span class="math inline">\(v = (v_1, \dotsc, v_n)\)</span> あるいは単に <span class="math inline">\(v = (v_i)\)</span> と表す．<span class="math inline">\(\Box\)</span></p>
+<h4 id="linear-map" class="definition">定義</h4>
+<p><span class="math inline">\(V\)</span> と <span class="math inline">\(W\)</span> を同じ係数体 <span class="math inline">\(F\)</span> 上のベクトル空間とする．<span class="math inline">\(V\)</span> から <span class="math inline">\(W\)</span> への写像 <span class="math inline">\(T \colon V \to W\)</span> が次の<strong>線形性</strong>（<em>linearity</em>）をみたすとき，<span class="math inline">\(T\)</span> を <span class="math inline">\(V\)</span> から <span class="math inline">\(W\)</span> への<strong>線形写像</strong>（<em>linear map</em>）あるいは<strong>線形作用素</strong>（<em>linear operator</em>）という：</p>
+<ol type="1">
+<li>任意のベクトル <span class="math inline">\(u, v \in V\)</span> に対して <span class="math inline">\(T(u + v) = T(u) + T(v)\)</span>，</li>
+<li>任意のベクトル <span class="math inline">\(u \in V\)</span> とスカラー <span class="math inline">\(\lambda \in F\)</span> に対して <span class="math inline">\(T(\lambda u) = \lambda T(u)\)</span>．</li>
+</ol>
+<p><span class="math inline">\(T(u)\)</span> を <span class="math inline">\(Tu\)</span> や <span class="math inline">\(\langle T, u \rangle\)</span> のようにも書く．</p>
+<p><span class="math inline">\(V\)</span> から <span class="math inline">\(W\)</span> への線形写像全体の集合を <span class="math inline">\(\mathcal L(V, W)\)</span> と表す．また，<span class="math inline">\(W = F\)</span> を <span class="math inline">\(F\)</span> 上の1次元ベクトル空間とみたとき，<span class="math inline">\(V^* = \mathcal L(V, F)\)</span> を <span class="math inline">\(V\)</span> の<strong>双対空間</strong>（<em>dual space</em>）という．<span class="math inline">\(\Box\)</span></p>
+<h4 id="例" class="example">例</h4>
+<ol type="i">
+<li>数ベクトル空間 <span class="math inline">\(F^n\)</span> は，自然に定義された和とスカラー倍によって <span class="math inline">\(F\)</span> 上のベクトル空間となる．とくに，<span class="math inline">\(M_n(F) = F^{n^2}\)</span> は <span class="math inline">\(F\)</span> 上の <span class="math inline">\(n\)</span> 次正方行列全体のベクトル空間であり，行列の間に非可換な積が定まっている．</li>
+</ol>
+</body>
+</html>
