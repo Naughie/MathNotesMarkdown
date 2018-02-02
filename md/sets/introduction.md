@@ -70,3 +70,5 @@ $\Box$
 ## 直積
 2つの集合 $X$ と $Y$ が与えられたとき，$X$ と $Y$ の**直積**（*direct product*）とよばれる集合 $X \times Y$ が次のように定義される．まず，$a \in X$ と $b \in Y$ から，順序付けられた組 $(a,b)$ を考える．この $(a,b)$ のことを2元 $a$ と $b$ からなる**順序対**（*ordered pair*）という．ここで，「順序付けられた」とは，$a$ と $b$ を並べる順序を入れ替えることができないことをいう．すなわち，$(a,b)$ と $(b,a)$ は一般には一致しない．そこで，$X \times Y = \{ (a,b) \deli a \in X,\ b \in Y \}$ とおき，これを $X$ と $Y$ の直積とする．$X \times Y$ の2つの元 $(a,b), (a',b') \in X \times Y$ は，$a = a'$ かつ $b = b'$ のとき等しいとする．したがって，$a = b$ のとき，かつそのときに限り $(a,b) = (b,a)$ となる．$(a,b) \in X \times Y$ に対して，$X$ の元 $a$ を $(a,b)$ の**第1成分**（*first component*），$Y$ の元 $b$ を**第2成分**（*second component*）とよぶ．
 $X \times Y$ の部分集合 $R \subset X \times Y$ は，2つの元 $a \in X$ と $b \in Y$ との間の**関係**（*relationship*）を定める．$(a,b) \in R$ のとき $aRb$ と書き，$a$ と $b$ は**関係 $R$ をもつ**という．$R$ の元の第1成分全体の集合を $R$ の**定義域**（*domain*），第2成分全体の集合を**値域**（*range*）とよぶ．
+
+2つの集合 $X$ と $Y$ の間の関係 $f \subset X \times Y$ が $X$ 全体を定義域とするとき，$f$ を $X$ から $Y$ への**写像**（*map*, *mapping*），**関数**（*function*）あるいは**対応**（*correspondence*）という．関数という語は，主に $Y = \bb R$ や $Y = \bb C$ のときに用いる．
