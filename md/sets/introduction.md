@@ -39,7 +39,7 @@ vii) $\bb N \subset \bb Z \subset \bb Q \subset \bb R \subset \bb C$．
 
 $\bb N, \bb Z, \bb Q$ は集合論によって定義できる．$\bb Q$ から $\bb R$ を造り出す操作を**完備化**（*completion*）という．$\bb R$ から $\bb C$ は，**代数拡大**（*algebraic extension*）によって得られる．$\Box$
 
-集合を要素とする集合を，**集合族**（*family of sets*）あるいは**集合系**（*system of sets*）とよぶ．集合族は，それに属する個々の集合を明示するために**インデックス**（*index*）を付して表されることが多い．たとえばインデックスの集合を $\Lambda$ としたとき，$\{ A_\lambda \deli \lambda \in \Lambda \}$ あるいは単に $\{ A_\lambda \}$ のように書く．このとき $\Lambda$ を**添字集合**（*index set*）といい，$\{ A_\lambda \deli \lambda \in \Lambda \}$ を $\Lambda$ によって**添字付けられた集合族**（*family of sets indiced by $\Lambda$*）という．集合族の各元 $A_\lambda$ がすべて共通の集合 $X$ の部分集合のとき，すなわちすべての $A_\lambda$ に対して $A_\lambda \subset X$ のとき，$\{ A_\lambda \deli \lambda \in \Lambda \}$ を $X$ の**部分集合族**（*family of subsets*）とよぶ．任意の相異なるインデックス $\lambda, \mu \in \Lambda$ に対して $A_\lambda \cap A_\mu = \emptyset$ であるとき，集合族 $\{ A_\lambda \deli \lambda \in \Lambda \}$ は**互いに素**（*pairwise disjoint*）という．集合族 $\{ A_\lambda \deli \lambda \in \Lambda \}$ に対して，その**和集合**と**共通部分**を2つの集合の場合と同様に定義できる．すなわち，和集合とは少なくとも1つの $A_\lambda$ に属する元の集合，共通部分はすべての $A_\lambda$ に属する元の集合である．和集合は $\bigcup \{ A_\lambda \deli \lambda \in \Lambda \}$ または $\bigcup_{\lambda \in \Lambda} A_\lambda$ や単に $\bigcup A_\lambda$ と書く．共通部分も，$\bigcap \{ A_\lambda \deli \lambda \in \Lambda \}$ や $\bigcap_{\lambda \in \Lambda} A_\lambda$，$\bigcap A_\lambda$ のように書く．和集合，共通部分，補集合について次の重要な定理が成立つ．
+集合を要素とする集合を，**集合族**（*family of sets*）あるいは**集合系**（*system of sets*）とよぶ．集合族は，それに属する個々の集合を明示するために**インデックス**（*index*）を付して表されることが多い．たとえばインデックスの集合を $\Lambda$ としたとき，$\{ A_\lambda \deli \lambda \in \Lambda \}$ あるいは単に $\{ A_\lambda \}$ のように書く．このとき $\Lambda$ を**添字集合**（*index set*）といい，$\{ A_\lambda \deli \lambda \in \Lambda \}$ を $\Lambda$ によって**添字付けられた集合族**（*family of sets indiced by $\Lambda$*）という．集合族の各元 $A_\lambda$ がすべて共通の集合 $X$ の部分集合のとき，すなわちすべての $A_\lambda$ に対して $A_\lambda \subset X$ のとき，$\{ A_\lambda \deli \lambda \in \Lambda \}$ を $X$ の**部分集合族**（*family of subsets*）とよぶ．任意の相異なるインデックス $\lambda, \mu \in \Lambda$ に対して $A_\lambda \cap A_\mu = \emptyset$ であるとき，集合族 $\{ A_\lambda \deli \lambda \in \Lambda \}$ は**互いに素**（*pairwise disjoint*）という．集合族 $\{ A_\lambda \deli \lambda \in \Lambda \}$ に対して，その**和集合**と**共通部分**を2つの集合の場合と同様に定義できる．すなわち，和集合とは少なくとも1つの $A_\lambda$ に属する元の集合，共通部分はすべての $A_\lambda$ に属する元の集合である．和集合は $\bigcup \{ A_\lambda \deli \lambda \in \Lambda \}$ または $\bigcup_{\lambda \in \Lambda} A_\lambda$ や単に $\bigcup A_\lambda$ と書く．共通部分も，$\bigcap \{ A_\lambda \deli \lambda \in \Lambda \}$ や $\bigcap_{\lambda \in \Lambda} A_\lambda$，$\bigcap A_\lambda$ のように書く．$\{ A_\lambda \deli \lambda \in \Lambda \}$ が互いに素なとき，その和集合を**非交和**（*disjoint union*）といい $\coprod_{\lambda \in \Lambda} A_\lambda$ のように書くこともある．和集合，共通部分，補集合について次の重要な定理が成立つ．
 
 #### 定理 {#properties-of-sets .theorem}
 $\Lambda$ を添字集合とした，集合 $X$ の部分集合族 $\{ A_\lambda \deli \lambda \in \Lambda \}$ と $X$ の部分集合 $B \subset X$ に対して次が成立つ：
@@ -72,6 +72,41 @@ $\Box$
 $X \times Y$ の部分集合 $R \subset X \times Y$ は，2つの元 $a \in X$ と $b \in Y$ との間の**関係**（*relationship*）を定める．$(a,b) \in R$ のとき $aRb$ と書き，$a$ と $b$ は**関係 $R$ をもつ**という．$R$ の元の第1成分全体の集合を $R$ の**定義域**（*domain*），第2成分全体の集合を**値域**（*range*）とよぶ．
 
 2つの集合 $X$ と $Y$ の間の関係 $f \subset X \times Y$ が $X$ 全体を定義域として，かつ $afb,\ afc$ ならば $b = c$ が成立つとき $f \colon X \to Y$ と書いて $f$ を $X$ から $Y$ への**写像**（*map*, *mapping*），**関数**（*function*）あるいは**対応**（*correspondence*）という．関数という語は，主に $Y = \bb R$ や $Y = \bb C$ のときに用いる．
-$afb$ のとき $f(a) = b$ や $fa = b$ などと書き，$b$ を $a$ での $f$ の**値**（*value*）あるいは $a$ の $f$ による**像**（*image*）という．$f(a)$ を"$f$ of $a$"なとという．また，$f$ は $a$ を $b$ に**写像する**（*maps $a$ to $b$*, *assigns $b$ to $a$*），$b$ は $a$ に**対応する**（*corresponds to $a$*）ともいう．
+$afb$ のとき $f(a) = b$ や $fa = b$，$f \colon a \mapsto b$ などと書き，$b$ を $a$ での $f$ の**値**（*value*）あるいは $a$ の $f$ による**像**（*image*）という．$f(a)$ を"$f$ of $a$"なとという．また，$f$ は $a$ を $b$ に**写像する**（*maps $a$ to $b$*, *assigns $b$ to $a$*），$b$ は $a$ に**対応する**（*corresponds to $a$*）ともいう．
 $X$ の部分集合 $A \subset X$ に対し，$f(A) = \{ f(a) \deli a \in A \} \subset Y$ とおいて $f$ による $A$ の**像**（*image*）という．とくに，$f(X)$ は $f$ の値域となる．$Y$ の部分集合 $B \subset Y$ に対して，$f^{-1}(B) = \{ x \in X \deli f(x) \in B \} \subset X$ を $f$ による $B$ の**逆像**（*inverse image*）とよぶ．シングルトン $\{ y \} \subset Y$ に対してはその逆像を単に $f^{-1}(y)$ で表す．
-$f$ の値域が $Y$ 全体であるとき，すなわち $f(X) = Y$ であるとき，$f$ を $X$ から $Y$ への**全射**（*surjection*）あるいは $X$ から $Y$ の**上への写像**（*onto $Y$*）という．$X$ に属する任意の2元 $x, x' \in X$ に対して，$f(x) = f(x')$ ならばいつも $x = x'$ であるとき，$f$ を**単射**（*injection*）という．これは，任意の $y \in Y$ に対して $f^{-1}(y)$ は空集合かシングルトンのいずれかであるとき，と言っても同じである．
+$f$ の値域が $Y$ 全体であるとき，すなわち $f(X) = Y$ であるとき，$f$ を $X$ から $Y$ への**全射**（*surjection*）あるいは $X$ から $Y$ の**上への写像**（*onto $Y$*）という．$X$ に属する任意の2元 $x, x' \in X$ に対して，$f(x) = f(x')$ ならばいつも $x = x'$ であるとき，$f$ を**単射**（*injection*）という．これは，任意の $y \in Y$ に対して $f^{-1}(y)$ は空集合かシングルトンのいずれかであるとき，と言っても同じである．写像 $f \colon X \to Y$ が全射であり同時に単射でもあるとき，$f$ を $X$ から $Y$ への**全単射**（*bijection*）あるいは $X$ と $Y$ の間の**一対一対応**（*one-to-one correspondence*）という．
+$f$ が全単射ならば，$Y$ の任意の元 $y \in Y$ に対してただ1つ $X$ の元 $x \in X$ が定まり $f(x) = y$ が成立つ．この $y \in Y$ に $f(x) = y$ なる $x \in X$ を対応させる $Y$ から $X$ への写像を $f$ の**逆写像**（*inverse*）といい，$f^{-1} \colon Y \to X$ で表す．すると，$f^{-1}(y) = x$ であるときかつそのときに限って $f(x) = y$ となる．
+$X$ から $Y$ への写像 $f \colon X \to Y$ と $X$ の部分集合 $A \subset X$ が与えられたときに，$x \in A$ に $f(x)$ を対応させることで $A$ から $Y$ への写像を定義できる．この写像を $f$ の $A$ への**制限**（*restriction*）といい $f \mid A$ と書く．一般に $f$ と $f \mid A$ は（$X = A$ でない限り）定義域が異なるため，別の写像として区別する．
+
+#### 例 {.example}
+
+ i) 空でない集合 $X$ に対して，$f(x) = x$ によって定まる全単射 $f \colon X \to X$ が存在する．この写像を $X$ の**恒等写像**（*identity*）といい，$\mathrm{id}_X,\ 1_X$ などと書く．$X$ が明らかな場合は省略する．
+ii) 空でない集合 $X$ とその部分集合 $A \subset X$ が与えられたとき，恒等写像の $A$ への制限 $1_X \mid A \colon A \to X$ を $A$ から $X$ への**包含写像**（*inclusion*）といい，$A \hookrightarrow X$ と表す．包含写像は最も簡単な単射でもあるから，**標準的単射**（*canonical injection*）ともよばれる．$\Box$
+
+2つの写像 $f \colon X \to Y,\ g \colon Y \to Z$ があるとき，$x \mapsto g(f(x))$ によって $X$ から $Z$ への写像が定まる．これを $f$ と $g$ の**合成写像**（*composite*）といい，$g \circ f$ と書く．$f$ が全単射のときは $f^{-1} \circ f = 1_X,\ f \circ f^{-1} = 1_Y$ となる．
+
+$\Lambda$ を添字集合とする集合族 $\{ A_\lambda \deli \lambda \in \Lambda \}$ を考える．$\Lambda$ から $\bigcup A_\lambda$ への写像 $f \colon \Lambda \to \bigcup A_\lambda$ で，各 $\lambda \in \Lambda$ に対して $f(\lambda) \in A_\lambda$ を満たすもの全体の集合を集合族 $\{ A_\lambda \}$ の**直積**（*direct product*）といい，$\prod_{\lambda \in \Lambda} A_\lambda$ と書く．$f \in \prod A_\lambda$ に対し，$f(\lambda)$ の代わりに $f_\lambda$ と書き，$f$ の **$\lambda$ 成分**（*$\lambda$-coordinate*）という．
+$\Lambda = \{1, 2\}$ のとき，$\prod A_\lambda$ と $A_1 \times A_2$ は同じであることが分かる．実際，$(a,b) \in A_1 \times A_2$ であるとは，対応 $f(1) = a,\ f(2) = b$ が $\prod A_\lambda$ に属していることを意味する．逆に $f \in \prod A_\lambda$ のとき，$(f_1, f_2)$ は順序対をなしていて $(f_1, f_2) \in A_1 \times A_2$ である．
+
+写像と和集合，共通部分，補集合の間に次の重要な性質がある．
+
+#### 定理 {.theorem}
+2つの集合 $X, Y$ と $X$ の部分集合族 $\{A_\lambda \subset X \deli \lambda \in \Lambda \}$ および $X$ から $Y$ への写像 $f \colon X \to Y$ が与えられたとする．このとき次が成立つ：
+
+\begin{align}
+&A_1 \subset A_2 \Longrightarrow f(A_1) \subset f(A_2);\\
+&f(\bigcup A_\lambda) = \bigcup f(A_\lambda);\\
+&f(\bigcap A_\lambda) \subset \bigcap f(A_\lambda);\\
+&f(A_1 \setminus A_2) \supset f(A_1) \setminus f(A_2).
+\end{align}
+
+さらに $f$ が全単射のときは，$Y$ の部分集合族 $\{B_\lambda \subset Y \deli \lambda \in \Lambda \}$ に対して次が成立つ：
+
+\begin{align}
+&B_1 \subset B_2 \Longrightarrow f^{-1}(B_1) \subset f^{-1}(B_2);\\
+&f^{-1}(\bigcup B_\lambda) = \bigcup f^{-1}(B_\lambda);\\
+&f^{-1}(\bigcap B_\lambda) = \bigcap f^{-1}(B_\lambda);\\
+&f^{-1}(B_1 \setminus B_2) = f^{-1}(B_1) \setminus f^{-1}(B_2).
+\end{align}
+
+また，$f$ が単射ならば(8)と(9)において等号が成立つ．$\Box$

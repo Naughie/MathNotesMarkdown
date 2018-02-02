@@ -19,7 +19,7 @@ endef
 all: clean $(TARGETS) git
 
 git:
-	( $(GIT) add -A && $(GIT) commit -m $(MESSAGE) && $(GIT) push origin master ) &
+	$(GIT) add -A && $(GIT) commit -m $(MESSAGE)
 
 $(foreach source,$(SOURCES),$(eval $(call pandoc,$(source))))
 
