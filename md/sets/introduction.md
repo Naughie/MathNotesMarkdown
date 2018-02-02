@@ -72,4 +72,4 @@ $\Box$
 $X \times Y$ の部分集合 $R \subset X \times Y$ は，2つの元 $a \in X$ と $b \in Y$ との間の**関係**（*relationship*）を定める．$(a,b) \in R$ のとき $aRb$ と書き，$a$ と $b$ は**関係 $R$ をもつ**という．$R$ の元の第1成分全体の集合を $R$ の**定義域**（*domain*），第2成分全体の集合を**値域**（*range*）とよぶ．
 
 2つの集合 $X$ と $Y$ の間の関係 $f \subset X \times Y$ が $X$ 全体を定義域として，かつ $afb,\ afc$ ならば $b = c$ が成立つとき $f \colon X \to Y$ と書いて $f$ を $X$ から $Y$ への**写像**（*map*, *mapping*），**関数**（*function*）あるいは**対応**（*correspondence*）という．関数という語は，主に $Y = \bb R$ や $Y = \bb C$ のときに用いる．
-$afb$ のとき $f(a) = b$ や $fa = b$ などと書き，$b$ を $a$ での $f$ の**値**（*value*）あるいは $a$ の $f$ による**像**（*image*）という．$f(a)$ を"$f$ of $a$"なとという．
+$afb$ のとき $f(a) = b$ や $fa = b$ などと書き，$b$ を $a$ での $f$ の**値**（*value*）あるいは $a$ の $f$ による**像**（*image*）という．$f(a)$ を"$f$ of $a$"なとという．また，$f$ は $a$ を $b$ に**写像する**（*maps $a$ to $b$*, *assigns $b$ to $a$*），$b$ は $a$ に**対応する**（*corresponds to $a$*）ともいう．
