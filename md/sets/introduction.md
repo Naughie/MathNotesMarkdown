@@ -75,15 +75,17 @@ $X \times Y$ の部分集合 $R \subset X \times Y$ は，2つの元 $a \in X$ �
 $afb$ のとき $f(a) = b$ や $fa = b$，$f \colon a \mapsto b$ などと書き，$b$ を $a$ での $f$ の**値**（*value*）あるいは $a$ の $f$ による**像**（*image*）という．$f(a)$ を"$f$ of $a$"なとという．また，$f$ は $a$ を $b$ に**写像する**（*maps $a$ to $b$*, *assigns $b$ to $a$*），$b$ は $a$ に**対応する**（*corresponds to $a$*）ともいう．
 $X$ の部分集合 $A \subset X$ に対し，$f(A) = \{ f(a) \deli a \in A \} \subset Y$ とおいて $f$ による $A$ の**像**（*image*）という．とくに，$f(X)$ は $f$ の値域となる．$Y$ の部分集合 $B \subset Y$ に対して，$f^{-1}(B) = \{ x \in X \deli f(x) \in B \} \subset X$ を $f$ による $B$ の**逆像**（*inverse image*）とよぶ．シングルトン $\{ y \} \subset Y$ に対してはその逆像を単に $f^{-1}(y)$ で表す．
 $f$ の値域が $Y$ 全体であるとき，すなわち $f(X) = Y$ であるとき，$f$ を $X$ から $Y$ への**全射**（*surjection*）あるいは $X$ から $Y$ の**上への写像**（*onto $Y$*）という．$X$ に属する任意の2元 $x, x' \in X$ に対して，$f(x) = f(x')$ ならばいつも $x = x'$ であるとき，$f$ を**単射**（*injection*）という．これは，任意の $y \in Y$ に対して $f^{-1}(y)$ は空集合かシングルトンのいずれかであるとき，と言っても同じである．写像 $f \colon X \to Y$ が全射であり同時に単射でもあるとき，$f$ を $X$ から $Y$ への**全単射**（*bijection*）あるいは $X$ と $Y$ の間の**一対一対応**（*one-to-one correspondence*）という．
+
 $f$ が全単射ならば，$Y$ の任意の元 $y \in Y$ に対してただ1つ $X$ の元 $x \in X$ が定まり $f(x) = y$ が成立つ．この $y \in Y$ に $f(x) = y$ なる $x \in X$ を対応させる $Y$ から $X$ への写像を $f$ の**逆写像**（*inverse*）といい，$f^{-1} \colon Y \to X$ で表す．すると，$f^{-1}(y) = x$ であるときかつそのときに限って $f(x) = y$ となる．
 $X$ から $Y$ への写像 $f \colon X \to Y$ と $X$ の部分集合 $A \subset X$ が与えられたときに，$x \in A$ に $f(x)$ を対応させることで $A$ から $Y$ への写像を定義できる．この写像を $f$ の $A$ への**制限**（*restriction*）といい $f \mid A$ と書く．一般に $f$ と $f \mid A$ は（$X = A$ でない限り）定義域が異なるため，別の写像として区別する．
+同じ定義域の2つの写像 $f, g \colon X \to Y$ が等しいとは，すべての $x \in X$ に対して $f(x) = g(x)$ が成立つことであり，$f = g$ と書く．
 
 #### 例 {.example}
 
  i) 空でない集合 $X$ に対して，$f(x) = x$ によって定まる全単射 $f \colon X \to X$ が存在する．この写像を $X$ の**恒等写像**（*identity*）といい，$\mathrm{id}_X,\ 1_X$ などと書く．$X$ が明らかな場合は省略する．
 ii) 空でない集合 $X$ とその部分集合 $A \subset X$ が与えられたとき，恒等写像の $A$ への制限 $1_X \mid A \colon A \to X$ を $A$ から $X$ への**包含写像**（*inclusion*）といい，$A \hookrightarrow X$ と表す．包含写像は最も簡単な単射でもあるから，**標準的単射**（*canonical injection*）ともよばれる．$\Box$
 
-2つの写像 $f \colon X \to Y,\ g \colon Y \to Z$ があるとき，$x \mapsto g(f(x))$ によって $X$ から $Z$ への写像が定まる．これを $f$ と $g$ の**合成写像**（*composite*）といい，$g \circ f$ と書く．$f$ が全単射のときは $f^{-1} \circ f = 1_X,\ f \circ f^{-1} = 1_Y$ となる．
+2つの写像 $f \colon X \to Y,\ g \colon Y \to Z$ があるとき，$x \mapsto g(f(x))$ によって $X$ から $Z$ への写像が定まる．これを $f$ と $g$ の**合成写像**（*composite*）といい，$g \circ f$ あるいは $gf$ と書く．$f$ が全単射のときは $f^{-1} \circ f = 1_X,\ f \circ f^{-1} = 1_Y$ となる．
 
 $\Lambda$ を添字集合とする集合族 $\{ A_\lambda \deli \lambda \in \Lambda \}$ を考える．$\Lambda$ から $\bigcup A_\lambda$ への写像 $f \colon \Lambda \to \bigcup A_\lambda$ で，各 $\lambda \in \Lambda$ に対して $f(\lambda) \in A_\lambda$ を満たすもの全体の集合を集合族 $\{ A_\lambda \}$ の**直積**（*direct product*）といい，$\prod_{\lambda \in \Lambda} A_\lambda$ と書く．$f \in \prod A_\lambda$ に対し，$f(\lambda)$ の代わりに $f_\lambda$ と書き，$f$ の **$\lambda$ 成分**（*$\lambda$-coordinate*）という．
 $\Lambda = \{1, 2\}$ のとき，$\prod A_\lambda$ と $A_1 \times A_2$ は同じであることが分かる．実際，$(a,b) \in A_1 \times A_2$ であるとは，対応 $f(1) = a,\ f(2) = b$ が $\prod A_\lambda$ に属していることを意味する．逆に $f \in \prod A_\lambda$ のとき，$(f_1, f_2)$ は順序対をなしていて $(f_1, f_2) \in A_1 \times A_2$ である．
@@ -110,3 +112,84 @@ $\Lambda = \{1, 2\}$ のとき，$\prod A_\lambda$ と $A_1 \times A_2$ は同�
 \end{align}
 
 また，$f$ が単射ならば(8)と(9)において等号が成立つ．$\Box$
+
+#### 証明 {.proof}
+##### (7)の証明
+$A_1 \subset A_2$ とする．$y \in f(A_1)$ のとき，$x \in A_1$ が存在して $y = f(x)$ となる．このときまた $x \in A_2$ でもあるから $y \in f(A_2)$．よって $f(A_1) \subset f(A_2)$ となる．
+
+##### (8)の証明
+$y \in f(\bigcup A_\lambda)$ とすると，ある $\lambda' \in \Lambda$ と $x \in A_{\lambda'}$ が存在して $y = f(x)$ となる．よって $y \in f(A_{\lambda'}) \subset \bigcup f(A_\lambda)$ であるから $f(\bigcup A_\lambda) \subset \bigcup f(A_\lambda)$．
+
+逆に $y \in \bigcup f(A_\lambda)$ のときはある $\lambda' \in A_\lambda$ に対して $y \in f(A_{\lambda'})$，従って $y = f(x)$ となる $x \in A_{\lambda'}$ が存在する．このとき $x \in \bigcup A_\lambda$ であるから $y \in f(\bigcup A_\lambda)$．
+
+以上より $f(\bigcup A_\lambda) = \bigcup f(A_\lambda)$．
+
+##### (9)の証明
+$y \in f(\bigcap A_\lambda)$ とすると $y = f(x)$ となる $x \in \bigcap A_\lambda$ が存在する．すると各 $\lambda$ に対して $x \in A_\lambda$ であるから $y \in f(A_\lambda)$ が成立ち，よって $y \in \bigcap f(A_\lambda)$ となる．これで $f(\bigcap A_\lambda) \subset \bigcap f(A_\lambda)$ を示せた．
+
+$f$ が単射で $y \in \bigcap f(A_\lambda)$ ならば，任意の $\lambda$ に対して $y \in f(A_\lambda)$ であり，$y = f(x_\lambda)$ となる $x_\lambda \in A_\lambda$ が存在する．$f$ の単射性より $x_\lambda$ はすべて等しく，その値を $x$ とおく．このとき任意の $\lambda$ に対して $x \in A_\lambda$ だから $x \in \bigcap A_\lambda$．これと $y = f(x)$ より $y \in f(\bigcap A_\lambda)$ となるから，$f(\bigcap A_\lambda) \supset \bigcap f(A_\lambda)$．
+
+##### (10)の証明
+$y \in f(A_1) \setminus f(A_2)$ とすると，$y \in f(A_1)$ より $y = f(x)$ なる $x \in A_1$ が存在する．一方 $y \notin f(A_2)$ であるから $x \in A_2$ ではあり得ない．よって $x \in A_1 \setminus A_2$ であり，$y \in f(A_1 \setminus A_2)$．すなわち $f(A_1 \setminus A_2) \supset f(A_1) \setminus f(A_2)$ が分かる．
+
+$f$ が単射のときは，$y \in f(A_1 \setminus A_2)$ ならば $y = f(x)$ となる $x \in A_1 \setminus A_2$ が存在するから $y \in f(A_1)$ は分かる．ここで $y \in f(A_2)$ とするとある $x' \in A_2$ が存在して $y = f(x')$ であるが，$f$ の単射性より $x = x' \in A_1 \cap A_2$．これは $x \in A_1 \setminus A_2$ に反する．よって $y \notin f(A_2)$ であるから $y \in f(A_1) \setminus f(A_2)$，従って $f(A_1 \setminus A_2) \subset f(A_1) \setminus f(A_2)$．
+
+##### (11), (12), (13), (14)の証明
+$f$ が全単射であるから $f^{-1}$ も全単射．よって(7), (8), (9), (10)において $f \colon X \to Y$ を $f^{-1} \colon Y \to X$ に，$\{ A_\lambda \}$ を $\{ B_\lambda \}$ に置き換えれば直ちに従う．$\Box$
+
+写像 $f \colon X \to Y$ が与えられたとき，容易に分かるように，$f$ が全単射ならば $f^{-1}$ も全単射でさらに $(f^{-1})^{-1} = f$ が成立つ．2つの全単射 $f \colon X \to Y$ および $g \colon Y \to Z$ に対して $gf \colon X \to Z$ が全単射になることもまた簡単に分かる．
+
+写像の単射性と全射性に関する次の事実がよく用いられる．
+
+#### 定理 {.theorem #equivalent-statement-on-injectivity-and-surjectivity}
+写像 $f \colon X \to Y$ に対して次が成立つ：
+
+ i) $f$ が単射であることの必要十分条件は，$gf = 1_X$ なる写像 $g \colon Y \to X$ が存在することである；
+ii) $f$ が全射であることの必要十分条件は，$fh = 1_Y$ なる写像 $h \colon Y \to X$ が存在することである．$\Box$
+
+#### 証明 {.proof}
+##### i.の証明
+必要性を示す．$f$ が単射ならば，任意の2元 $x, x' \in X$ に対して $f(x) = f(x')$ ならば $x = x'$ である．よって，$X$ の元 $x_0 \in X$ を適当に固定すれば，写像 $g \colon Y \to X$ が
+\begin{align*}
+g(y) = \left\{ \begin{array}{ll} x & (\text{if}\ y = f(x)), \\ x_0 & (\text{if}\ y \notin f(X) \end{array}  \right.
+\end{align*}
+によって定義できる（これが写像であることは確かめなければならない．すなわち，$f(x) = f(x')$ ならば $gf(x) = gf(x')$ を確かめる必要があるが，これは $f$ の単射性より明らか）．そうすると，任意の $x \in X$ に対して $gf(x) = x$ だから，$gf = 1_X$．
+
+次に十分性を示す．写像 $g \colon Y \to X$ が存在して $gf = 1_X$ ならば，任意の $x, x' \in X$ に対して $x = gf(x)$ および $x' = gf(x')$ が成立つ．ここで $f(x) = f(x')$ とすれば，$gf(x) = gf(x')$ より $x = x'$ が分かる．これは $f$ が単射であることを意味する．
+
+##### ii.の証明
+$f$ を全射とすると，任意の $y \in Y$ に対して $f(x) = y$ なる $x \in X$ が少なくとも1つ存在する．そのうちの1つを適当に選び $x_y$ とする．そこで写像 $h \colon Y \to X$ を $h(y) = x_y$ と定義すれば，$fh(y) = f(x_y) = y$ であるから $fh = 1_Y$ となる．
+
+逆に $fh = 1_Y$ となる写像 $h \colon Y \to X$ が存在すると仮定する．このとき，任意の $y \in Y$ に対して $y = f(h(y))$ であるから，$f$ は全射．$\Box$
+
+写像の単射性と全射性を圏論的に言い換えると以下のようになる．
+
+#### 定理 {.theorem}
+写像 $f \colon X \to Y$ に対して次が成立つ：
+
+ i) $f$ が単射であることの必要十分条件は，$fg_1 = fg_2$ なる任意の写像 $g_1, g_2 \colon Z \to X$ に対して $g_1 = g_2$ となることである；
+ii) $f$ が全射であることの必要十分条件は，$h_1f = h_2f$ なる任意の写像 $h_1, h_2 \colon Y \to Z$ に対して $h_1 = h_2$ となることである．$\Box$
+
+#### 証明 {.proof}
+##### i.の証明
+$f$ を単射として，2つの写像 $g_1, g_2 \colon Z \to X$ について $fg_1 = fg_2$ となったとする．このとき $g_1 = g_2$ を示したい．任意の $z \in Z$ に対して $f(g_1(z)) = f(g_2(z))$ であるから，$f$ の単射性より $g_1(z) = g_2(z)$ となる．よって $g_1 = g_2$．
+
+逆に任意の写像 $g_1, g_2 \colon Z \to X$ に対して，$fg_1 = fg_2$ ならば $g_1 = g_2$ が成立つとする．このとき特に $Z = \{ 0 \}$ として，$g_1(0) = x,\ g_2(0) = y$ とする．もし $f(x) = f(y)$ であれば，$fg_1(0) = fg_2(0)$ であるから $g_1 = g_2$ が言える．従って $x = g_1(0) = g_2(0) = y$ となり，$f$ は単射．
+
+##### ii.の証明
+まず $f$ が全射ならば，$h_1f = h_2f$ なる写像 $h_1, h_2 \colon Y \to Z$ に対して $h_1 = h_2$ となる．実際，任意の $y \in Y$ に対して $x \in X$ が存在して $y = f(x)$ とでき，このとき $h_1(y) = h_1f(x) = h_2f(x) = h_2(y)$ より $h_1 = h_2$．
+
+次に任意の写像 $h_1, h_2 \colon Y \to Z$ に対して，$h_1f = h_2f$ ならば $h_1 = h_2$ となるとする．$f$ が全射でないとすると $y_0 \in Y \setminus f(X)$ が存在する．そこで $Z = \{ 0, 1 \}$ として
+\begin{align*}
+h_1(y) &= 0,\\
+h_2(y) &= \left\{ \begin{array}{ll} 0 & (\text{if}\ y \neq y_0),\\ 1 & (\text{if}\ y = y_0) \end{array} \right.
+\end{align*}
+と定義すれば，$h_1f = h_2f$ であるが $h_1 \neq h_2$ となり矛盾．よって $f$ は全射である．$\Box$
+
+#### 系 {.corollary}
+2つの集合 $X$ と $Y$ に対して，単射 $\colon X \to Y$ が存在するための必要十分条件は全射 $\colon Y \to X$ が存在することである．$\Box$
+
+#### 証明 {.proof}
+[定理](#equivalent-statement-on-injectivity-and-surjectivity)より，単射 $f \colon X \to Y$ が存在すれば写像 $g \colon Y \to X$ が存在して $gf = 1_X$ となり，またこの $g$ は全射である．
+
+逆に全射 $g \colon Y \to X$ が存在すれば同じ定理より $gf = 1_X$ なる写像 $f \colon X \to Y$ が存在し，$f$ の単射性も分かる．$\Box$
