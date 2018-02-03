@@ -86,6 +86,7 @@ $X$ から $Y$ への写像 $f \colon X \to Y$ と $X$ の部分集合 $A \subse
 ii) 空でない集合 $X$ とその部分集合 $A \subset X$ が与えられたとき，恒等写像の $A$ への制限 $1_X \mid A \colon A \to X$ を $A$ から $X$ への**包含写像**（*inclusion*）といい，$A \hookrightarrow X$ と表す．包含写像は最も簡単な単射でもあるから，**標準的単射**（*canonical injection*）ともよばれる．$\Box$
 
 2つの写像 $f \colon X \to Y,\ g \colon Y \to Z$ があるとき，$x \mapsto g(f(x))$ によって $X$ から $Z$ への写像が定まる．これを $f$ と $g$ の**合成写像**（*composite*）といい，$g \circ f$ あるいは $gf$ と書く．$f$ が全単射のときは $f^{-1} \circ f = 1_X,\ f \circ f^{-1} = 1_Y$ となる．
+写像 $f \colon X \to Y$ が与えられたとき，容易に分かるように，$f$ が全単射ならば $f^{-1}$ も全単射でさらに $(f^{-1})^{-1} = f$ が成立つ．2つの全単射 $f \colon X \to Y$ および $g \colon Y \to Z$ に対して $gf \colon X \to Z$ が全単射になることもまた簡単に分かる．
 
 $\Lambda$ を添字集合とする集合族 $\{ A_\lambda \deli \lambda \in \Lambda \}$ を考える．$\Lambda$ から $\bigcup A_\lambda$ への写像 $f \colon \Lambda \to \bigcup A_\lambda$ で，各 $\lambda \in \Lambda$ に対して $f(\lambda) \in A_\lambda$ を満たすもの全体の集合を集合族 $\{ A_\lambda \}$ の**直積**（*direct product*）といい，$\prod_{\lambda \in \Lambda} A_\lambda$ と書く．$f \in \prod A_\lambda$ に対し，$f(\lambda)$ の代わりに $f_\lambda$ と書き，$f$ の **$\lambda$ 成分**（*$\lambda$-coordinate*）という．
 $\Lambda = \{1, 2\}$ のとき，$\prod A_\lambda$ と $A_1 \times A_2$ は同じであることが分かる．実際，$(a,b) \in A_1 \times A_2$ であるとは，対応 $f(1) = a,\ f(2) = b$ が $\prod A_\lambda$ に属していることを意味する．逆に $f \in \prod A_\lambda$ のとき，$(f_1, f_2)$ は順序対をなしていて $(f_1, f_2) \in A_1 \times A_2$ である．
@@ -136,8 +137,6 @@ $f$ が単射のときは，$y \in f(A_1 \setminus A_2)$ ならば $y = f(x)$ �
 
 ##### (11), (12), (13), (14)の証明
 $f$ が全単射であるから $f^{-1}$ も全単射．よって(7), (8), (9), (10)において $f \colon X \to Y$ を $f^{-1} \colon Y \to X$ に，$\{ A_\lambda \}$ を $\{ B_\lambda \}$ に置き換えれば直ちに従う．$\Box$
-
-写像 $f \colon X \to Y$ が与えられたとき，容易に分かるように，$f$ が全単射ならば $f^{-1}$ も全単射でさらに $(f^{-1})^{-1} = f$ が成立つ．2つの全単射 $f \colon X \to Y$ および $g \colon Y \to Z$ に対して $gf \colon X \to Z$ が全単射になることもまた簡単に分かる．
 
 写像の単射性と全射性に関する次の事実がよく用いられる．
 
