@@ -5,6 +5,10 @@ author: 'M. Nakata'
 \newcommand{\deli}{\,:\,}
 \newcommand{\bb}{\boldsymbol}
 \newcommand{\i}{\mathrm{i}}
+\newcommand{\bar}{\overline}
+\newcommand{\le}{\leqslant}
+\newcommand{\ge}{\geqslant}
+\newcommand{\qset}[2]{{#1}/\!\,{#2}}
 
 # 参考文献
 - 松坂和夫『集合・位相入門』（岩波書店）
@@ -67,7 +71,7 @@ $\Lambda$ を添字集合とした，集合 $X$ の部分集合族 $\{ A_\lambda
 最後に $B \setminus \left( \bigcap A_\lambda \right) = \bigcup ( B \setminus A_\lambda )$ を示す．$x \in B \setminus \left( \bigcap A_\lambda \right)$ に対して，$x \in B$ であるが $x$ の属さない $A_{\lambda'}$ が存在するから $x \in \bigcup ( B \setminus A_\lambda )$．よって $B \setminus \left( \bigcap A_\lambda \right) \subset \bigcup ( B \setminus A_\lambda )$．$x \in \bigcup ( B \setminus A_\lambda )$ のときはある $\lambda' \in \Lambda$ について $x \in B \setminus A_{\lambda'}$ である．とくに $x \notin A_{\lambda'}$ より $x \notin \bigcap A_\lambda$ が従うから，$x \in B \setminus \left( \bigcap A_\lambda \right)$．よって $B \setminus \left( \bigcap A_\lambda \right) \supset \bigcup ( B \setminus A_\lambda )$ がいえて，従って $B \setminus \left( \bigcap A_\lambda \right) = \bigcup ( B \setminus A_\lambda )$．
 $\Box$
 
-## 直積
+## 直積と写像
 2つの集合 $X$ と $Y$ が与えられたとき，$X$ と $Y$ の**直積**（*direct product*）とよばれる集合 $X \times Y$ が次のように定義される．まず，$a \in X$ と $b \in Y$ から，順序付けられた組 $(a,b)$ を考える．この $(a,b)$ のことを2元 $a$ と $b$ からなる**順序対**（*ordered pair*）という．ここで，「順序付けられた」とは，$a$ と $b$ を並べる順序を入れ替えることができないことをいう．すなわち，$(a,b)$ と $(b,a)$ は一般には一致しない．そこで，$X \times Y = \{ (a,b) \deli a \in X,\ b \in Y \}$ とおき，これを $X$ と $Y$ の直積とする．$X \times Y$ の2つの元 $(a,b), (a',b') \in X \times Y$ は，$a = a'$ かつ $b = b'$ のとき等しいとする．したがって，$a = b$ のとき，かつそのときに限り $(a,b) = (b,a)$ となる．$(a,b) \in X \times Y$ に対して，$X$ の元 $a$ を $(a,b)$ の**第1成分**（*first component*），$Y$ の元 $b$ を**第2成分**（*second component*）とよぶ．
 $X \times Y$ の部分集合 $R \subset X \times Y$ は，2つの元 $a \in X$ と $b \in Y$ との間の**関係**（*relationship*）を定める．$(a,b) \in R$ のとき $aRb$ と書き，$a$ と $b$ は**関係 $R$ をもつ**という．$R$ の元の第1成分全体の集合を $R$ の**定義域**（*domain*），第2成分全体の集合を**値域**（*range*）とよぶ．
 
@@ -185,10 +189,104 @@ h_2(y) &= \left\{ \begin{array}{ll} 0 & (\text{if}\ y \neq y_0),\\ 1 & (\text{if
 \end{align*}
 と定義すれば，$h_1f = h_2f$ であるが $h_1 \neq h_2$ となり矛盾．よって $f$ は全射である．$\Box$
 
-#### 系 {.corollary}
+#### 系 {.corollary #equivalence-of-existence-of-injection-and-surjection}
 2つの集合 $X$ と $Y$ に対して，単射 $\colon X \to Y$ が存在するための必要十分条件は全射 $\colon Y \to X$ が存在することである．$\Box$
 
 #### 証明 {.proof}
 [定理](#equivalent-statement-on-injectivity-and-surjectivity)より，単射 $f \colon X \to Y$ が存在すれば写像 $g \colon Y \to X$ が存在して $gf = 1_X$ となり，またこの $g$ は全射である．
 
 逆に全射 $g \colon Y \to X$ が存在すれば同じ定理より $gf = 1_X$ なる写像 $f \colon X \to Y$ が存在し，$f$ の単射性も分かる．$\Box$
+
+#### Bernsteinの定理 {.theorem}
+2つの集合 $X, Y$ に対して，以下の条件はすべて同値である：
+
+  i) 全単射 $\colon X \to Y$ が存在する；
+ ii) 単射 $\colon X \to Y$ および単射 $\colon Y \to X$ が存在する；
+iii) 全射 $\colon X \to Y$ および全射 $\colon Y \to X$ が存在する；
+ iv) 単射 $\colon X \to Y$ および全射 $\colon X \to Y$ が存在する；
+  v) $X$ から $Y$ の部分集合への全単射が存在し，かつ $Y$ から $X$ の部分集合への全単射が存在する．$\Box$
+
+#### 証明 {.proof}
+ii.$\;\Leftrightarrow$ iii. $\Leftrightarrow$ iv. $\Leftrightarrow$ v. は[系](#equivalence-of-existence-of-injection-and-surjection)からすぐに従う．
+
+i.$\;\Leftrightarrow$ ii. を示す．
+全単射 $f \colon X \to Y$ が存在すれば $f$ と $f^{-1}$ はともに全単射だから，i. $\Rightarrow$ ii. はよい．2つの単射 $f \colon X \to Y,\ g \colon Y \to X$ が存在するときに全単射 $h \colon X \to Y$ を構成できれば ii. $\Rightarrow$ i. も示される．
+
+$f$ が全射であれば $f$ が $X$ から $Y$ への全単射になっている．以下，$f$ は全射でないとする．$Y_0 = Y \setminus f(X)$ として，
+\begin{align*}
+X_n = g(Y_{n - 1}),\quad Y_n = f(X_n) \quad (n = 1, 2, 3, \dotsc)
+\end{align*}
+とおく．もちろん $X_n, Y_n \neq \emptyset$ である．さらに，
+\begin{align*}
+&X_* = \bigcup_{n = 1}^\infty X_n, &Y_* = \bigcup_{n = 0}^\infty Y_n,\\
+&X^* = X \setminus X_*, &Y^* = Y \setminus Y_*
+\end{align*}
+とおく．このとき，$f(X^*) = Y^*,\ g(Y_*) = X_*$ が成立つ．実際，$f$ の単射性より
+\begin{align*}
+f(X^*) &= f(X \setminus X_*) = f(X) \setminus f(X_*) = (Y \setminus Y_0) \setminus f(X_*) = Y \setminus (Y_0 \cup f(X_*)),\\
+Y_0 \cup f(X_*) &= Y_0 \cup f( \bigcup_{n = 1}^\infty X_n ) = Y_0 \cup \left( \bigcup_{n = 1}^\infty f(X_n) \right) = \bigcup_{n = 0}^\infty Y_n = Y_*
+\end{align*}
+であるから，$f(X^*) = Y \setminus Y_* = Y^*$ となる．また，
+\begin{align*}
+g(Y_*) = g( \bigcup_{n = 0}^\infty Y_n) = \bigcup_{n = 0}^\infty g(Y_n) = \bigcup_{n = 0}^\infty X_{n + 1} = X_*.
+\end{align*}
+よって，制限 $f \mid X^* \colon X^* \to Y^*$ と $g \mid Y_* \colon Y_* \to X_*$ は全単射であり，さらに全単射 $(g \mid Y_*)^{-1} \colon X_* \to Y_*$ が存在する．
+そこで，
+\begin{align*}
+h(x) = \left\{ \begin{array}{ll} (f \mid X^*)(x) & (\text{if}\ x \in X^*), \\ (g \mid Y_*)^{-1}(x) & (\text{if}\ x \in X_*) \end{array} \right.
+\end{align*}
+とおけば $h \colon X \to Y$ は全単射であることが分かる．これで ii. $\Rightarrow$ i. が示された．$\Box$
+
+## 同値関係
+
+集合 $X$ 上の**2項関係**（*binary relation*）とは，関係 $\sim \subset X \times X$ のことである．数学では多くの2項関係について考えるが，それらに共通する大事な性質がある．
+
+#### 定義 {.definition}
+$\sim$ を集合 $X$ 上の2項関係とする．このとき次の性質を考える：
+
+  i) 任意の $x \in X$ に対して $x \sim x$ であることを**反射律**（*reflexivity*）という．反射律を満たす2項関係は**反射的**（*reflexive*）であるという；
+ ii) 任意の $x, y \in X$ に対して，$x \sim y$ ならば $y \sim x$ でもあることを**対称律**（*symmetry*）という．対称律を満たす2項関係は**対称**（*symmetric*）であるという；
+iii) 任意の $x, y \in X$ に対して，$x \sim y$ かつ $y \sim x$ ならば $x = y$ となることを**反対称律**（*antisymmetry*）という．反対称律を満たす2項関係は**反対称**（*antisymmetric*）であるという；
+ iv) 任意の $x, y, z \in X$ に対して，$x \sim y$ かつ $y \sim z$ のときいつも $x \sim z$ であることを**推移律**（*transitivity*）という．推移律を満たす2項関係は**推移的**（*transitive*）であるという．
+
+反射的で推移的な対称関係を**同値関係**（*equivalence relation*）という．反射的で推移的な反対称関係を**半順序関係**（*partial order*）といい，半順序関係が1つ定まった集合を**半順序集合**（*partially ordered set*, *poset*）という．誤解のない場合は，半順序関係，半順序集合をそれぞれ単に**順序関係**（*order*），**順序集合**（*ordered set*）という．半順序はよく $\le$ で表される．
+$(X, \le)$ を半順序集合とするとき，2つの元 $x, y \in X$ であって $x \le y$ でも $y \le x$ でもないようなものが存在することもある．$X$ の2元 $x, y \in X$ は，$x \le y$ または $y \le x$ であるとき**比較可能**（*comparable*）といい，比較可能でないとき**比較不可能**（*incomparable*）という．$X$ の任意の2元が比較可能であるとき，半順序 $\le$ を**全順序**（*total order*）といい，$X$ を**全順序集合**（*totally ordered set*）という．$\Box$
+
+#### 例 {.example}
+
+  i) 実数上の相等関係 $=$ は同値関係で，通常の順序 $\le$ は全順序である．$\ge$ も全順序である．
+ ii) $n \in \bb Z_{> 0}$ を1つ固定する．$\bb Z$ 上に，$n \mid (x - y)$ によって定まる2項関係 $\equiv \ (\mathrm{mod}\ n)$ は同値関係である（$a \mid b$ は $a$ が $b$ を割り切ることを表す．$a$ divides $b$.）．また $x \mid y$ は $\bb Z_{> 0}$ 上の半順序であるが全順序ではない．
+iii) $X$ を集合として，$X$ の部分集合全体の集合を $2^X = \{ A \deli A \subset X \}$ と書く．$X$ の部分集合間の包含関係 $\subset$ は $2^X$ 上の半順序であるが全順序ではない．$X$ の部分集合 $A, B \subset X$ に対して $A \sim B$ を $A$ から $B$ への全単射が存在することとすると，$\sim$ は $2^X$ 上の同値関係である．
+ iv) 三角形全体の集合を $T$ とする．三角形の合同関係 $\equiv$ および相似関係 $\approx$ はともに $T$ 上の同値関係となる．
+  v) $\bb R^{n\times} = \bb R^n \setminus \{0\}$ とおく．$x = (x_1, \dotsc, x_n), y = (y_1, \dotsc, y_n) \in \bb R^{n \times}$ に対して，$x \sim y$ をある正数 $c, c'$ が存在して $cx = c'y$ とできることとする．すなわち，$x \sim y \Leftrightarrow \exists c, c' \in \bb R_{> 0},\ (c x_1, \dotsc, c x_n) = (c' y_1, \dotsc, c' y_n)$．このとき，$\sim$ は $\bb R^{n \times}$ 上の同値関係を定める．$\Box$
+
+大雑把に言えば，同値関係は集合の元が「同じと見なせる」ことを定める．厳密には異なる元でも本質的には変わらないなら区別する必要はない，という考え方を定式化したのが同値関係であり同値類である．
+
+今集合 $X$ 上に同値関係 $\sim$ が1つ定まっているとする．$X$ の元 $x \in X$ に対して，「$x$ と本質的に同じ」元の集合を $\bar x$ あるいは $[x]$ と書き $x$ の**同値類**（*equivalence class*）という．すなわち，
+$$
+\bar x = [x] = \{ y \in X \deli x \sim y \}
+$$
+を $x$ の同値類とよぶ．同値類全体の集合 $\{ \bar x \deli x \in X \}$ を $X$ の $\sim$ による**商集合**（*quotient set*）といい，$\qset X \sim$ と書く．定義より，
+$$
+\bar x = \bar y \Longleftrightarrow x \sim y
+$$
+が分かる．$X$ から $\qset X \sim$ への写像 $x \mapsto \bar x$ は全射である．これを**標準的全射**（*canonical surjection*）あるいは**標準的射影**（*canonical projection*）とよぶ．各同値類 $[x]$ から1つ元を選ぶ写像 $s \colon \qset X \sim \to X$ を**切断**（*section*）とよぶ（正確には，$s$ は切断の1つである）．すなわち，$s \colon \qset X \sim \to X$ が切断であるとは，任意の $c \in \qset X \sim$ に対して $\bar{s(c)} = c$ となることをいう．$s(c)$ を $c$ の**代表元**（*representative*）という．
+
+#### 例 {.example}
+
+  i) $n \in \bb Z_{> 0}$ とする．$\bb Z$ の $\equiv\ (\mathrm{mod}\ n)$ による商集合を $\bb Z/ n \bb Z$ と書く．$\bb Z / n \bb Z = \{ \bar 0, \bar 1, \dotsc, \bar{n - 1} \}$ である．$\bar k$ は $k + (n)$ とも書かれる．これは環論における記法である．また $\bar k$ を単に $k$ と書くこともある．
+ ii) 先の例v.における $\bb R^{n \times}$ 上の同値関係 $\sim$ については，$\bar x = \{ k x \deli k \in \bb R_{> 0} \}$ となる．$\bar x$ の代表元としては，$\| x \| = 1$ となるように選ぶ．量子力学では実際にこの場合を考えている．$\Box$
+
+#### 定義 {.definition}
+集合 $X, Y$ と写像 $f \colon X \to Y$ が与えられたとする．
+$$
+x \sim_f y \Longleftrightarrow f(x) = f(y) \quad (x, y \in X)
+$$
+によって $f$ の**同値核**（*equivalence kernel*）とよばれる $X$ 上の同値関係 $\sim_f$ を定義する．このとき $\bar f(\bar x) = f(x)$ によって写像 $\bar f \colon \qset X \sim_f \to Y$ が定まる．$\bar f$ は全単射であり，$f$ から**誘導された**（*induced from $f$*）全単射という．$\Box$
+
+#### 注 {.remark}
+商集合を圏論的に考える．2つの全射 $f \colon X \to Y,\ g \colon X \to Z$ に対して，
+$$
+f \le g \Longleftrightarrow \exists w \colon Z \to Y,\ f = wg
+$$
+として，$f \sim g$ を $f \le g$ かつ $g \le f$ とすれば $\sim$ は $\{ (Y, f \colon X \to Y) \deli Y \ \text{is a set}, \ f \ \text{is surjective} \}$ 上の同値関係になる．そこで同値類 $\bar{(Y, f)}$ を考えると，これは $f \colon X \to Y$ の同値核による商集合となる．厳密にいえば，（全射とは限らない）写像 $f \colon X \to Y$ に対して，$(\qset X \sim_f, \bar f)$ が代表元となる．$\Box$
