@@ -76,7 +76,7 @@ $\Box$
 $X \times Y$ の部分集合 $R \subset X \times Y$ は，2つの元 $a \in X$ と $b \in Y$ との間の**関係**（*relationship*）を定める．$(a,b) \in R$ のとき $aRb$ と書き，$a$ と $b$ は**関係 $R$ をもつ**という．$R$ の元の第1成分全体の集合を $R$ の**定義域**（*domain*），第2成分全体の集合を**値域**（*range*）とよぶ．
 
 2つの集合 $X$ と $Y$ の間の関係 $f \subset X \times Y$ が $X$ 全体を定義域として，かつ $afb,\ afc$ ならば $b = c$ が成立つとき $f \colon X \to Y$ と書いて $f$ を $X$ から $Y$ への**写像**（*map*, *mapping*），**関数**（*function*）あるいは**対応**（*correspondence*）という．関数という語は，主に $Y = \bb R$ や $Y = \bb C$ のときに用いる．
-$afb$ のとき $f(a) = b$ や $fa = b$，$f \colon a \mapsto b$ などと書き，$b$ を $a$ での $f$ の**値**（*value*）あるいは $a$ の $f$ による**像**（*image*）という．$f(a)$ を"$f$ of $a$"なとという．また，$f$ は $a$ を $b$ に**写像する**（*maps $a$ to $b$*, *assigns $b$ to $a$*），$b$ は $a$ に**対応する**（*corresponds to $a$*）ともいう．
+$afb$ のとき $f(a) = b$ や $fa = b$，$f \colon a \mapsto b$ などと書き，$b$ を $a$ での $f$ の**値**（*value*）あるいは $a$ の $f$ による**像**（*image*）という．$X = \bb N$ のときは $f(a)$ を $f_a$ と書いて $f$ を $Y$ 上の点列ということも多い．$f(a)$ を"$f$ of $a$"なとという．また，$f$ は $a$ を $b$ に**写像する**（*maps $a$ to $b$*, *assigns $b$ to $a$*），$b$ は $a$ に**対応する**（*corresponds to $a$*）ともいう．
 $X$ の部分集合 $A \subset X$ に対し，$f(A) = \{ f(a) \deli a \in A \} \subset Y$ とおいて $f$ による $A$ の**像**（*image*）という．とくに，$f(X)$ は $f$ の値域となる．$Y$ の部分集合 $B \subset Y$ に対して，$f^{-1}(B) = \{ x \in X \deli f(x) \in B \} \subset X$ を $f$ による $B$ の**逆像**（*inverse image*）とよぶ．シングルトン $\{ y \} \subset Y$ に対してはその逆像を単に $f^{-1}(y)$ で表す．
 $f$ の値域が $Y$ 全体であるとき，すなわち $f(X) = Y$ であるとき，$f$ を $X$ から $Y$ への**全射**（*surjection*）あるいは $X$ から $Y$ の**上への写像**（*onto $Y$*）という．$X$ に属する任意の2元 $x, x' \in X$ に対して，$f(x) = f(x')$ ならばいつも $x = x'$ であるとき，$f$ を**単射**（*injection*）という．これは，任意の $y \in Y$ に対して $f^{-1}(y)$ は空集合かシングルトンのいずれかであるとき，と言っても同じである．写像 $f \colon X \to Y$ が全射であり同時に単射でもあるとき，$f$ を $X$ から $Y$ への**全単射**（*bijection*）あるいは $X$ と $Y$ の間の**一対一対応**（*one-to-one correspondence*）という．
 
@@ -197,7 +197,7 @@ h_2(y) &= \left\{ \begin{array}{ll} 0 & (\text{if}\ y \neq y_0),\\ 1 & (\text{if
 
 逆に全射 $g \colon Y \to X$ が存在すれば同じ定理より $gf = 1_X$ なる写像 $f \colon X \to Y$ が存在し，$f$ の単射性も分かる．$\Box$
 
-#### Bernsteinの定理 {.theorem}
+#### Bernsteinの定理 {.theorem #bernstein-theorem}
 2つの集合 $X, Y$ に対して，以下の条件はすべて同値である：
 
   i) 全単射 $\colon X \to Y$ が存在する；
@@ -236,6 +236,8 @@ g(Y_*) = g( \bigcup_{n = 0}^\infty Y_n) = \bigcup_{n = 0}^\infty g(Y_n) = \bigcu
 h(x) = \left\{ \begin{array}{ll} (f \mid X^*)(x) & (\text{if}\ x \in X^*), \\ (g \mid Y_*)^{-1}(x) & (\text{if}\ x \in X_*) \end{array} \right.
 \end{align*}
 とおけば $h \colon X \to Y$ は全単射であることが分かる．これで ii. $\Rightarrow$ i. が示された．$\Box$
+
+集合 $X$ と $Y$ に対して，$X$ から $Y$ への写像全体の集合を $Y^X$ と書く．とくに $Y = \{ 0, 1 \}$ のときは $Y^X = 2^X = \mathfrak P(X)$ などと書き，$X$ の**冪集合**（*power set*）という．冪集合 $2^X$ は，$X$ の部分集合全体の集合と同一視される．実際，$X$ の部分集合 $A$ に対して $A$ の**特性関数**（*characteristic function*）あるいは**指示関数**（*indicator function*）とよばれる写像 $\chi_A \colon X \to \{ 0, 1 \}$ が一対一に対応する．$A$ の特性関数は，$x \in A$ のとき $\chi_A(x) = 1$，$x \notin A$ のとき $\chi_A(x) = 0$ と定義される．逆に写像 $\chi \colon X \to \{ 0, 1 \}$ が与えられたとき $A = \{ x \in X \deli \chi(x) = 1 \}$ とおくことで，$\chi$ を特性関数とする部分集合 $A$ が定まる．
 
 ## 同値関係
 
