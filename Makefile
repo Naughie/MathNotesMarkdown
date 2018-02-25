@@ -13,7 +13,7 @@ MD2TEXOPTS = -t latex -f markdown -N --toc -V papersize=b5 -V documentclass=bxjs
 MD2HTML = $(COMPILER) $(MD2HTMLOPTS)
 MD2TEX = $(COMPILER) $(MD2TEXOPTS)
 GIT = git
-COMMITMSG = "Snapshot"
+COMMITMSG = "Snapshot at `date -R`"
 
 define md2html
 $(subst $(MDDIR)/,$(HTMLDIR)/,$(1:.md=.html)): $(1)
