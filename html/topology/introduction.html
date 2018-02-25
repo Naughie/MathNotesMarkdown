@@ -33,18 +33,26 @@
 <h1 class="title">位相空間論</h1>
 <h2 class="author">M. Nakata</h2>
 </header>
-<h1 id="参考文献">参考文献</h1>
+<nav id="TOC">
+<ul>
+<li><a href="#参考文献"><span class="toc-section-number">1</span> 参考文献</a></li>
+<li><a href="#topology-introduction"><span class="toc-section-number">2</span> 導入</a><ul>
+<li><a href="#metric-space"><span class="toc-section-number">2.1</span> 距離空間</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="参考文献"><span class="header-section-number">1</span> 参考文献</h1>
 <ul>
 <li>松坂和夫『集合・位相入門』（岩波書店）</li>
 <li>内田伏一『数学シリーズ 集合と位相』（裳華房）</li>
 <li>兒玉之宏，永見啓応『位相空間論』（岩波書店）</li>
 <li>John Kelley. <em>General Topology</em>. Springer.</li>
 </ul>
-<h1 id="topology-introduction">導入</h1>
+<h1 id="topology-introduction"><span class="header-section-number">2</span> 導入</h1>
 <p>位相空間論では集合間の写像の連続性や集合の連結性などについて扱いたい．そのために，集合に「位相」とよばれる数学的構造を導入する．</p>
 <p>その前に距離空間を考える．距離空間は最も簡単な位相空間の例であり，Euclid空間とほぼ同じ議論をすることができる．</p>
-<h2 id="metric-space">距離空間</h2>
-<h4 id="metric-space-def" class="definition">定義</h4>
+<h2 id="metric-space"><span class="header-section-number">2.1</span> 距離空間</h2>
+<h4 id="metric-space-def" class="definition"><span class="header-section-number">2.1.0.1</span> 定義</h4>
 <p>集合 <span class="math inline">\(X\)</span> と写像 <span class="math inline">\(d \colon X \times X \to \boldsymbol{R}\)</span> が与えられたとする．<span class="math inline">\(d\)</span> が <span class="math inline">\(X\)</span> 上の<strong>距離</strong>（<em>metric</em>）であるとは，次の条件をみたすことをいう： <span class="math display">\[\begin{align}
 &amp; d(x, y) \ge 0 \ \forall x, y \in X,\\
 &amp; d(x, y) = 0 \Longleftrightarrow x = y,\\
@@ -52,7 +60,7 @@
 &amp; d(x, y) \le d(x, z) + d(z, y) \ \forall x, y, z \in X.
 \end{align}\]</span> (1)と(2)を合わせて<strong>正定値性</strong>（<em>positive definiteness</em>），(3)を<strong>対称性</strong>（<em>symmetric property</em>）という．(4)の不等式を<strong>三角不等式</strong>（<em>triangle inequality</em>）という．</p>
 <p>集合 <span class="math inline">\(X\)</span> 上に距離 <span class="math inline">\(d\)</span> が定義されたとき，これらを組にして <span class="math inline">\((X, d)\)</span> を<strong>距離空間</strong>（<em>meric space</em>）とよぶ．<span class="math inline">\(d\)</span> を明示する必要がない場合は単に <span class="math inline">\(X\)</span> と書いて距離空間 <span class="math inline">\((X, d)\)</span> を表す． <span class="math inline">\(\Box\)</span></p>
-<h4 id="例" class="example">例</h4>
+<h4 id="例" class="example"><span class="header-section-number">2.1.0.2</span> 例</h4>
 <ol type="i">
 <li><span class="math inline">\(\boldsymbol{R}^n\)</span> 上にいくつかの種類の距離を定めることができる（<span class="math inline">\(x = (x_i), y = (y_i) \in \boldsymbol{R}^n\)</span> とする）：
 <ul>
@@ -62,13 +70,13 @@
 <li>任意の集合 <span class="math inline">\(X\)</span> に対して<strong>自明な距離</strong>（<em>trivial metric</em>）<span class="math inline">\(d\)</span> が定まる．すなわち，<span class="math inline">\(x , y \in X\)</span> のとき <span class="math inline">\(x = y\)</span> ならば <span class="math inline">\(d(x, y) = 0\)</span>，<span class="math inline">\(x \neq y\)</span> ならば <span class="math inline">\(d(x,y) = 1\)</span> とする．明らかに，この <span class="math inline">\(d\)</span> は距離となる．</li>
 </ol>
 <p>以下，単に <span class="math inline">\(\boldsymbol{R}^n\)</span> と言ったときは常に距離 <span class="math inline">\(d_2\)</span> が定まってるものとする．<span class="math inline">\(\Box\)</span></p>
-<h4 id="open-disk" class="definition">定義</h4>
+<h4 id="open-disk" class="definition"><span class="header-section-number">2.1.0.3</span> 定義</h4>
 <p><span class="math inline">\((X, d)\)</span> を距離空間とする．<span class="math inline">\(x \in X,\ \epsilon &gt; 0\)</span> に対して， <span class="math display">\[
 B(x, \epsilon) = \{ y \in X \,:\,d(x, y) \lt \epsilon \}
 \]</span> を <span class="math inline">\(x\)</span> を中心とする半径 <span class="math inline">\(\epsilon\)</span> の<strong>開球</strong>（<em>open ball</em>）あるいは <span class="math inline">\(x\)</span> の <strong><span class="math inline">\(\epsilon\)</span>-近傍</strong>（<em><span class="math inline">\(\epsilon\)</span>-neighborhood</em>）とよぶ．とくに，<span class="math inline">\(\epsilon = 1\)</span> のとき<strong>単位球</strong>（<em>unit ball</em>）とよぶ． また， <span class="math display">\[
 \overline B(x, \epsilon) = \{ y \in X \,:\,d(x, y) \le \epsilon \}
 \]</span> を <span class="math inline">\(x\)</span> を中心とする半径 <span class="math inline">\(\epsilon\)</span> の<strong>閉球</strong>（<em>closed ball</em>）とよぶ．<span class="math inline">\(\Box\)</span></p>
-<h4 id="sequence-limit" class="definition">定義</h4>
+<h4 id="sequence-limit" class="definition"><span class="header-section-number">2.1.0.4</span> 定義</h4>
 <p><span class="math inline">\((X, d)\)</span> を距離空間とする．<span class="math inline">\(X\)</span> 上の点列 <span class="math inline">\(\{ x_n \} \subset X\)</span> が点 <span class="math inline">\(x \in X\)</span> に<strong>収束する</strong>（<em>converges to</em>）とは，任意の正数 <span class="math inline">\(\epsilon &gt; 0\)</span> に対してある番号 <span class="math inline">\(N \in \boldsymbol{N}\)</span> が存在して，<span class="math inline">\(n \ge N\)</span> なるときいつも <span class="math inline">\(d(x_n, x) \lt \epsilon\)</span> であることをいう．このとき，極限の点 <span class="math inline">\(x\)</span> は一意に定まり，<span class="math inline">\(x = \lim_{n \to \infty} x_n\)</span> あるいは単に <span class="math inline">\(x = \lim x_n\)</span> と書く．<span class="math inline">\(x_n \to x \ (n \to \infty)\)</span> とも表す．</p>
 <p>点列 <span class="math inline">\(\{ x_n \}\)</span> が<strong>Cauchy列</strong>（<em>Cauchy sequence</em>）であるとは，任意の正数 <span class="math inline">\(\epsilon &gt; 0\)</span> に対してある番号 <span class="math inline">\(N \in \boldsymbol{N}\)</span> が存在して，<span class="math inline">\(n, m \ge N\)</span> なるときいつも <span class="math inline">\(d(x_n, x_m) \lt \epsilon\)</span> であることをいう．</p>
 <p>記号で書けば，<span class="math inline">\(X\)</span> 上の点列 <span class="math inline">\(\{ x_n \}\)</span> は <span class="math display">\[
@@ -77,28 +85,28 @@ B(x, \epsilon) = \{ y \in X \,:\,d(x, y) \lt \epsilon \}
 \forall \epsilon &gt; 0,\ \exists N \in \boldsymbol{N} \ \text{s.t.}\ n, m \ge N \Longrightarrow d(x_n, x_m) \lt \epsilon
 \]</span> なるときCauchy列という．<span class="math inline">\(\Box\)</span></p>
 <p>距離空間では，Euclid空間と全く同様にして開集合や閉集合，閉包などが定義される．</p>
-<h4 id="open-set-with-metric" class="definition">定義</h4>
+<h4 id="open-set-with-metric" class="definition"><span class="header-section-number">2.1.0.5</span> 定義</h4>
 <p><span class="math inline">\((X, d)\)</span> を距離空間とする．<span class="math inline">\(X\)</span> の部分集合 <span class="math inline">\(A \subset X\)</span> が<strong>開集合</strong>（<em>open set</em>）であるとは，任意の <span class="math inline">\(x \in A\)</span> に対してある <span class="math inline">\(\epsilon &gt; 0\)</span> が存在して，<span class="math inline">\(B(x, \epsilon) \subset A\)</span> とできることをいう．記号で書けば， <span class="math display">\[
 \forall x \in A,\ \exists \epsilon &gt; 0 \ \text{s.t.}\ B(x, \epsilon) \subset A
 \]</span> なるとき <span class="math inline">\(A\)</span> を開集合とよぶ．</p>
 <p><span class="math inline">\(X\)</span> の部分集合 <span class="math inline">\(A \subset X\)</span> 上の任意の収束列が <span class="math inline">\(A\)</span> 上の点に収束するとき，<span class="math inline">\(A\)</span> を<strong>閉集合</strong>（<em>closed set</em>）という．<span class="math inline">\(\Box\)</span></p>
-<h4 id="例-1" class="example">例</h4>
+<h4 id="例-1" class="example"><span class="header-section-number">2.1.0.6</span> 例</h4>
 <ol type="i">
 <li>任意の距離空間 <span class="math inline">\(X\)</span> はそれ自身開集合でかつ閉集合でもある．</li>
 <li>開球は開集合で，閉球は閉集合である．</li>
 <li><span class="math inline">\(I_n = [0, 1] \times \dotsb \times [0, 1] \subset \boldsymbol{R}^n\)</span> は <span class="math inline">\(\boldsymbol{R}^n\)</span> の閉集合である．<span class="math inline">\(\Box\)</span></li>
 </ol>
-<h4 id="open-closed-duality" class="lemma">補題</h4>
+<h4 id="open-closed-duality" class="lemma"><span class="header-section-number">2.1.0.7</span> 補題</h4>
 <p><span class="math inline">\((X, d)\)</span> を距離空間とする．<span class="math inline">\(X\)</span> の部分集合 <span class="math inline">\(A \subset X\)</span> について，</p>
 <ol type="1">
 <li><span class="math inline">\(A\)</span> が開集合 <span class="math inline">\(\Longleftrightarrow\)</span> <span class="math inline">\(A^c\)</span> が閉集合;</li>
 <li><span class="math inline">\(A\)</span> が閉集合 <span class="math inline">\(\Longleftrightarrow\)</span> <span class="math inline">\(A^c\)</span> が開集合</li>
 </ol>
 <p>である．<span class="math inline">\(\Box\)</span></p>
-<h4 id="証明" class="proof">証明</h4>
+<h4 id="証明" class="proof"><span class="header-section-number">2.1.0.8</span> 証明</h4>
 <p>一般に <span class="math inline">\((A^c)^c = A\)</span> であるから，1.において <span class="math inline">\(A\)</span> を <span class="math inline">\(A^c\)</span> で置き換えれば2.が従う．よって，1.の同値関係を示す． <span class="math inline">\(A\)</span> が開集合として，<span class="math inline">\(A^c\)</span> 上の収束列 <span class="math inline">\(\{ x_n \}\)</span> で <span class="math inline">\(A^c\)</span> に収束しない，すなわち <span class="math inline">\(A\)</span> の点 <span class="math inline">\(x \in A\)</span> に収束するものを考える．<span class="math inline">\(x\)</span> は <span class="math inline">\(A\)</span> に属するから，ある正数 <span class="math inline">\(\epsilon\)</span> に対して <span class="math inline">\(B(x, \epsilon) \subset A\)</span> が成立つ．点列 <span class="math inline">\(\{ x_n \}\)</span> の収束性より，この <span class="math inline">\(\epsilon\)</span> に対してある番号 <span class="math inline">\(N \in \boldsymbol{N}\)</span> が存在して，<span class="math inline">\(n \ge N\)</span> ならば <span class="math inline">\(d(x, x_n) \lt \epsilon\)</span> となる．これは <span class="math inline">\(n \ge N\)</span> のとき <span class="math inline">\(x_n \in B(x, \epsilon)\)</span> となることを意味するが，そのとき <span class="math inline">\(x_n \in A\)</span> であるから矛盾．よって <span class="math inline">\(A^c\)</span> 上の収束性はすべて <span class="math inline">\(A^c\)</span> の点に収束し，<span class="math inline">\(A^c\)</span> は閉集合である．</p>
 <p>次に <span class="math inline">\(A^c\)</span> は閉集合とする．<span class="math inline">\(A\)</span> が開集合でないとき，どんな正数 <span class="math inline">\(\epsilon &gt; 0\)</span> をとっても <span class="math inline">\(B(x, \epsilon) \subset A\)</span> とできないような <span class="math inline">\(A\)</span> の点 <span class="math inline">\(x\)</span> が存在する．よって，任意の正数 <span class="math inline">\(\epsilon &gt; 0\)</span> に対して <span class="math inline">\(y_\epsilon \in B(x, \epsilon) \setminus A\)</span> となる点 <span class="math inline">\(y_\epsilon \in X\)</span> をとれる．そこで，点列 <span class="math inline">\(\{ y_{1/n} \}\)</span> を考えると，<span class="math inline">\(y_{1/n} \notin A\)</span> であるからこれは <span class="math inline">\(A^c\)</span> 上の点列になっている．任意の正数 <span class="math inline">\(\epsilon &gt; 0\)</span> に対して，<span class="math inline">\(1/n \lt \epsilon\)</span> ならば <span class="math inline">\(y_{1/n} \in B(x, 1/n) \subset B(x, \epsilon)\)</span> であるから <span class="math inline">\(d(x, y_{1/n}) \lt \epsilon\)</span>．これより，点列 <span class="math inline">\(\{ y_{1/n} \}\)</span> は <span class="math inline">\(x\)</span> に収束することが分かるが，これは <span class="math inline">\(A^c\)</span> が閉集合であることに矛盾する．よって，<span class="math inline">\(A\)</span> は開集合である．<span class="math inline">\(\Box\)</span></p>
-<h4 id="fundamental-properties-of-openness" class="theorem">定理</h4>
+<h4 id="fundamental-properties-of-openness" class="theorem"><span class="header-section-number">2.1.0.9</span> 定理</h4>
 <p><span class="math inline">\((X, d)\)</span> を距離空間とする．<span class="math inline">\(X\)</span> のすべての開集合からなる集合族を <span class="math inline">\(\mathscr T\)</span>，すべての閉集合からなる集合族を <span class="math inline">\(\mathscr F\)</span> とすると，次が成立つ：</p>
 <ol type="i">
 <li><span class="math inline">\(\emptyset, X \in \mathscr T\)</span>，</li>
@@ -108,11 +116,11 @@ B(x, \epsilon) = \{ y \in X \,:\,d(x, y) \lt \epsilon \}
 <li><span class="math inline">\(X\)</span> の任意の閉集合 <span class="math inline">\(U, V \in \mathscr F\)</span> に対して <span class="math inline">\(U \cup V \in \mathscr F\)</span>，</li>
 <li><span class="math inline">\(X\)</span> の任意の閉集合系 <span class="math inline">\(\mathscr U \subset \mathscr F\)</span> に対して <span class="math inline">\(\bigcap_{ U \in \mathscr F } U \in \mathscr F\)</span>．<span class="math inline">\(\Box\)</span></li>
 </ol>
-<h4 id="証明-1" class="proof">証明</h4>
+<h4 id="証明-1" class="proof"><span class="header-section-number">2.1.0.10</span> 証明</h4>
 <p><a href="#open-closed-duality">補題</a>とde Morganの定理より，i.，ii.，iii.を示せば十分である． <span class="math inline">\(X \in \mathscr T\)</span> はよい．<span class="math inline">\(\emptyset \in \mathscr T\)</span> は <span class="math inline">\(\emptyset^c = X \in \mathscr F\)</span> から分かる．ii.を示す．2つの開集合 <span class="math inline">\(U, V \in \mathscr T\)</span> が互いに素のとき，<span class="math inline">\(U \cap V = \emptyset\)</span> は開集合である．<span class="math inline">\(U \cap V \neq \emptyset\)</span> のとき，<span class="math inline">\(U \cap V\)</span> の元 <span class="math inline">\(x \in U \cap V\)</span> を任意に選ぶ．<span class="math inline">\(x \in U\)</span> であるから，ある正数 <span class="math inline">\(\epsilon_1 &gt; 0\)</span> が存在して <span class="math inline">\(B(x, \epsilon_1) \subset U\)</span> となる．同様に，ある正数 <span class="math inline">\(\epsilon_2 &gt; 0\)</span> が存在して <span class="math inline">\(B(x, \epsilon_2) \subset V\)</span> となる．ここで <span class="math inline">\(\epsilon = \min \{ \epsilon_1, \epsilon_2 \}\)</span> とおけば，<span class="math inline">\(B(x, \epsilon) \subset U \cap V\)</span> となる．実際，<span class="math inline">\(y \in B(x, \epsilon)\)</span> とすると，<span class="math inline">\(d(x, y) \lt \epsilon \le \epsilon_1\)</span> だから <span class="math inline">\(y \in B(x, \epsilon_1)\)</span>，従って <span class="math inline">\(y \in U\)</span>．同様に <span class="math inline">\(y \in V\)</span> も示せるから <span class="math inline">\(y \in U \cap V\)</span>，すなわち <span class="math inline">\(B(x, \epsilon) \subset U \cap V\)</span>．よって，<span class="math inline">\(U \cap V\)</span> は開集合である．</p>
 <p><span class="math inline">\(\mathscr U^\#\)</span> が空でないような開集合系 <span class="math inline">\(\mathscr U \subset \mathscr T\)</span> をとる．<span class="math inline">\(x \in \mathscr U^\#\)</span> とすると <span class="math inline">\(x\)</span> はある開集合 <span class="math inline">\(U \in \mathscr U\)</span> に属する．このとき <span class="math inline">\(B(x, \epsilon) \subset U\)</span> となる正数 <span class="math inline">\(\epsilon &gt; 0\)</span> が存在し，<span class="math inline">\(B(x, \epsilon) \subset \mathscr U^\#\)</span> となる．よって <span class="math inline">\(\mathscr U^\#\)</span> も開集合．<span class="math inline">\(\Box\)</span></p>
 <p>有限個の開集合については，共通部分も和集合も開集合である．しかし，無限個の開集合の場合，その共通部分は開集合になるとは限らない（和集合は開集合になる）． 同様に，無限個の閉集合の和集合が閉集合になるとは限らない．</p>
-<h4 id="例-2" class="example">例</h4>
+<h4 id="例-2" class="example"><span class="header-section-number">2.1.0.11</span> 例</h4>
 <ol type="i">
 <li><span class="math inline">\(X = \boldsymbol{R}\)</span> として，その開集合系 <span class="math inline">\(\{ A_n \subset \boldsymbol{R} \}\)</span> を <span class="math inline">\(A_n = (-1 - 1/n, 1 + 1/n)\)</span> とする．このとき，<span class="math inline">\(\bigcap A_n = [-1, 1]\)</span> は開集合でない．</li>
 <li>同じく <span class="math inline">\(X = \boldsymbol{R}\)</span> で <span class="math inline">\(I = (0, 1)\)</span> とおき，その閉部分集合系 <span class="math inline">\(\{ B_x \subset I \,:\,x \in I \}\)</span> を <span class="math inline">\(B_x = [x - \epsilon_x , x + \epsilon_x]\)</span> と定める．ただし，<span class="math inline">\(\epsilon_x = \min \{ x/2, (1-x)/2 \}\)</span> である．すると，<span class="math inline">\(\bigcup_{x \in I} B_x = I\)</span> は閉集合でない．<span class="math inline">\(\Box\)</span></li>

@@ -2,12 +2,12 @@ COMPILER = pandoc
 TEMPLATE = mytemplate
 CSSDIR = ./css
 CSS = $(wildcard $(CSSDIR)/*.css)
-PDFLAGS = -t html5 -f markdown --mathjax
+MDTOHTMLFLAGS = -t html5 -f markdown --mathjax -N --toc
 SRCDIR = ./md
 SOURCES = $(wildcard $(SRCDIR)/*/*.md)
 TARDIR = ./html
 TARGETS = $(subst $(SRCDIR)/,$(TARDIR)/,$(SOURCES:.md=.html))
-COMPILE = $(COMPILER) $(PDFLAGS) -c $(CSS) --template=$(TEMPLATE)
+COMPILE = $(COMPILER) $(MDTOHTMLFLAGS) -c $(CSS) --template=$(TEMPLATE)
 GIT = git
 MESSAGE = "Snapshot"
 

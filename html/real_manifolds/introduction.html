@@ -33,32 +33,40 @@
 <h1 class="title">多様体論</h1>
 <h2 class="author">M. Nakata</h2>
 </header>
-<h1 id="参考文献">参考文献</h1>
+<nav id="TOC">
+<ul>
+<li><a href="#参考文献"><span class="toc-section-number">1</span> 参考文献</a></li>
+<li><a href="#導入"><span class="toc-section-number">2</span> 導入</a><ul>
+<li><a href="#ベクトル束"><span class="toc-section-number">2.1</span> ベクトル束</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="参考文献"><span class="header-section-number">1</span> 参考文献</h1>
 <ul>
 <li>Loring W. Tu. <em>An Introduction to Manifolds</em>. Springer.</li>
 <li>小林昭七『接続の微分幾何とゲージ理論』（裳華房）</li>
 </ul>
-<h1 id="導入">導入</h1>
-<h2 id="ベクトル束">ベクトル束</h2>
+<h1 id="導入"><span class="header-section-number">2</span> 導入</h1>
+<h2 id="ベクトル束"><span class="header-section-number">2.1</span> ベクトル束</h2>
 <p><span class="math inline">\(M\)</span> を <span class="math inline">\(n\)</span> 次元多様体として，その点 <span class="math inline">\(p \in M\)</span> における接空間を <span class="math inline">\(T_pM\)</span>，余接空間を <span class="math inline">\(T^*_p M\)</span> と書く．<span class="math inline">\((x^1, \dotsc, x^n)\)</span> を点 <span class="math inline">\(p\)</span> の近傍での局所座標系とすると， <span class="math inline">\(X \in T_pM\)</span> に対して <span class="math display">\[
 X = \sum a^i \frac{\partial }{\partial x^i}
 \]</span> のとき <span class="math inline">\(X = (x^1(p), \dotsc, x^n(p), a^1, \dotsc, a^n)\)</span> として，<span class="math inline">\(TM = \bigcup_{p \in M} T_pM\)</span> に局所座標系を定めることができる．<span class="math inline">\(T^*M = \bigcup_{p \in M} T^*_p M\)</span> にも同様に局所座標系を定義できる．</p>
-<h4 id="定義" class="definition">定義</h4>
+<h4 id="定義" class="definition"><span class="header-section-number">2.1.0.1</span> 定義</h4>
 <p>多様体 <span class="math inline">\(M\)</span> 上の<strong>ベクトル束</strong>（<em>vector bundle</em>）とは，多様体 <span class="math inline">\(E\)</span> であって次の条件をみたすものである：</p>
 <ol type="i">
 <li>微分可能な写像 <span class="math inline">\(\pi \colon E \to M\)</span> があり，各点 <span class="math inline">\(x \in M\)</span> に対して <span class="math inline">\(E_x = \pi^{-1}(x)\)</span> は同じ次元 <span class="math inline">\(r\)</span> のベクトル空間である．<span class="math inline">\(E_x\)</span> を <span class="math inline">\(x\)</span> 上の<strong>ファイバー</strong>（<em>fiber</em>）という．</li>
 <li>各点 <span class="math inline">\(x \in M\)</span> とその近傍 <span class="math inline">\(U \subset M\)</span> に対して，微分同相 <span class="math inline">\(\varphi \colon \pi^{-1}(U) \to U \times \boldsymbol{R}^r\)</span> が存在して，<span class="math inline">\(\{ y \} \subset M\)</span> への制限が線形同型となる．</li>
 </ol>
-<h4 id="例" class="example">例</h4>
+<h4 id="例" class="example"><span class="header-section-number">2.1.0.2</span> 例</h4>
 <ol type="i">
 <li><span class="math inline">\(TM\)</span> と <span class="math inline">\(T^*M\)</span> はともにファイバーの次元が <span class="math inline">\(n\)</span> のベクトル束である．実際，<span class="math inline">\(X \in T_pM\)</span> に対して <span class="math inline">\(\pi(X) = p\)</span> とすればこれはファイバーを与え，<span class="math inline">\(\pi^{-1}(p) = T_pM\)</span> と <span class="math inline">\(R^n\)</span> は線形同型となる．<span class="math inline">\(T^*M\)</span> も同様．</li>
 <li><strong>直積束</strong>（<em>product bundle</em>）<span class="math inline">\(E = M \times \boldsymbol{R}^r\)</span> はベクトル束である．</li>
 </ol>
-<h4 id="定義-1" class="definition">定義</h4>
+<h4 id="定義-1" class="definition"><span class="header-section-number">2.1.0.3</span> 定義</h4>
 <p><span class="math inline">\(\{ U_\alpha \} \subset M\)</span> を <span class="math inline">\(M\)</span> の被覆とすると各 <span class="math inline">\(\pi^{-1}(U_\alpha)\)</span> は <span class="math inline">\(U_\alpha \times \boldsymbol{R}^r\)</span> と同型になる．よって，<span class="math inline">\(x \in U_\alpha \cap U_\beta\)</span> に対して２つの同型 <span class="math display">\[
 \varphi_\alpha(x) \colon E_x \to \boldsymbol{R}^r\quad \varphi_\beta(x) \colon E_x \to \boldsymbol{R}^r
 \]</span> が存在する．このとき，<span class="math inline">\(\psi_{\alpha\beta}(x) = \varphi_\alpha(x) \varphi_\beta(x)^{-1}\)</span> によって <span class="math inline">\(\psi_{\alpha\beta} \colon U_\alpha \cap U_\beta \to GL(r, \boldsymbol{R})\)</span> が定まる．これらの写像の族 <span class="math inline">\(\{ \psi_{\alpha\beta} \}\)</span> を被覆 <span class="math inline">\(\{ U_\alpha \}\)</span> に対する <span class="math inline">\(E\)</span> の<strong>変換関数</strong>（<em>transition functions</em>）とよぶ．</p>
-<h4 id="注" class="remark">注</h4>
+<h4 id="注" class="remark"><span class="header-section-number">2.1.0.4</span> 注</h4>
 <p><span class="math inline">\(E\)</span> の変換関数 <span class="math inline">\(\{ \psi_{\alpha\beta} \}\)</span> は次の性質をもつ： <span class="math display">\[\begin{align}
 &amp;\psi_{\alpha\beta}(x) \psi_{\beta\gamma}(x) = \psi_{\alpha\gamma}(x)\quad (x \in U_\alpha \cap U_\beta \cap U_\gamma);\\
 &amp;\psi_{\alpha\alpha}(x) = I_r;\\
