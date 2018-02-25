@@ -1,9 +1,9 @@
 # Fdb version 3
-["dvipdf"] 1519572123 "introduction.dvi" "introduction.pdf" "introduction" 1519573426
-  "introduction.dvi" 1519572123 79548 f4ceb60a27044c05cab7c3a16f4538bc "latex"
+["dvipdf"] 0 "cardinality.dvi" "cardinality.pdf" "cardinality" 0
+  "cardinality.dvi" 0 -1 0 "latex"
   (generated)
-  "introduction.pdf"
-["latex"] 1519572122 "tex/sets/introduction.tex" "introduction.dvi" "introduction" 1519573426
+  "cardinality.pdf"
+["latex"] 1519573432 "tex/sets/cardinality.tex" "cardinality.dvi" "cardinality" 1519573432
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1480098696 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm" 1480098698 1040 b84415f97d114011685943ade933dc71 ""
@@ -51,7 +51,6 @@
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/lm/rm-lmr6.tfm" 1480098712 11836 e3b6ce3e601aec94f64a536e7f4224d5 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/lm/rm-lmr7.tfm" 1480098712 11852 5a9022f105fd1ee2797df861e79ae9a0 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/lm/rm-lmr8.tfm" 1480098712 11864 309fd7f43e4a0ba39f6f7644d76e8edf ""
-  "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/lm/ts1-lmr10.tfm" 1480098712 1556 b86d923e6b2f9aab2e313098a95cb0b8 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm" 1480098720 780 9d56a8f9483b0d090553358c515b7835 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/uptex-fonts/jis/upjpngt-h.tfm" 1480098720 780 9d56a8f9483b0d090553358c515b7835 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/uptex-fonts/jis/upjpngt-v.tfm" 1480098720 504 db18a8c0bf0b51f5d6237cc98872380d ""
@@ -121,13 +120,11 @@
   "/usr/local/texlive/texmf-local/tex/latex/bxjscls/bxjsja-pandoc.def" 1519568977 3311 dd73f81e64b0ad3d33b8aae23f7a5aa2 ""
   "/usr/local/texlive/texmf-local/tex/latex/bxjscls/bxjsja-standard.def" 1519568977 20836 28899d40c5890e2849ab37a3ac2bb4f9 ""
   "/usr/local/texlive/texmf-local/tex/latex/bxjscls/bxjspandoc.sty" 1519568977 2816 edd20e359afa2e8ef8d7608a8a982471 ""
-  "introduction.aux" 1519572123 9021 fc73960a1ba9d3dbcda6b0e48882a45e ""
-  "introduction.out" 1519572123 280 c41b650b82be6de7bee2e4d72e9a78fc ""
-  "introduction.toc" 1519572123 4612 9f53082b2a6f628278d968a19f1ff743 ""
-  "tex/sets/introduction.tex" 1519573394 49562 bbb8a9a1c4035fac441d70a48189b52b ""
+  "cardinality.aux" 1519573432 8 a94a2480d3289e625eea47cd1b285758 ""
+  "tex/sets/cardinality.tex" 1519573393 17923 c63ba35a4837b459bd18c7e523658701 ""
   (generated)
-  "introduction.log"
-  "introduction.aux"
-  "introduction.toc"
-  "introduction.dvi"
-  "introduction.out"
+  "cardinality.toc"
+  "cardinality.log"
+  "cardinality.aux"
+  "cardinality.out"
+  "cardinality.dvi"
