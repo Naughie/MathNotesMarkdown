@@ -14,7 +14,7 @@ author: 'M. Nakata'
 # 濃度
 集合論においては，集合の元が具体的に何であるかは重要ではない．したがって，$\{ 0, 1, 2 \}$ と $\{ 0, -1, -2 \}$ に違いはない．もちろん，集合としては異なるけれどこれらを区別することは本質ではない．このように，同じ個数の集合同士を区別する必要はない．集合の個数は濃度とよばれる．同じ濃度の集合は同じものとみなすのである．
 
-#### 定義 {.definition}
+#### 定義 {.definition .unnumbered}
 2つの集合 $X$ と $Y$ は，$X$ から $Y$ への全単射が存在するとき**対等**（*equivalent*）であるといい，$X \cong Y$ と表す．この $\cong$ は集合間の同値関係になる（ただし，「集合全体の集合」は存在しない．すべての集合を集めたものは**類**（*class*）とよばれる．類においても集合と同じように同値関係を考えればよい）．集合 $X$ の同値類を $\card(X)$ と書き，$X$ の**濃度**（*cardinality*, *cardinal*）という．
 $n$ 個の元からなる有限集合 $\{1, 2, \dotsc, n \}$ の濃度を $n$ で表す．さらに，$\aleph_0$ で $\bb N$ の濃度を，$\mathfrak c$ で $\bb R$ の濃度を表し，$\mathfrak c$ を**連続体濃度**（*cardinality of the continuum*）という．濃度が $\aleph_0$ であるような集合は**可算集合**（*countable set*）とよばれる．集合が有限集合か可算集合のいずれかであることを**高々可算**（*at most countable*）であるという．$\card(X) = \mathfrak m,\ \card(Y) = \mathfrak n$ であるような集合 $X,\ Y$ に対して，$Y^X$ の濃度を $\mathfrak n^{\mathfrak m}$ で表す．
 $\{ X_\lambda \deli \lambda \in \Lambda \}$ を互いに素な集合族とするとき，濃度の和と積をそれぞれ
@@ -27,7 +27,7 @@ $\{ X_\lambda \deli \lambda \in \Lambda \}$ を互いに素な集合族とする
 
 以下では，[系](#equivalence-of-existence-of-injection-and-surjection)と[Bernsteinの定理](#bernstein-theorem)は一々断らない．
 
-#### 補題 {.lemma}
+#### 補題 {.lemma .unnumbered}
 濃度の和，積および冪乗はwell-definedである．すなわち，$\{ X_\lambda \deli \lambda \in \Lambda \}, \{ Y_\lambda \deli \lambda \in \Lambda \}$ をともに互いに素な集合族であって，各 $\lambda \in \Lambda$ に対して $\card(X_\lambda) = \card(Y_\lambda)$ なるものとすると，
 \begin{align*}
 \card(\coprod X_\lambda) &= \card(\coprod Y_\lambda),\\
@@ -35,7 +35,7 @@ $\{ X_\lambda \deli \lambda \in \Lambda \}$ を互いに素な集合族とする
 \card(X_1^{X_2}) &= \card(Y_1^{Y_2}).\ \Box
 \end{align*}
 
-#### 証明 {.proof}
+#### 証明 {.proof .unnumbered}
 仮定より，全単射の族 $\{ f_\lambda \colon X_\lambda \to Y_\lambda \deli \lambda \in \Lambda \}$ が存在する．このとき
 \begin{align*}
 \coprod f_\lambda (x) &= f_{\mu}(x) \quad (\text{if}\ x \in X_\mu),\\
@@ -53,16 +53,16 @@ $$
 $$
 が言える．$\Box$
 
-#### 補題 {.lemma}
+#### 補題 {.lemma .unnumbered}
 集合 $X$ と $Y$ が与えられたとし，$\mathfrak m = \card(X),\ \mathfrak n = \card(Y)$ とおく．単射 $\colon X \to Y$ が存在するとき $\mathfrak m \le \mathfrak n$ とすると，これは濃度の順序関係を定める．また，$\mathfrak m \le \mathfrak n$ であるための必要十分条件は全射 $\colon Y \to X$ が存在することである．$\Box$
 
-#### 証明 {.proof}
+#### 証明 {.proof .unnumbered}
 $\mathfrak m \le \mathfrak n$ の必要十分条件が全射 $\colon Y \to X$ の存在であることはよい．
 $\le$ が順序関係であることを確かめる．まず，全単射 $1_X \colon X \to X$ が存在するから $\mathfrak m \le \mathfrak m$ である．$\mathfrak m \le \mathfrak n$ かつ $\mathfrak n \le \mathfrak m$ のとき単射 $\colon X \to Y$ および $\colon Y \to X$ が存在するから，全単射 $\colon X \to Y$ が存在する．
 従って $\mathfrak m = \mathfrak n$．最後に，$X, Y, Z$ は集合で $\mathfrak m = \card(X),\ \mathfrak n = \card(Y),\ \mathfrak l = \card(Z)$ とおき，$\mathfrak m \le \mathfrak n$ かつ $\mathfrak n \le \mathfrak l$ とする．このとき2つの単射 $f \colon X \to Y$ および $g \colon Y \to Z$ が存在する．$gf \colon X \to Z$ は単射である．実際，$gf(x) = gf(x')$ ならば $f(x) = f(x')$，従って $x = x'$．よって $X$ から $Z$ への単射が存在するから $\mathfrak m \le \mathfrak l$．
 以上で $\le$ が順序関係であることを示せた．$\Box$
 
-#### 命題 {.proposition}
+#### 命題 {.proposition .unnumbered}
 $a, b \in \bb R,\ a \lt b$ とする．
 \begin{align}
 &\card(\bb Z) = \card(\bb Q) = \aleph_0,\\
@@ -74,8 +74,8 @@ $a, b \in \bb R,\ a \lt b$ とする．
 
 ここから特に，$\aleph_0 \lt \mathfrak c$ が分かる．
 
-#### 証明 {.proof}
-##### (1)の証明
+#### 証明 {.proof .unnumbered}
+##### (1)の証明 {.unnumbered}
 $n \in \bb N$ に対して，$\phi(2n - 1) = -n,\ \phi(2n) = n - 1$ とすれば，$\phi \colon \bb N \to \bb Z$ は全単射となる．よって $\card(\bb Z) = \aleph_0$．$\bb N$ から $\bb Q$ への全単射を式で表すのは難しい．有理数列 $\{ a_n \}$ を次の数列とする：
 $$
 0, 1, \frac 12,  \frac 13, \frac 23, \frac 34, \frac 14, \frac 15, \frac 25, \frac 35, \frac 45, \frac 56, \frac 16, \frac 17, \frac 27, \dotsc
@@ -101,14 +101,14 @@ $$
 $$
 となるから，$\psi$ は全射でもある．よって $\bb Q''$ と $\bb Q$ は対等であり，従って $\card(\bb Q) = \card(\bb Q') = \aleph_0$．
 
-##### (2)の証明
+##### (2)の証明 {.unnumbered}
 まず $\card((a, b)) = \mathfrak c$ は，
 $$
 f(x) = \tan\left( \frac \pi2 \cdot \frac{2x - (a + b)}{b - a} \right)
 $$
 によって定まる写像 $f \colon (a, b) \to \bb R$ が全単射であることから分かる．次に $\card([a, b]) = \mathfrak c$ を考える．$\bb R$ と $(a, b) \subset [a, b]$ が対等であることは示した．当然 $[a, b]$ は $[a, b] \subset \bb R$ と対等だから，結局 $[a, b]$ と $\bb R$ は対等で，$\card([a, b]) = \mathfrak c$．
 
-##### (3)の証明
+##### (3)の証明 {.unnumbered}
 $2^{\bb N}$ から開区間 $(0, 1)$ への単射と全射をそれぞれ構成する．以下，簡単のため $2 = \{ 0, 1 \}$ と書く．写像 $f \colon \bb N \to 2$ に対して
 \begin{align*}
 B_f^{(n)} &= \sum_{k = 1}^n \frac{f_k}{2^k},&\quad B_f &= \sum_{k = 1}^\infty \frac{f_k}{2^k},\\
@@ -139,7 +139,7 @@ T_{g'} &= T_g^{(m - 1)} + \frac 1{2 \cdot 3^m},\\
 
 以上より $2^{\aleph_0} = \card((0, 1)) = \mathfrak c$ となる．
 
-##### (4)の証明
+##### (4)の証明 {.unnumbered}
 この証明は**Cantorの対角線論法**（*Cantor's diagonal argument*）とよばれる．$X, Y$ を集合として，$\mathfrak m = \card(X),\ \mathfrak n = \card(Y)$ とおく．$\mathfrak n \ge 2$
  とする．単射 $\colon X \to Y^X$ の存在はすぐに分かる．たとえば $Y$ の異なる2元 $a, b \in Y$ を選び（$\mathfrak n \ge 2$ だから選ぶことができる），$x \in X$ に対して
 $\chi_x(x) = a$，$y \neq x$ のとき $\chi_x(y) = b$ とすれば，写像 $x \mapsto \chi_x$ が単射である．

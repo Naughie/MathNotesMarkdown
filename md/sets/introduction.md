@@ -32,7 +32,7 @@ X \setminus Y &= \{ a \deli a \in X \ \text{かつ} \ a \notin Y \}
 \end{align}
 となる．集合 $X \setminus X$ を $\emptyset$ と書き，**空集合**（*empty set*, *void set*）とよぶ．
 
-#### 例 {.example}
+#### 例 {.example .unnumbered}
   i) $\bb N = \{ 1, 2, 3, \dotsc \}$．自然数全体の集合．
  ii) $\bb Z = \{ \dotsc, -3, -2, -1, 0, 1, 2, 3, \dotsc \}$．整数全体の集合．
 iii) $\bb Q = \{ m / n \deli m \in \bb Z, \ n \in \bb N \}$．有理数全体の集合．
@@ -45,7 +45,7 @@ $\bb N, \bb Z, \bb Q$ は集合論によって定義できる．$\bb Q$ から $
 
 集合を要素とする集合を，**集合族**（*family of sets*）あるいは**集合系**（*system of sets*）とよぶ．集合族は，それに属する個々の集合を明示するために**インデックス**（*index*）を付して表されることが多い．たとえばインデックスの集合を $\Lambda$ としたとき，$\{ A_\lambda \deli \lambda \in \Lambda \}$ あるいは単に $\{ A_\lambda \}$ のように書く．このとき $\Lambda$ を**添字集合**（*index set*）といい，$\{ A_\lambda \deli \lambda \in \Lambda \}$ を $\Lambda$ によって**添字付けられた集合族**（*family of sets indiced by $\Lambda$*）という．集合族の各元 $A_\lambda$ がすべて共通の集合 $X$ の部分集合のとき，すなわちすべての $A_\lambda$ に対して $A_\lambda \subset X$ のとき，$\{ A_\lambda \deli \lambda \in \Lambda \}$ を $X$ の**部分集合族**（*family of subsets*）とよぶ．任意の相異なるインデックス $\lambda, \mu \in \Lambda$ に対して $A_\lambda \cap A_\mu = \emptyset$ であるとき，集合族 $\{ A_\lambda \deli \lambda \in \Lambda \}$ は**互いに素**（*pairwise disjoint*）という．集合族 $\{ A_\lambda \deli \lambda \in \Lambda \}$ に対して，その**和集合**と**共通部分**を2つの集合の場合と同様に定義できる．すなわち，和集合とは少なくとも1つの $A_\lambda$ に属する元の集合，共通部分はすべての $A_\lambda$ に属する元の集合である．和集合は $\bigcup \{ A_\lambda \deli \lambda \in \Lambda \}$ または $\bigcup_{\lambda \in \Lambda} A_\lambda$ や単に $\bigcup A_\lambda$ と書く．共通部分も，$\bigcap \{ A_\lambda \deli \lambda \in \Lambda \}$ や $\bigcap_{\lambda \in \Lambda} A_\lambda$，$\bigcap A_\lambda$ のように書く．$\{ A_\lambda \deli \lambda \in \Lambda \}$ が互いに素なとき，その和集合を**非交和**（*disjoint union*）といい $\coprod_{\lambda \in \Lambda} A_\lambda$ のように書くこともある．和集合，共通部分，補集合について次の重要な定理が成立つ．
 
-#### 定理 {#properties-of-sets .theorem}
+#### 定理 {#properties-of-sets .theorem .unnumbered}
 $\Lambda$ を添字集合とした，集合 $X$ の部分集合族 $\{ A_\lambda \deli \lambda \in \Lambda \}$ と $X$ の部分集合 $B \subset X$ に対して次が成立つ：
 \begin{align}
 &B \cup \left( \bigcup A_\lambda \right) = \bigcup ( B \cup A_\lambda ), &\quad & B \cap \left( \bigcap A_\lambda \right) = \bigcap ( B \cap A_\lambda );\\
@@ -54,18 +54,18 @@ $\Lambda$ を添字集合とした，集合 $X$ の部分集合族 $\{ A_\lambda
 \end{align}
 (4)を**結合律**（*associative laws*），(5)を**分配律**（*distributive laws*），(6)を**de Morganの法則**（*de Morgan's laws*）とよぶ．$\Box$
 
-#### 証明 {.proof}
-##### (4)の証明
+#### 証明 {.proof .unnumbered}
+##### (4)の証明 {.unnumbered}
 まず $B \cup \left( \bigcup A_\lambda \right) = \bigcup ( B \cup A_\lambda )$ を示す．$x \in B \cup \left( \bigcup A_\lambda \right)$ とする．$x \in B$ のときは，とくに任意の $\lambda \in \Lambda$ に対して $x \in B \cup A_\lambda$ だから，$x \in \bigcup ( B \cup A_\lambda )$．$x \in \bigcup A_\lambda$ のとき，ある $A_{\lambda'}$ について $x \in A_{\lambda'}$．よって，$x \in B \cup A_{\lambda'}$ でもあるから $x \in \bigcup ( B \cup A_\lambda )$．これで $B \cup \left( \bigcup A_\lambda \right) \subset \bigcup ( B \cup A_\lambda )$ が示せた．$x \in \bigcup ( B \cup A_\lambda )$ とすると，ある $\lambda' \in \Lambda$ が存在して $x \in B \cup A_{\lambda'}$．$x \in A_{\lambda'}$ ならば $x \in \bigcup A_\lambda$ であるから，$x \in B$ と $x \in A_{\lambda'}$ のいずれの場合も $x \in B \cup \left( \bigcup A_\lambda \right)$ となる．よって $B \cup \left( \bigcup A_\lambda \right) \supset \bigcup ( B \cup A_\lambda )$ であるから，$B \cup \left( \bigcup A_\lambda \right) = \bigcup ( B \cup A_\lambda )$ がいえた．
 
 次に $B \cap \left( \bigcap A_\lambda \right) = \bigcap ( B \cap A_\lambda )$ を示す．$x \in B \cap \left( \bigcap A_\lambda \right)$ とすると，$x \in \bigcap A_\lambda$ であるから，すべての $A_\lambda$ は $x$ を含む．$x \in B$ と合わせて，$x$ がすべての $B \cap A_\lambda$ に属することが分かる．すなわち $x \in \bigcap ( B \cap A_\lambda )$ となり，$B \cap \left( \bigcap A_\lambda \right) \subset \bigcap ( B \cap A_\lambda )$ が成立つ．一方 $x \in \bigcap ( B \cap A_\lambda )$ とすればすべての $\lambda \in \Lambda$ に対して $x \in B \cap A_\lambda$ だから，$x \in B$ かつ $x \in \bigcap A_\lambda$ である．以上より $B \cap \left( \bigcap A_\lambda \right) \supset \bigcap ( B \cap A_\lambda )$ となり，$B \cap \left( \bigcap A_\lambda \right) = \bigcap ( B \cap A_\lambda )$ が示せた．
 
-##### (5)の証明
+##### (5)の証明 {.unnumbered}
 まず $B \cup \left( \bigcap A_\lambda \right) = \bigcap ( B \cup A_\lambda )$ を示す．$x \in B \cup \left( \bigcap A_\lambda \right)$ とする．$x \in B$ ならばすべての $\lambda \in \Lambda$ に対して $x \in B \cup A_\lambda$ であるから，$x \in \bigcap ( B \cup A_\lambda )$．$x \in \bigcap A_\lambda$ のときもすべての $\lambda \in \Lambda$ に対して $x \in B \cup A_\lambda$ であるから $x \in \bigcap ( B \cup A_\lambda )$ となり，$B \cup \left( \bigcap A_\lambda \right) \subset \bigcap ( B \cup A_\lambda )$ がいえる．$x \in \bigcap ( B \cup A_\lambda )$ とすると，$x \in B \cup A_\lambda$ がすべての $\lambda$ について成立つ．$x \notin B$ のときは $x \in A_\lambda$ となるから，$x \in \bigcap A_\lambda$．よって，$B \cup \left( \bigcap A_\lambda \right) \supset \bigcap ( B \cup A_\lambda )$ であるから結局 $B \cup \left( \bigcap A_\lambda \right) = \bigcap ( B \cup A_\lambda )$ が示せた．
 
 次に $B \cap \left( \bigcup A_\lambda \right) = \bigcup ( B \cap A_\lambda )$ を示す．$x \in B \cap \left( \bigcup A_\lambda \right)$ とすると，$x$ はある $A_{\lambda'}$ に属する．よって $x \in B \cap A_{\lambda'}$ であるから $x \in \bigcup ( B \cap A_\lambda )$，従って $B \cap \left( \bigcup A_\lambda \right) \subset \bigcup ( B \cap A_\lambda )$．$x \in \bigcup ( B \cap A_\lambda )$ ならばある $\lambda' \in \Lambda$ について $x \in B \cap A_{\lambda'}$．このとき $x \in A_{\lambda'}$ であるから $x \in \bigcup A_\lambda$ となり，$x \in B \cap \left( \bigcup A_\lambda \right)$ がいえる．よって $B \cap \left( \bigcup A_\lambda \right) \supset \bigcup ( B \cap A_\lambda )$ が従い，$B \cap \left( \bigcup A_\lambda \right) = \bigcup ( B \cap A_\lambda )$ を示した．
 
-##### (6)の証明
+##### (6)の証明 {.unnumbered}
 まず $B \setminus \left( \bigcup A_\lambda \right) = \bigcap ( B \setminus A_\lambda )$ を示す．$x \in B \setminus \left( \bigcup A_\lambda \right)$ とすると，$x \in B$ であって $x$ はどの $A_\lambda$ にも属さない．よって任意の $\lambda \in \Lambda$ に対して $x \in B \setminus A_\lambda$ であるから，$x \in \bigcap ( B \setminus A_\lambda )$．ここから $B \setminus \left( \bigcup A_\lambda \right) \subset \bigcap ( B \setminus A_\lambda )$ が分かる．$x \in \bigcap ( B \setminus A_\lambda )$ のとき $x$ は $B$ には属するがどの $A_\lambda$ にも属さない．すなわち $x \in B \setminus \left( \bigcup A_\lambda \right)$ となり，$B \setminus \left( \bigcup A_\lambda \right) \supset \bigcap ( B \setminus A_\lambda )$ が分かる．以上より，$B \setminus \left( \bigcup A_\lambda \right) = \bigcap ( B \setminus A_\lambda )$．
 
 最後に $B \setminus \left( \bigcap A_\lambda \right) = \bigcup ( B \setminus A_\lambda )$ を示す．$x \in B \setminus \left( \bigcap A_\lambda \right)$ に対して，$x \in B$ であるが $x$ の属さない $A_{\lambda'}$ が存在するから $x \in \bigcup ( B \setminus A_\lambda )$．よって $B \setminus \left( \bigcap A_\lambda \right) \subset \bigcup ( B \setminus A_\lambda )$．$x \in \bigcup ( B \setminus A_\lambda )$ のときはある $\lambda' \in \Lambda$ について $x \in B \setminus A_{\lambda'}$ である．とくに $x \notin A_{\lambda'}$ より $x \notin \bigcap A_\lambda$ が従うから，$x \in B \setminus \left( \bigcap A_\lambda \right)$．よって $B \setminus \left( \bigcap A_\lambda \right) \supset \bigcup ( B \setminus A_\lambda )$ がいえて，従って $B \setminus \left( \bigcap A_\lambda \right) = \bigcup ( B \setminus A_\lambda )$．
@@ -84,7 +84,7 @@ $f$ が全単射ならば，$Y$ の任意の元 $y \in Y$ に対してただ1つ
 $X$ から $Y$ への写像 $f \colon X \to Y$ と $X$ の部分集合 $A \subset X$ が与えられたときに，$x \in A$ に $f(x)$ を対応させることで $A$ から $Y$ への写像を定義できる．この写像を $f$ の $A$ への**制限**（*restriction*）といい $f \mid A$ と書く．一般に $f$ と $f \mid A$ は（$X = A$ でない限り）定義域が異なるため，別の写像として区別する．
 同じ定義域の2つの写像 $f, g \colon X \to Y$ が等しいとは，すべての $x \in X$ に対して $f(x) = g(x)$ が成立つことであり，$f = g$ と書く．
 
-#### 例 {.example}
+#### 例 {.example .unnumbered}
 
  i) 空でない集合 $X$ に対して，$f(x) = x$ によって定まる全単射 $f \colon X \to X$ が存在する．この写像を $X$ の**恒等写像**（*identity*）といい，$\mathrm{id}_X,\ 1_X$ などと書く．$X$ が明らかな場合は省略する．
 ii) 空でない集合 $X$ とその部分集合 $A \subset X$ が与えられたとき，恒等写像の $A$ への制限 $1_X \mid A \colon A \to X$ を $A$ から $X$ への**包含写像**（*inclusion*）といい，$A \hookrightarrow X$ と表す．包含写像は最も簡単な単射でもあるから，**標準的単射**（*canonical injection*）ともよばれる．$\Box$
@@ -97,7 +97,7 @@ $\Lambda = \{1, 2\}$ のとき，$\prod A_\lambda$ と $A_1 \times A_2$ は同�
 
 写像と和集合，共通部分，補集合の間に次の重要な性質がある．
 
-#### 定理 {.theorem}
+#### 定理 {.theorem .unnumbered}
 2つの集合 $X, Y$ と $X$ の部分集合族 $\{A_\lambda \subset X \deli \lambda \in \Lambda \}$ および $X$ から $Y$ への写像 $f \colon X \to Y$ が与えられたとする．このとき次が成立つ：
 
 \begin{align}
@@ -118,40 +118,40 @@ $\Lambda = \{1, 2\}$ のとき，$\prod A_\lambda$ と $A_1 \times A_2$ は同�
 
 また，$f$ が単射ならば(8)と(9)において等号が成立つ．$\Box$
 
-#### 証明 {.proof}
-##### (7)の証明
+#### 証明 {.proof .unnumbered}
+##### (7)の証明 {.unnumbered}
 $A_1 \subset A_2$ とする．$y \in f(A_1)$ のとき，$x \in A_1$ が存在して $y = f(x)$ となる．このときまた $x \in A_2$ でもあるから $y \in f(A_2)$．よって $f(A_1) \subset f(A_2)$ となる．
 
-##### (8)の証明
+##### (8)の証明 {.unnumbered}
 $y \in f(\bigcup A_\lambda)$ とすると，ある $\lambda' \in \Lambda$ と $x \in A_{\lambda'}$ が存在して $y = f(x)$ となる．よって $y \in f(A_{\lambda'}) \subset \bigcup f(A_\lambda)$ であるから $f(\bigcup A_\lambda) \subset \bigcup f(A_\lambda)$．
 
 逆に $y \in \bigcup f(A_\lambda)$ のときはある $\lambda' \in A_\lambda$ に対して $y \in f(A_{\lambda'})$，従って $y = f(x)$ となる $x \in A_{\lambda'}$ が存在する．このとき $x \in \bigcup A_\lambda$ であるから $y \in f(\bigcup A_\lambda)$．
 
 以上より $f(\bigcup A_\lambda) = \bigcup f(A_\lambda)$．
 
-##### (9)の証明
+##### (9)の証明 {.unnumbered}
 $y \in f(\bigcap A_\lambda)$ とすると $y = f(x)$ となる $x \in \bigcap A_\lambda$ が存在する．すると各 $\lambda$ に対して $x \in A_\lambda$ であるから $y \in f(A_\lambda)$ が成立ち，よって $y \in \bigcap f(A_\lambda)$ となる．これで $f(\bigcap A_\lambda) \subset \bigcap f(A_\lambda)$ を示せた．
 
 $f$ が単射で $y \in \bigcap f(A_\lambda)$ ならば，任意の $\lambda$ に対して $y \in f(A_\lambda)$ であり，$y = f(x_\lambda)$ となる $x_\lambda \in A_\lambda$ が存在する．$f$ の単射性より $x_\lambda$ はすべて等しく，その値を $x$ とおく．このとき任意の $\lambda$ に対して $x \in A_\lambda$ だから $x \in \bigcap A_\lambda$．これと $y = f(x)$ より $y \in f(\bigcap A_\lambda)$ となるから，$f(\bigcap A_\lambda) \supset \bigcap f(A_\lambda)$．
 
-##### (10)の証明
+##### (10)の証明 {.unnumbered}
 $y \in f(A_1) \setminus f(A_2)$ とすると，$y \in f(A_1)$ より $y = f(x)$ なる $x \in A_1$ が存在する．一方 $y \notin f(A_2)$ であるから $x \in A_2$ ではあり得ない．よって $x \in A_1 \setminus A_2$ であり，$y \in f(A_1 \setminus A_2)$．すなわち $f(A_1 \setminus A_2) \supset f(A_1) \setminus f(A_2)$ が分かる．
 
 $f$ が単射のときは，$y \in f(A_1 \setminus A_2)$ ならば $y = f(x)$ となる $x \in A_1 \setminus A_2$ が存在するから $y \in f(A_1)$ は分かる．ここで $y \in f(A_2)$ とするとある $x' \in A_2$ が存在して $y = f(x')$ であるが，$f$ の単射性より $x = x' \in A_1 \cap A_2$．これは $x \in A_1 \setminus A_2$ に反する．よって $y \notin f(A_2)$ であるから $y \in f(A_1) \setminus f(A_2)$，従って $f(A_1 \setminus A_2) \subset f(A_1) \setminus f(A_2)$．
 
-##### (11), (12), (13), (14)の証明
+##### (11), (12), (13), (14)の証明 {.unnumbered}
 $f$ が全単射であるから $f^{-1}$ も全単射．よって(7), (8), (9), (10)において $f \colon X \to Y$ を $f^{-1} \colon Y \to X$ に，$\{ A_\lambda \}$ を $\{ B_\lambda \}$ に置き換えれば直ちに従う．$\Box$
 
 写像の単射性と全射性に関する次の事実がよく用いられる．
 
-#### 定理 {.theorem #equivalent-statement-on-injectivity-and-surjectivity}
+#### 定理 {.theorem #equivalent-statement-on-injectivity-and-surjectivity .unnumbered}
 写像 $f \colon X \to Y$ に対して次が成立つ：
 
  i) $f$ が単射であることの必要十分条件は，$gf = 1_X$ なる写像 $g \colon Y \to X$ が存在することである；
 ii) $f$ が全射であることの必要十分条件は，$fh = 1_Y$ なる写像 $h \colon Y \to X$ が存在することである．$\Box$
 
-#### 証明 {.proof}
-##### i.の証明
+#### 証明 {.proof .unnumbered}
+##### i.の証明 {.unnumbered}
 必要性を示す．$f$ が単射ならば，任意の2元 $x, x' \in X$ に対して $f(x) = f(x')$ ならば $x = x'$ である．よって，$X$ の元 $x_0 \in X$ を適当に固定すれば，写像 $g \colon Y \to X$ が
 \begin{align*}
 g(y) = \left\{ \begin{array}{ll} x & (\text{if}\ y = f(x)), \\ x_0 & (\text{if}\ y \notin f(X) \end{array}  \right.
@@ -160,26 +160,26 @@ g(y) = \left\{ \begin{array}{ll} x & (\text{if}\ y = f(x)), \\ x_0 & (\text{if}\
 
 次に十分性を示す．写像 $g \colon Y \to X$ が存在して $gf = 1_X$ ならば，任意の $x, x' \in X$ に対して $x = gf(x)$ および $x' = gf(x')$ が成立つ．ここで $f(x) = f(x')$ とすれば，$gf(x) = gf(x')$ より $x = x'$ が分かる．これは $f$ が単射であることを意味する．
 
-##### ii.の証明
+##### ii.の証明 {.unnumbered}
 $f$ を全射とすると，任意の $y \in Y$ に対して $f(x) = y$ なる $x \in X$ が少なくとも1つ存在する．そのうちの1つを適当に選び $x_y$ とする．そこで写像 $h \colon Y \to X$ を $h(y) = x_y$ と定義すれば，$fh(y) = f(x_y) = y$ であるから $fh = 1_Y$ となる．
 
 逆に $fh = 1_Y$ となる写像 $h \colon Y \to X$ が存在すると仮定する．このとき，任意の $y \in Y$ に対して $y = f(h(y))$ であるから，$f$ は全射．$\Box$
 
 写像の単射性と全射性を圏論的に言い換えると以下のようになる．
 
-#### 定理 {.theorem}
+#### 定理 {.theorem .unnumbered}
 写像 $f \colon X \to Y$ に対して次が成立つ：
 
  i) $f$ が単射であることの必要十分条件は，$fg_1 = fg_2$ なる任意の写像 $g_1, g_2 \colon Z \to X$ に対して $g_1 = g_2$ となることである；
 ii) $f$ が全射であることの必要十分条件は，$h_1f = h_2f$ なる任意の写像 $h_1, h_2 \colon Y \to Z$ に対して $h_1 = h_2$ となることである．$\Box$
 
-#### 証明 {.proof}
-##### i.の証明
+#### 証明 {.proof .unnumbered}
+##### i.の証明 {.unnumbered}
 $f$ を単射として，2つの写像 $g_1, g_2 \colon Z \to X$ について $fg_1 = fg_2$ となったとする．このとき $g_1 = g_2$ を示したい．任意の $z \in Z$ に対して $f(g_1(z)) = f(g_2(z))$ であるから，$f$ の単射性より $g_1(z) = g_2(z)$ となる．よって $g_1 = g_2$．
 
 逆に任意の写像 $g_1, g_2 \colon Z \to X$ に対して，$fg_1 = fg_2$ ならば $g_1 = g_2$ が成立つとする．このとき特に $Z = \{ 0 \}$ として，$g_1(0) = x,\ g_2(0) = y$ とする．もし $f(x) = f(y)$ であれば，$fg_1(0) = fg_2(0)$ であるから $g_1 = g_2$ が言える．従って $x = g_1(0) = g_2(0) = y$ となり，$f$ は単射．
 
-##### ii.の証明
+##### ii.の証明 {.unnumbered}
 まず $f$ が全射ならば，$h_1f = h_2f$ なる写像 $h_1, h_2 \colon Y \to Z$ に対して $h_1 = h_2$ となる．実際，任意の $y \in Y$ に対して $x \in X$ が存在して $y = f(x)$ とでき，このとき $h_1(y) = h_1f(x) = h_2f(x) = h_2(y)$ より $h_1 = h_2$．
 
 次に任意の写像 $h_1, h_2 \colon Y \to Z$ に対して，$h_1f = h_2f$ ならば $h_1 = h_2$ となるとする．$f$ が全射でないとすると $y_0 \in Y \setminus f(X)$ が存在する．そこで $Z = \{ 0, 1 \}$ として
@@ -189,7 +189,7 @@ h_2(y) &= \left\{ \begin{array}{ll} 0 & (\text{if}\ y \neq y_0),\\ 1 & (\text{if
 \end{align*}
 と定義すれば，$h_1f = h_2f$ であるが $h_1 \neq h_2$ となり矛盾．よって $f$ は全射である．$\Box$
 
-#### 系 {.corollary #equivalence-of-existence-of-injection-and-surjection}
+#### 系 {.corollary #equivalence-of-existence-of-injection-and-surjection .unnumbered}
 2つの集合 $X$ と $Y$ に対して，単射 $\colon X \to Y$ が存在するための必要十分条件は全射 $\colon Y \to X$ が存在することである．$\Box$
 
 #### 証明 {.proof}
@@ -197,7 +197,7 @@ h_2(y) &= \left\{ \begin{array}{ll} 0 & (\text{if}\ y \neq y_0),\\ 1 & (\text{if
 
 逆に全射 $g \colon Y \to X$ が存在すれば同じ定理より $gf = 1_X$ なる写像 $f \colon X \to Y$ が存在し，$f$ の単射性も分かる．$\Box$
 
-#### Bernsteinの定理 {.theorem #bernstein-theorem}
+#### Bernsteinの定理 {.theorem #bernstein-theorem .unnumbered}
 2つの集合 $X, Y$ に対して，以下の条件はすべて同値である：
 
   i) 全単射 $\colon X \to Y$ が存在する；
@@ -206,7 +206,7 @@ iii) 全射 $\colon X \to Y$ および全射 $\colon Y \to X$ が存在する；
  iv) 単射 $\colon X \to Y$ および全射 $\colon X \to Y$ が存在する；
   v) $X$ から $Y$ の部分集合への全単射が存在し，かつ $Y$ から $X$ の部分集合への全単射が存在する．$\Box$
 
-#### 証明 {.proof}
+#### 証明 {.proof .unnumbered}
 ii.$\;\Leftrightarrow$ iii. $\Leftrightarrow$ iv. $\Leftrightarrow$ v. は[系](#equivalence-of-existence-of-injection-and-surjection)からすぐに従う．
 
 i.$\;\Leftrightarrow$ ii. を示す．
@@ -243,7 +243,7 @@ h(x) = \left\{ \begin{array}{ll} (f \mid X^*)(x) & (\text{if}\ x \in X^*), \\ (g
 
 集合 $X$ 上の**2項関係**（*binary relation*）とは，関係 $\sim \subset X \times X$ のことである．数学では多くの2項関係について考えるが，それらに共通する大事な性質がある．
 
-#### 定義 {.definition}
+#### 定義 {.definition .unnumbered}
 $\sim$ を集合 $X$ 上の2項関係とする．このとき次の性質を考える：
 
   i) 任意の $x \in X$ に対して $x \sim x$ であることを**反射律**（*reflexivity*）という．反射律を満たす2項関係は**反射的**（*reflexive*）であるという；
@@ -254,7 +254,7 @@ iii) 任意の $x, y \in X$ に対して，$x \sim y$ かつ $y \sim x$ なら�
 反射的で推移的な対称関係を**同値関係**（*equivalence relation*）という．反射的で推移的な反対称関係を**半順序関係**（*partial order*）といい，半順序関係が1つ定まった集合を**半順序集合**（*partially ordered set*, *poset*）という．誤解のない場合は，半順序関係，半順序集合をそれぞれ単に**順序関係**（*order*），**順序集合**（*ordered set*）という．半順序はよく $\le$ で表される．
 $(X, \le)$ を半順序集合とするとき，2つの元 $x, y \in X$ であって $x \le y$ でも $y \le x$ でもないようなものが存在することもある．$X$ の2元 $x, y \in X$ は，$x \le y$ または $y \le x$ であるとき**比較可能**（*comparable*）といい，比較可能でないとき**比較不可能**（*incomparable*）という．$X$ の任意の2元が比較可能であるとき，半順序 $\le$ を**全順序**（*total order*）といい，$X$ を**全順序集合**（*totally ordered set*）という．$\Box$
 
-#### 例 {.example}
+#### 例 {.example .unnumbered}
 
   i) 実数上の相等関係 $=$ は同値関係で，通常の順序 $\le$ は全順序である．$\ge$ も全順序である．
  ii) $n \in \bb Z_{> 0}$ を1つ固定する．$\bb Z$ 上に，$n \mid (x - y)$ によって定まる2項関係 $\equiv \ (\mathrm{mod}\ n)$ は同値関係である（$a \mid b$ は $a$ が $b$ を割り切ることを表す．$a$ divides $b$.）．また $x \mid y$ は $\bb Z_{> 0}$ 上の半順序であるが全順序ではない．
@@ -274,19 +274,19 @@ $$
 $$
 が分かる．$X$ から $\qset X \sim$ への写像 $x \mapsto \bar x$ は全射である．これを**標準的全射**（*canonical surjection*）あるいは**標準的射影**（*canonical projection*）とよぶ．各同値類 $[x]$ から1つ元を選ぶ写像 $s \colon \qset X \sim \to X$ を**切断**（*section*）とよぶ（正確には，$s$ は切断の1つである）．すなわち，$s \colon \qset X \sim \to X$ が切断であるとは，任意の $c \in \qset X \sim$ に対して $\bar{s(c)} = c$ となることをいう．$s(c)$ を $c$ の**代表元**（*representative*）という．
 
-#### 例 {.example}
+#### 例 {.example .unnumbered}
 
   i) $n \in \bb Z_{> 0}$ とする．$\bb Z$ の $\equiv\ (\mathrm{mod}\ n)$ による商集合を $\bb Z/ n \bb Z$ と書く．$\bb Z / n \bb Z = \{ \bar 0, \bar 1, \dotsc, \bar{n - 1} \}$ である．$\bar k$ は $k + (n)$ とも書かれる．これは環論における記法である．また $\bar k$ を単に $k$ と書くこともある．
  ii) 先の例v.における $\bb R^{n \times}$ 上の同値関係 $\sim$ については，$\bar x = \{ k x \deli k \in \bb R_{> 0} \}$ となる．$\bar x$ の代表元としては，$\| x \| = 1$ となるように選ぶ．量子力学では実際にこの場合を考えている．$\Box$
 
-#### 定義 {.definition}
+#### 定義 {.definition .unnumbered}
 集合 $X, Y$ と写像 $f \colon X \to Y$ が与えられたとする．
 $$
 x \sim_f y \Longleftrightarrow f(x) = f(y) \quad (x, y \in X)
 $$
 によって $f$ の**同値核**（*equivalence kernel*）とよばれる $X$ 上の同値関係 $\sim_f$ を定義する．このとき $\bar f(\bar x) = f(x)$ によって写像 $\bar f \colon \qset X \sim_f \to Y$ が定まる．$\bar f$ は全単射であり，$f$ から**誘導された**（*induced from $f$*）全単射という．$\Box$
 
-#### 注 {.remark}
+#### 注 {.remark .unnumbered}
 商集合を圏論的に考える．2つの全射 $f \colon X \to Y,\ g \colon X \to Z$ に対して，
 $$
 f \le g \Longleftrightarrow \exists w \colon Z \to Y,\ f = wg

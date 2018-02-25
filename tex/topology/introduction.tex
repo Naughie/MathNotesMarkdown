@@ -1,0 +1,346 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[b5paper,pandoc]{bxjsarticle}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={位相空間論},
+            pdfauthor={M. Nakata},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{位相空間論}
+\author{M. Nakata}
+\date{}
+
+\def\theparagraph{}
+\def\thesubparagraph{}
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\hypertarget{ux53c2ux8003ux6587ux732e}{%
+\section{参考文献}\label{ux53c2ux8003ux6587ux732e}}
+
+\begin{itemize}
+\tightlist
+\item
+  松坂和夫『集合・位相入門』（岩波書店）
+\item
+  内田伏一『数学シリーズ 集合と位相』（裳華房）
+\item
+  兒玉之宏，永見啓応『位相空間論』（岩波書店）
+\item
+  John Kelley. \emph{General Topology}. Springer.
+\end{itemize}
+
+\hypertarget{topology-introduction}{%
+\section{導入}\label{topology-introduction}}
+
+位相空間論では集合間の写像の連続性や集合の連結性などについて扱いたい．そのために，集合に「位相」とよばれる数学的構造を導入する．
+
+その前に距離空間を考える．距離空間は最も簡単な位相空間の例であり，Euclid空間とほぼ同じ議論をすることができる．
+
+\hypertarget{metric-space}{%
+\subsection{距離空間}\label{metric-space}}
+
+\hypertarget{metric-space-def}{%
+\paragraph{定義}\label{metric-space-def}}
+\addcontentsline{toc}{paragraph}{定義}
+
+集合 \(X\) と写像 \(d \colon X \times X \to \boldsymbol{R}\)
+が与えられたとする．\(d\) が \(X\)
+上の\textbf{距離}（\emph{metric}）であるとは，次の条件をみたすことをいう：
+\begin{align}
+& d(x, y) \ge 0 \ \forall x, y \in X,\\
+& d(x, y) = 0 \Longleftrightarrow x = y,\\
+& d(x, y) = d(y, x) \ \forall x, y \in X,\\
+& d(x, y) \le d(x, z) + d(z, y) \ \forall x, y, z \in X.
+\end{align} (1)と(2)を合わせて\textbf{正定値性}（\emph{positive
+definiteness}），(3)を\textbf{対称性}（\emph{symmetric
+property}）という．(4)の不等式を\textbf{三角不等式}（\emph{triangle
+inequality}）という．
+
+集合 \(X\) 上に距離 \(d\) が定義されたとき，これらを組にして \((X, d)\)
+を\textbf{距離空間}（\emph{meric space}）とよぶ．\(d\)
+を明示する必要がない場合は単に \(X\) と書いて距離空間 \((X, d)\)
+を表す． \(\Box\)
+
+\hypertarget{ux4f8b}{%
+\paragraph{例}\label{ux4f8b}}
+\addcontentsline{toc}{paragraph}{例}
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi})}
+\tightlist
+\item
+  \(\boldsymbol{R}^n\)
+  上にいくつかの種類の距離を定めることができる（\(x = (x_i), y = (y_i) \in \boldsymbol{R}^n\)
+  とする）：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(d_\infty (x, y) = \max \{ | x_i - y_i |\}\)，
+  \item
+    \(d_p (x, y) = ( \sum (x_i - y_i)^p )^{ 1/p }\ ( p \in \boldsymbol{N})\)．この
+    \(d_p\) が距離であることの証明は簡単ではない．\(p = 2\)
+    のときはCauchy-Schwarzの不等式から従う．
+  \end{itemize}
+\item
+  任意の集合 \(X\) に対して\textbf{自明な距離}（\emph{trivial
+  metric}）\(d\) が定まる．すなわち，\(x , y \in X\) のとき \(x = y\)
+  ならば \(d(x, y) = 0\)，\(x \neq y\) ならば \(d(x,y) = 1\)
+  とする．明らかに，この \(d\) は距離となる．
+\end{enumerate}
+
+以下，単に \(\boldsymbol{R}^n\) と言ったときは常に距離 \(d_2\)
+が定まってるものとする．\(\Box\)
+
+\hypertarget{open-disk}{%
+\paragraph{定義}\label{open-disk}}
+\addcontentsline{toc}{paragraph}{定義}
+
+\((X, d)\) を距離空間とする．\(x \in X,\ \epsilon > 0\) に対して， \[
+B(x, \epsilon) = \{ y \in X \,:\,d(x, y) \lt \epsilon \}
+\] を \(x\) を中心とする半径 \(\epsilon\) の\textbf{開球}（\emph{open
+ball}）あるいは \(x\) の
+\textbf{\(\epsilon\)-近傍}（\emph{\(\epsilon\)-neighborhood}）とよぶ．とくに，\(\epsilon = 1\)
+のとき\textbf{単位球}（\emph{unit ball}）とよぶ． また， \[
+\overline B(x, \epsilon) = \{ y \in X \,:\,d(x, y) \le \epsilon \}
+\] を \(x\) を中心とする半径 \(\epsilon\) の\textbf{閉球}（\emph{closed
+ball}）とよぶ．\(\Box\)
+
+\hypertarget{sequence-limit}{%
+\paragraph{定義}\label{sequence-limit}}
+\addcontentsline{toc}{paragraph}{定義}
+
+\((X, d)\) を距離空間とする．\(X\) 上の点列 \(\{ x_n \} \subset X\) が点
+\(x \in X\) に\textbf{収束する}（\emph{converges to}）とは，任意の正数
+\(\epsilon > 0\) に対してある番号 \(N \in \boldsymbol{N}\)
+が存在して，\(n \ge N\) なるときいつも \(d(x_n, x) \lt \epsilon\)
+であることをいう．このとき，極限の点 \(x\)
+は一意に定まり，\(x = \lim_{n \to \infty} x_n\) あるいは単に
+\(x = \lim x_n\) と書く．\(x_n \to x \ (n \to \infty)\) とも表す．
+
+点列 \(\{ x_n \}\) が\textbf{Cauchy列}（\emph{Cauchy
+sequence}）であるとは，任意の正数 \(\epsilon > 0\) に対してある番号
+\(N \in \boldsymbol{N}\) が存在して，\(n, m \ge N\) なるときいつも
+\(d(x_n, x_m) \lt \epsilon\) であることをいう．
+
+記号で書けば，\(X\) 上の点列 \(\{ x_n \}\) は \[
+\exists x \in X,\ \forall \epsilon > 0,\ \exists N \in \boldsymbol{N} \ \text{s.t.}\ n \ge N \Longrightarrow d(x, x_n) \lt \epsilon
+\] なるとき \(x\) に収束するといい， \[
+\forall \epsilon > 0,\ \exists N \in \boldsymbol{N} \ \text{s.t.}\ n, m \ge N \Longrightarrow d(x_n, x_m) \lt \epsilon
+\] なるときCauchy列という．\(\Box\)
+
+距離空間では，Euclid空間と全く同様にして開集合や閉集合，閉包などが定義される．
+
+\hypertarget{open-set-with-metric}{%
+\paragraph{定義}\label{open-set-with-metric}}
+\addcontentsline{toc}{paragraph}{定義}
+
+\((X, d)\) を距離空間とする．\(X\) の部分集合 \(A \subset X\)
+が\textbf{開集合}（\emph{open set}）であるとは，任意の \(x \in A\)
+に対してある \(\epsilon > 0\) が存在して，\(B(x, \epsilon) \subset A\)
+とできることをいう．記号で書けば， \[
+\forall x \in A,\ \exists \epsilon > 0 \ \text{s.t.}\ B(x, \epsilon) \subset A
+\] なるとき \(A\) を開集合とよぶ．
+
+\(X\) の部分集合 \(A \subset X\) 上の任意の収束列が \(A\)
+上の点に収束するとき，\(A\) を\textbf{閉集合}（\emph{closed
+set}）という．\(\Box\)
+
+\hypertarget{ux4f8b-1}{%
+\paragraph{例}\label{ux4f8b-1}}
+\addcontentsline{toc}{paragraph}{例}
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi})}
+\tightlist
+\item
+  任意の距離空間 \(X\) はそれ自身開集合でかつ閉集合でもある．
+\item
+  開球は開集合で，閉球は閉集合である．
+\item
+  \(I_n = [0, 1] \times \dotsb \times [0, 1] \subset \boldsymbol{R}^n\)
+  は \(\boldsymbol{R}^n\) の閉集合である．\(\Box\)
+\end{enumerate}
+
+\hypertarget{open-closed-duality}{%
+\paragraph{補題}\label{open-closed-duality}}
+\addcontentsline{toc}{paragraph}{補題}
+
+\((X, d)\) を距離空間とする．\(X\) の部分集合 \(A \subset X\) について，
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(A\) が開集合 \(\Longleftrightarrow\) \(A^c\) が閉集合;
+\item
+  \(A\) が閉集合 \(\Longleftrightarrow\) \(A^c\) が開集合
+\end{enumerate}
+
+である．\(\Box\)
+
+\hypertarget{ux8a3cux660e}{%
+\paragraph{証明}\label{ux8a3cux660e}}
+\addcontentsline{toc}{paragraph}{証明}
+
+一般に \((A^c)^c = A\) であるから，1.において \(A\) を \(A^c\)
+で置き換えれば2.が従う．よって，1.の同値関係を示す． \(A\)
+が開集合として，\(A^c\) 上の収束列 \(\{ x_n \}\) で \(A^c\)
+に収束しない，すなわち \(A\) の点 \(x \in A\)
+に収束するものを考える．\(x\) は \(A\) に属するから，ある正数
+\(\epsilon\) に対して \(B(x, \epsilon) \subset A\) が成立つ．点列
+\(\{ x_n \}\) の収束性より，この \(\epsilon\) に対してある番号
+\(N \in \boldsymbol{N}\) が存在して，\(n \ge N\) ならば
+\(d(x, x_n) \lt \epsilon\) となる．これは \(n \ge N\) のとき
+\(x_n \in B(x, \epsilon)\) となることを意味するが，そのとき
+\(x_n \in A\) であるから矛盾．よって \(A^c\) 上の収束性はすべて \(A^c\)
+の点に収束し，\(A^c\) は閉集合である．
+
+次に \(A^c\) は閉集合とする．\(A\) が開集合でないとき，どんな正数
+\(\epsilon > 0\) をとっても \(B(x, \epsilon) \subset A\)
+とできないような \(A\) の点 \(x\) が存在する．よって，任意の正数
+\(\epsilon > 0\) に対して \(y_\epsilon \in B(x, \epsilon) \setminus A\)
+となる点 \(y_\epsilon \in X\) をとれる．そこで，点列 \(\{ y_{1/n} \}\)
+を考えると，\(y_{1/n} \notin A\) であるからこれは \(A^c\)
+上の点列になっている．任意の正数 \(\epsilon > 0\)
+に対して，\(1/n \lt \epsilon\) ならば
+\(y_{1/n} \in B(x, 1/n) \subset B(x, \epsilon)\) であるから
+\(d(x, y_{1/n}) \lt \epsilon\)．これより，点列 \(\{ y_{1/n} \}\) は
+\(x\) に収束することが分かるが，これは \(A^c\)
+が閉集合であることに矛盾する．よって，\(A\) は開集合である．\(\Box\)
+
+\hypertarget{fundamental-properties-of-openness}{%
+\paragraph{定理}\label{fundamental-properties-of-openness}}
+\addcontentsline{toc}{paragraph}{定理}
+
+\((X, d)\) を距離空間とする．\(X\) のすべての開集合からなる集合族を
+\(\mathscr T\)，すべての閉集合からなる集合族を \(\mathscr F\)
+とすると，次が成立つ：
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi})}
+\tightlist
+\item
+  \(\emptyset, X \in \mathscr T\)，
+\item
+  \(X\) の任意の開集合 \(U, V \in \mathscr T\) に対して
+  \(U \cap V \in \mathscr T\)，
+\item
+  \(X\) の任意の開集合系 \(\mathscr U \subset \mathscr T\) に対して
+  \(\mathscr U^\# \in \mathscr T\);
+\item
+  \(\emptyset, X \in \mathscr F\)，
+\item
+  \(X\) の任意の閉集合 \(U, V \in \mathscr F\) に対して
+  \(U \cup V \in \mathscr F\)，
+\item
+  \(X\) の任意の閉集合系 \(\mathscr U \subset \mathscr F\) に対して
+  \(\bigcap_{ U \in \mathscr F } U \in \mathscr F\)．\(\Box\)
+\end{enumerate}
+
+\hypertarget{ux8a3cux660e-1}{%
+\paragraph{証明}\label{ux8a3cux660e-1}}
+\addcontentsline{toc}{paragraph}{証明}
+
+\protect\hyperlink{open-closed-duality}{補題}とde
+Morganの定理より，i.，ii.，iii.を示せば十分である． \(X \in \mathscr T\)
+はよい．\(\emptyset \in \mathscr T\) は
+\(\emptyset^c = X \in \mathscr F\) から分かる．ii.を示す．2つの開集合
+\(U, V \in \mathscr T\) が互いに素のとき，\(U \cap V = \emptyset\)
+は開集合である．\(U \cap V \neq \emptyset\) のとき，\(U \cap V\) の元
+\(x \in U \cap V\) を任意に選ぶ．\(x \in U\) であるから，ある正数
+\(\epsilon_1 > 0\) が存在して \(B(x, \epsilon_1) \subset U\)
+となる．同様に，ある正数 \(\epsilon_2 > 0\) が存在して
+\(B(x, \epsilon_2) \subset V\) となる．ここで
+\(\epsilon = \min \{ \epsilon_1, \epsilon_2 \}\)
+とおけば，\(B(x, \epsilon) \subset U \cap V\)
+となる．実際，\(y \in B(x, \epsilon)\)
+とすると，\(d(x, y) \lt \epsilon \le \epsilon_1\) だから
+\(y \in B(x, \epsilon_1)\)，従って \(y \in U\)．同様に \(y \in V\)
+も示せるから \(y \in U \cap V\)，すなわち
+\(B(x, \epsilon) \subset U \cap V\)．よって，\(U \cap V\)
+は開集合である．
+
+\(\mathscr U^\#\) が空でないような開集合系
+\(\mathscr U \subset \mathscr T\) をとる．\(x \in \mathscr U^\#\)
+とすると \(x\) はある開集合 \(U \in \mathscr U\) に属する．このとき
+\(B(x, \epsilon) \subset U\) となる正数 \(\epsilon > 0\)
+が存在し，\(B(x, \epsilon) \subset \mathscr U^\#\) となる．よって
+\(\mathscr U^\#\) も開集合．\(\Box\)
+
+有限個の開集合については，共通部分も和集合も開集合である．しかし，無限個の開集合の場合，その共通部分は開集合になるとは限らない（和集合は開集合になる）．
+同様に，無限個の閉集合の和集合が閉集合になるとは限らない．
+
+\hypertarget{ux4f8b-2}{%
+\paragraph{例}\label{ux4f8b-2}}
+\addcontentsline{toc}{paragraph}{例}
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi})}
+\tightlist
+\item
+  \(X = \boldsymbol{R}\) として，その開集合系
+  \(\{ A_n \subset \boldsymbol{R} \}\) を \(A_n = (-1 - 1/n, 1 + 1/n)\)
+  とする．このとき，\(\bigcap A_n = [-1, 1]\) は開集合でない．
+\item
+  同じく \(X = \boldsymbol{R}\) で \(I = (0, 1)\)
+  とおき，その閉部分集合系 \(\{ B_x \subset I \,:\,x \in I \}\) を
+  \(B_x = [x - \epsilon_x , x + \epsilon_x]\)
+  と定める．ただし，\(\epsilon_x = \min \{ x/2, (1-x)/2 \}\)
+  である．すると，\(\bigcup_{x \in I} B_x = I\) は閉集合でない．\(\Box\)
+\end{enumerate}
+
+\end{document}

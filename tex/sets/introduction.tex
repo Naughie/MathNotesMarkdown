@@ -1,7 +1,7 @@
 \PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[a5paper,pandoc]{bxjsarticle}
+\documentclass[b5paper,pandoc]{bxjsarticle}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -58,6 +58,8 @@
 \author{M. Nakata}
 \date{}
 
+\def\theparagraph{}
+\def\thesubparagraph{}
 \begin{document}
 \maketitle
 
@@ -133,6 +135,7 @@ X \setminus Y &= \{ a \,:\,a \in X \ \text{かつ} \ a \notin Y \}
 
 \hypertarget{ux4f8b}{%
 \paragraph{例}\label{ux4f8b}}
+\addcontentsline{toc}{paragraph}{例}
 
 \begin{enumerate}
 \def\labelenumi{\roman{enumi})}
@@ -197,6 +200,7 @@ union}）といい \(\coprod_{\lambda \in \Lambda} A_\lambda\)
 
 \hypertarget{properties-of-sets}{%
 \paragraph{定理}\label{properties-of-sets}}
+\addcontentsline{toc}{paragraph}{定理}
 
 \(\Lambda\) を添字集合とした，集合 \(X\) の部分集合族
 \(\{ A_\lambda \,:\,\lambda \in \Lambda \}\) と \(X\) の部分集合
@@ -211,9 +215,11 @@ laws}）とよぶ．\(\Box\)
 
 \hypertarget{ux8a3cux660e}{%
 \paragraph{証明}\label{ux8a3cux660e}}
+\addcontentsline{toc}{paragraph}{証明}
 
 \hypertarget{ux306eux8a3cux660e}{%
 \subparagraph{(4)の証明}\label{ux306eux8a3cux660e}}
+\addcontentsline{toc}{subparagraph}{(4)の証明}
 
 まず
 \(B \cup \left( \bigcup A_\lambda \right) = \bigcup ( B \cup A_\lambda )\)
@@ -252,6 +258,7 @@ laws}）とよぶ．\(\Box\)
 
 \hypertarget{ux306eux8a3cux660e-1}{%
 \subparagraph{(5)の証明}\label{ux306eux8a3cux660e-1}}
+\addcontentsline{toc}{subparagraph}{(5)の証明}
 
 まず
 \(B \cup \left( \bigcap A_\lambda \right) = \bigcap ( B \cup A_\lambda )\)
@@ -289,6 +296,7 @@ laws}）とよぶ．\(\Box\)
 
 \hypertarget{ux306eux8a3cux660e-2}{%
 \subparagraph{(6)の証明}\label{ux306eux8a3cux660e-2}}
+\addcontentsline{toc}{subparagraph}{(6)の証明}
 
 まず
 \(B \setminus \left( \bigcup A_\lambda \right) = \bigcap ( B \setminus A_\lambda )\)
@@ -399,6 +407,7 @@ correspondence}）という．
 
 \hypertarget{ux4f8b-1}{%
 \paragraph{例}\label{ux4f8b-1}}
+\addcontentsline{toc}{paragraph}{例}
 
 \begin{enumerate}
 \def\labelenumi{\roman{enumi})}
@@ -450,6 +459,7 @@ product}）といい，\(\prod_{\lambda \in \Lambda} A_\lambda\)
 
 \hypertarget{ux5b9aux7406}{%
 \paragraph{定理}\label{ux5b9aux7406}}
+\addcontentsline{toc}{paragraph}{定理}
 
 2つの集合 \(X, Y\) と \(X\) の部分集合族
 \(\{A_\lambda \subset X \,:\,\lambda \in \Lambda \}\) および \(X\) から
@@ -478,9 +488,11 @@ product}）といい，\(\prod_{\lambda \in \Lambda} A_\lambda\)
 
 \hypertarget{ux8a3cux660e-1}{%
 \paragraph{証明}\label{ux8a3cux660e-1}}
+\addcontentsline{toc}{paragraph}{証明}
 
 \hypertarget{ux306eux8a3cux660e-3}{%
 \subparagraph{(7)の証明}\label{ux306eux8a3cux660e-3}}
+\addcontentsline{toc}{subparagraph}{(7)の証明}
 
 \(A_1 \subset A_2\) とする．\(y \in f(A_1)\) のとき，\(x \in A_1\)
 が存在して \(y = f(x)\) となる．このときまた \(x \in A_2\) でもあるから
@@ -488,6 +500,7 @@ product}）といい，\(\prod_{\lambda \in \Lambda} A_\lambda\)
 
 \hypertarget{ux306eux8a3cux660e-4}{%
 \subparagraph{(8)の証明}\label{ux306eux8a3cux660e-4}}
+\addcontentsline{toc}{subparagraph}{(8)の証明}
 
 \(y \in f(\bigcup A_\lambda)\) とすると，ある \(\lambda' \in \Lambda\)
 と \(x \in A_{\lambda'}\) が存在して \(y = f(x)\) となる．よって
@@ -503,6 +516,7 @@ product}）といい，\(\prod_{\lambda \in \Lambda} A_\lambda\)
 
 \hypertarget{ux306eux8a3cux660e-5}{%
 \subparagraph{(9)の証明}\label{ux306eux8a3cux660e-5}}
+\addcontentsline{toc}{subparagraph}{(9)の証明}
 
 \(y \in f(\bigcap A_\lambda)\) とすると \(y = f(x)\) となる
 \(x \in \bigcap A_\lambda\) が存在する．すると各 \(\lambda\) に対して
@@ -520,6 +534,7 @@ product}）といい，\(\prod_{\lambda \in \Lambda} A_\lambda\)
 
 \hypertarget{ux306eux8a3cux660e-6}{%
 \subparagraph{(10)の証明}\label{ux306eux8a3cux660e-6}}
+\addcontentsline{toc}{subparagraph}{(10)の証明}
 
 \(y \in f(A_1) \setminus f(A_2)\) とすると，\(y \in f(A_1)\) より
 \(y = f(x)\) なる \(x \in A_1\) が存在する．一方 \(y \notin f(A_2)\)
@@ -539,6 +554,7 @@ product}）といい，\(\prod_{\lambda \in \Lambda} A_\lambda\)
 
 \hypertarget{ux306eux8a3cux660e-7}{%
 \subparagraph{(11), (12), (13), (14)の証明}\label{ux306eux8a3cux660e-7}}
+\addcontentsline{toc}{subparagraph}{(11), (12), (13), (14)の証明}
 
 \(f\) が全単射であるから \(f^{-1}\) も全単射．よって(7), (8), (9),
 (10)において \(f \colon X \to Y\) を \(f^{-1} \colon Y \to X\)
@@ -549,6 +565,7 @@ product}）といい，\(\prod_{\lambda \in \Lambda} A_\lambda\)
 
 \hypertarget{equivalent-statement-on-injectivity-and-surjectivity}{%
 \paragraph{定理}\label{equivalent-statement-on-injectivity-and-surjectivity}}
+\addcontentsline{toc}{paragraph}{定理}
 
 写像 \(f \colon X \to Y\) に対して次が成立つ：
 
@@ -565,9 +582,11 @@ product}）といい，\(\prod_{\lambda \in \Lambda} A_\lambda\)
 
 \hypertarget{ux8a3cux660e-2}{%
 \paragraph{証明}\label{ux8a3cux660e-2}}
+\addcontentsline{toc}{paragraph}{証明}
 
 \hypertarget{i.ux306eux8a3cux660e}{%
 \subparagraph{i.の証明}\label{i.ux306eux8a3cux660e}}
+\addcontentsline{toc}{subparagraph}{i.の証明}
 
 必要性を示す．\(f\) が単射ならば，任意の2元 \(x, x' \in X\) に対して
 \(f(x) = f(x')\) ならば \(x = x'\) である．よって，\(X\) の元
@@ -588,6 +607,7 @@ g(y) = \left\{ \begin{array}{ll} x & (\text{if}\ y = f(x)), \\ x_0 & (\text{if}\
 
 \hypertarget{ii.ux306eux8a3cux660e}{%
 \subparagraph{ii.の証明}\label{ii.ux306eux8a3cux660e}}
+\addcontentsline{toc}{subparagraph}{ii.の証明}
 
 \(f\) を全射とすると，任意の \(y \in Y\) に対して \(f(x) = y\) なる
 \(x \in X\) が少なくとも1つ存在する．そのうちの1つを適当に選び \(x_y\)
@@ -602,6 +622,7 @@ g(y) = \left\{ \begin{array}{ll} x & (\text{if}\ y = f(x)), \\ x_0 & (\text{if}\
 
 \hypertarget{ux5b9aux7406-1}{%
 \paragraph{定理}\label{ux5b9aux7406-1}}
+\addcontentsline{toc}{paragraph}{定理}
 
 写像 \(f \colon X \to Y\) に対して次が成立つ：
 
@@ -619,9 +640,11 @@ g(y) = \left\{ \begin{array}{ll} x & (\text{if}\ y = f(x)), \\ x_0 & (\text{if}\
 
 \hypertarget{ux8a3cux660e-3}{%
 \paragraph{証明}\label{ux8a3cux660e-3}}
+\addcontentsline{toc}{paragraph}{証明}
 
 \hypertarget{i.ux306eux8a3cux660e-1}{%
 \subparagraph{i.の証明}\label{i.ux306eux8a3cux660e-1}}
+\addcontentsline{toc}{subparagraph}{i.の証明}
 
 \(f\) を単射として，2つの写像 \(g_1, g_2 \colon Z \to X\) について
 \(fg_1 = fg_2\) となったとする．このとき \(g_1 = g_2\)
@@ -637,6 +660,7 @@ g(y) = \left\{ \begin{array}{ll} x & (\text{if}\ y = f(x)), \\ x_0 & (\text{if}\
 
 \hypertarget{ii.ux306eux8a3cux660e-1}{%
 \subparagraph{ii.の証明}\label{ii.ux306eux8a3cux660e-1}}
+\addcontentsline{toc}{subparagraph}{ii.の証明}
 
 まず \(f\) が全射ならば，\(h_1f = h_2f\) なる写像
 \(h_1, h_2 \colon Y \to Z\) に対して \(h_1 = h_2\) となる．実際，任意の
@@ -655,6 +679,7 @@ h_2(y) &= \left\{ \begin{array}{ll} 0 & (\text{if}\ y \neq y_0),\\ 1 & (\text{if
 
 \hypertarget{equivalence-of-existence-of-injection-and-surjection}{%
 \paragraph{系}\label{equivalence-of-existence-of-injection-and-surjection}}
+\addcontentsline{toc}{paragraph}{系}
 
 2つの集合 \(X\) と \(Y\) に対して，単射 \(\colon X \to Y\)
 が存在するための必要十分条件は全射 \(\colon Y \to X\)
@@ -672,6 +697,7 @@ h_2(y) &= \left\{ \begin{array}{ll} 0 & (\text{if}\ y \neq y_0),\\ 1 & (\text{if
 
 \hypertarget{bernstein-theorem}{%
 \paragraph{Bernsteinの定理}\label{bernstein-theorem}}
+\addcontentsline{toc}{paragraph}{Bernsteinの定理}
 
 2つの集合 \(X, Y\) に対して，以下の条件はすべて同値である：
 
@@ -693,6 +719,7 @@ h_2(y) &= \left\{ \begin{array}{ll} 0 & (\text{if}\ y \neq y_0),\\ 1 & (\text{if
 
 \hypertarget{ux8a3cux660e-5}{%
 \paragraph{証明}\label{ux8a3cux660e-5}}
+\addcontentsline{toc}{paragraph}{証明}
 
 ii.\(\;\Leftrightarrow\) iii. \(\Leftrightarrow\) iv.
 \(\Leftrightarrow\) v.
@@ -751,6 +778,7 @@ function}）とよばれる写像 \(\chi_A \colon X \to \{ 0, 1 \}\)
 
 \hypertarget{ux5b9aux7fa9}{%
 \paragraph{定義}\label{ux5b9aux7fa9}}
+\addcontentsline{toc}{paragraph}{定義}
 
 \(\sim\) を集合 \(X\) 上の2項関係とする．このとき次の性質を考える：
 
@@ -790,6 +818,7 @@ set}）という．半順序はよく \(\leqslant\) で表される． \((X, \le
 
 \hypertarget{ux4f8b-2}{%
 \paragraph{例}\label{ux4f8b-2}}
+\addcontentsline{toc}{paragraph}{例}
 
 \begin{enumerate}
 \def\labelenumi{\roman{enumi})}
@@ -849,6 +878,7 @@ projection}）とよぶ．各同値類 \([x]\) から1つ元を選ぶ写像
 
 \hypertarget{ux4f8b-3}{%
 \paragraph{例}\label{ux4f8b-3}}
+\addcontentsline{toc}{paragraph}{例}
 
 \begin{enumerate}
 \def\labelenumi{\roman{enumi})}
@@ -870,6 +900,7 @@ projection}）とよぶ．各同値類 \([x]\) から1つ元を選ぶ写像
 
 \hypertarget{ux5b9aux7fa9-1}{%
 \paragraph{定義}\label{ux5b9aux7fa9-1}}
+\addcontentsline{toc}{paragraph}{定義}
 
 集合 \(X, Y\) と写像 \(f \colon X \to Y\) が与えられたとする． \[
 x \sim_f y \Longleftrightarrow f(x) = f(y) \quad (x, y \in X)
@@ -882,6 +913,7 @@ kernel}）とよばれる \(X\) 上の同値関係 \(\sim_f\) を定義する．
 
 \hypertarget{ux6ce8}{%
 \paragraph{注}\label{ux6ce8}}
+\addcontentsline{toc}{paragraph}{注}
 
 商集合を圏論的に考える．2つの全射
 \(f \colon X \to Y,\ g \colon X \to Z\) に対して， \[

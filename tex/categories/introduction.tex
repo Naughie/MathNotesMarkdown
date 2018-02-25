@@ -1,0 +1,143 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[b5paper,pandoc]{bxjsarticle}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={圏論},
+            pdfauthor={M. Nakata},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{圏論}
+\author{M. Nakata}
+\date{}
+
+\def\theparagraph{}
+\def\thesubparagraph{}
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\hypertarget{ux53c2ux8003ux6587ux732e}{%
+\section{参考文献}\label{ux53c2ux8003ux6587ux732e}}
+
+\begin{itemize}
+\tightlist
+\item
+  Rotman. \emph{An Introduction to Homological Algebra}. Springer.
+\item
+  斎藤恭司，土岡俊介『ベーシック圏論
+  普遍性からの速習コース』（丸善出版）
+\end{itemize}
+
+\hypertarget{topology-introduction}{%
+\section{導入}\label{topology-introduction}}
+
+圏論とは，群，環，ベクトル空間，集合，位相空間などの数学的構造を一般化したものである．今ではその応用の範囲は広く及ぶ．
+
+\hypertarget{ux570f}{%
+\subsection{圏}\label{ux570f}}
+
+\hypertarget{ux5b9aux7fa9}{%
+\paragraph{定義}\label{ux5b9aux7fa9}}
+\addcontentsline{toc}{paragraph}{定義}
+
+\textbf{圏}（\emph{category}）\(\mathscr C\)
+は，以下の要素から構成される：
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi})}
+\tightlist
+\item
+  \textbf{対象}（\emph{object}）とよばれるものからなる類
+  \(\mathrm{obj}\,\mathscr C\)，
+\item
+  各対象 \(A, B \in \mathrm{obj}\,\mathscr C\) に対し，集合
+  \(\mathrm{Hom}\,(A, B)\) が対応する．\(\mathrm{Hom}\,(A,B)\) の元
+  \(f \in \mathrm{Hom}\,(A,B)\) を \(A\) から \(B\)
+  への\textbf{射}（\emph{morphism}）といい，\(f \colon A \to B\)
+  あるいは \(A \xrightarrow{f} B\) と表す．
+\end{enumerate}
+
+さらに，次の性質をみたす：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  各対象 \(A, B, A', B' \in \mathrm{obj}\,\mathscr C\)
+  に対し，\(A \neq A'\) または \(B \neq B'\) ならば
+  \(\mathrm{Hom}\,(A, B) \cap \mathrm{Hom}\,(A', B') = \emptyset\)
+  である．
+\item
+  \(\mathscr C\) における2つの射 \(f \colon A \to B\) と
+  \(g \colon B \to C\) に対し，\(f\) と \(g\)
+  の\textbf{合成射}（\emph{composite}）とよばれる射
+  \(gf \colon A \to C\)
+  が存在し結合律をみたす．すなわち，\(A \xrightarrow f B \xrightarrow g C \xrightarrow h D\)
+  のとき \(h(gf) = (hg)f\) が成立つ．
+\item
+  各対象 \(A \in \mathrm{obj}\,\mathscr C\)
+  に対し\textbf{恒等射}（\emph{identity}）とよばれる射
+  \(1_A \colon A \to A\) が存在し，\(f \colon A \to B\) ならば
+  \(f1_A = f\) および \(1_ B f = f\) が成立つ．
+\end{enumerate}
+
+\(\mathrm{obj}\,\mathscr C\) が小さい類のとき，すなわち
+\(\mathrm{obj}\,\mathscr C\) が集合のとき圏 \(\mathscr C\)
+は\textbf{小さい}（\emph{small}）という．
+
+\hypertarget{ux4f8b}{%
+\paragraph{例}\label{ux4f8b}}
+\addcontentsline{toc}{paragraph}{例}
+
+\end{document}

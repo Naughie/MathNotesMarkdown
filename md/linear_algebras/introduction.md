@@ -19,17 +19,17 @@ author: 'M. Nakata'
 
 ## ベクトル空間 {#vector-spaces}
 
-#### 定義 {#vector-space-def .definition}
+#### 定義 {#vector-space-def .definition .unnumbered}
 Abel群 $V$ に体 $F$ が作用していて次の**分配律**（*distributive laws*）をみたすとき，$V$ を $F$ 上の**ベクトル空間**（*vector space*）あるいは**線形空間**（*linear space*）という：
 
 - 任意の $u, v \in V$ と任意の $\mu, \lambda \in F$ に対して，$\lambda (u + v) = \lambda u + \lambda v,\ (\lambda + \mu) v = \lambda v + \mu v$.
 
 $V$ の元を**ベクトル**（*vector*），$F$ の元を**スカラー**（*scalar*）とよぶ．$F$ のことを**係数体**（*coefficient field*）とよび，$F$ による作用を**スカラー倍**（*scalar multiple*）という．$F = \bb R$ のとき，とくに**実ベクトル空間**（*real vector space*），$F = \bb C$ のとき**複素ベクトル空間**（*complex vector space*）という．$\Box$
 
-#### 定義 {#linear-subspace .definition}
+#### 定義 {#linear-subspace .definition .unnumbered}
 体 $F$ 上のベクトル空間 $V$ の部分集合 $U$ が $V$ の**線型部分空間**（*linear subspace*）あるいは**部分ベクトル空間**（*vector subspace*）であるとは，$0 \in U$ であって任意のベクトル $u, v \in U$ とスカラー $\lambda \in F$ に対して $u + v, \lambda u \in U$ が成立つことをいう．言い換えれば，$U$ が $V$ と同じ演算についてそれ自身ベクトル空間になっているとき，線型部分空間という．$\Box$
 
-#### 定義 {#operation-of-spaces .definition}
+#### 定義 {#operation-of-spaces .definition .unnumbered}
 $V$ を体 $F$ 上のベクトル空間とする．ベクトル $v \in V$，スカラー $\lambda \in F$ および $V$ の2つの線型部分空間 $U_1, U_2 \subset V$ に対して
 \begin{align*}
 Fv &= \{ \lambda' v \deli \lambda' \in F \},\\
@@ -39,10 +39,10 @@ U_1 - U_2 &= \{ u_1 - u_2 \deli u_1 \in U_1,\ u_2 \in U_2 \}
 \end{align*}
 とおく．$\Box$
 
-#### 定義 {#linear-independence .definition}
+#### 定義 {#linear-independence .definition .unnumbered}
 $V$ を体 $F$ 上のベクトル空間とする．$V$ の部分集合 $\{ u_1, \dotsc, u_n \} \subset V$ が**線形独立**（*linear independent*）あるいは**一次独立**であるとは，あるスカラー $\lambda_1, \dotsc, \lambda_n \in F$ に対して $\lambda_1 u_1 + \dotsb + \lambda_n u_n = 0$ となれば $\lambda_1 = \dotsb = \lambda_n = 0$ であることをいう．線形独立でないとき，**線形従属**（*linear dependent*）であるという．$\Box$
 
-#### 定義 {#spanned-space .definition}
+#### 定義 {#spanned-space .definition .unnumbered}
 $V$ を体 $F$ 上のベクトル空間とする．$V$ の部分集合 $U \subset V$ に対して，
 $$
 \span U = \{ \sum_{i = 1}^n \lambda_i u_i \deli n \in \bb N,\ \lambda_i \in F,\ u_i \in U \ (1 \le i \le n) \}
@@ -55,13 +55,13 @@ $$
 
 $\span U$ を $U$ によって**張られる**（*spanned*）空間といい，$U$ は $\span U$ を**張る**（*spans*）という．$\Box$
 
-#### 定義 {#basis-for-vector-space .definition}
+#### 定義 {#basis-for-vector-space .definition .unnumbered}
 $V$ を体 $F$ 上のベクトル空間，$B \subset V$ をその部分集合とする．$B$ が線形独立でかつ $V$ を張るとき，$B$ を $V$ の**基底**（*basis*）という．$B$ の各ベクトルが $\Lambda$ を添字集合として $e_\lambda \ (\lambda \in \Lambda)$ と書けるとき，$B$ を $(e_\lambda)_{\lambda \in \Lambda}$ あるいは単に $(e_\lambda)$ と表す．$\Box$
 
-#### 補題 {#number-of-basis-is-inv .lemma}
+#### 補題 {#number-of-basis-is-inv .lemma .unnumbered}
 体 $F$ 上のベクトル空間 $V$ の基底 $B$ で $|B| = n \lt \infty$ なるものが存在すれば，任意の $n + 1$ 個のベクトルは線形従属である．
 
-#### 証明 {.proof}
+#### 証明 {.proof .unnumbered}
 $B = (e_i)_{i = 1}^n \subset V$ を $V$ の基底とすると，任意の $n + 1$ 個のベクトル $v_1, \dotsc, v_{n+1} \in V$ は
 \begin{align}
 v_i = \sum_{j = 1}^n v_i^{(j)} e_j \quad (i = 1, \dotsc, n + 1)
@@ -73,16 +73,16 @@ v_i = \sum_{j = 1}^n v_i^{(j)} e_j \quad (i = 1, \dotsc, n + 1)
 だから，$B$ の線形独立性より，$\sum_{i = 1}^{n + 1} \lambda_i v_i^{(j)} = 0,\ j = 1, \dotsc, n$．これを $n + 1$ 個の変数 $\lambda_1, \dotsc, \lambda_{n+1}$ について解くと，行列論により非自明な解が存在する，すなわち $\sum_{i = 1}^{n + 1} \lambda_i v_i^{(j)} = 0,\ j = 1, \dotsc, n$ であって，ある $\lambda_k$ について $\lambda_k \neq 0$ となるようなスカラー $\lambda_1, \dotsc, \lambda_{n+1} \in F$ が存在する．これは $\{ v_1, \dotsc, v_{n + 1} \}$ が線形従属であることを意味する．
 $\Box$
 
-#### 定義 {#dimension-of-vector-space .definition}
+#### 定義 {#dimension-of-vector-space .definition .unnumbered}
 [補題](#number-of-basis-is-inv)より，ベクトル空間 $V$ に $|B| = n \lt \infty$ なる基底 $B \subset V$ が存在するとき，$n$ は基底の取り方に依らない．
 これを $\dim V = n$ と書いて $V$ の**次元**（*dimension*）という．このとき $V$ は**有限次元**（*finite dimensional*）であるといい，$\dim V \lt \infty$ とも表す．
 
 どのような自然数 $n \in \bb N$ に対しても，$|B| = n$ となる線形独立な部分集合 $B \subset V$ が存在するとき，$V$ は**無限次元**（*infinite dimensional*）といい，$\dim V = \infty$ と表す．$\Box$
 
-#### 定義 {#components-of-vector-in-finite-dimensional-space .definition}
+#### 定義 {#components-of-vector-in-finite-dimensional-space .definition .unnumbered}
 体 $F$ 上の $n$ 次元ベクトル空間 $V$ に基底 $B = (e_i)$ を1つ定めると，$V$ の任意のベクトル $v \in V$ は $(e_i)$ の線形結合で表せる．$v = \sum_{i = 1}^n v_i e_i$ のとき，$v_i \in F$ を $v$ の基底 $B$ に関する**第 $i$ 成分**（*$i$-th component*）という．このとき，$v = (v_1, \dotsc, v_n)$ あるいは単に $v = (v_i)$ と表す．$\Box$
 
-#### 定義 {#linear-map .definition}
+#### 定義 {#linear-map .definition .unnumbered}
 $V$ と $W$ を同じ係数体 $F$ 上のベクトル空間とする．$V$ から $W$ への写像 $T \colon V \to W$ が次の**線形性**（*linearity*）をみたすとき，$T$ を $V$ から $W$ への**線形写像**（*linear map*）あるいは**線形作用素**（*linear operator*）という：
 
 1. 任意のベクトル $u, v \in V$ に対して $T(u + v) = T(u) + T(v)$，
@@ -92,6 +92,6 @@ $T(u)$ を $Tu$ や $\langle T, u \rangle$ のようにも書く．
 
 $V$ から $W$ への線形写像全体の集合を $\cal L(V, W)$ と表す．また，$W = F$ を $F$ 上の1次元ベクトル空間とみたとき，$V^* = \cal L(V, F)$ を $V$ の**双対空間**（*dual space*）という．$\Box$
 
-#### 例 {.example}
+#### 例 {.example .unnumbered}
 
    i) 数ベクトル空間 $F^n$ は，自然に定義された和とスカラー倍によって $F$ 上のベクトル空間となる．とくに，$M_n(F) = F^{n^2}$ は $F$ 上の $n$ 次正方行列全体のベクトル空間であり，行列の間に非可換な積が定まっている．

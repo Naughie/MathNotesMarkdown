@@ -18,7 +18,7 @@ author: 'M. Nakata'
 
 ## 圏
 
-#### 定義 {.definition}
+#### 定義 {.definition .unnumbered}
 **圏**（*category*）$\scr C$ は，以下の要素から構成される：
 
  i) **対象**（*object*）とよばれるものからなる類 $\obj \scr C$，
@@ -33,4 +33,4 @@ B f = f$ が成立つ．
 
 $\obj \scr C$ が小さい類のとき，すなわち $\obj \scr C$ が集合のとき圏 $\scr C$ は**小さい**（*small*）という．
 
-#### 例 {.example}
+#### 例 {.example .unnumbered}
