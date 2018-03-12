@@ -9,7 +9,7 @@ SOURCES = $(wildcard $(MDDIR)/*/*.md)
 HTMLS = $(subst $(MDDIR)/,$(HTMLDIR)/,$(SOURCES:.md=.html))
 TEXS = $(subst $(MDDIR)/,$(TEXDIR)/,$(SOURCES:.md=.tex))
 MD2HTMLOPTS = -t html5 -f markdown --mathjax -N --toc -c $(CSS) --template=$(TEMPLATE)
-MD2TEXOPTS = -t latex -f markdown -N --toc -V papersize=b5 -V documentclass=bxjsarticle -V classoption=pandoc --template=$(TEMPLATE)
+MD2TEXOPTS = -t latex -f markdown -N --toc -V papersize=b5 -V documentclass=bxjsarticle -V classoption=pandoc -V fontsize=10pt -V fontfamily=cmbright --template=$(TEMPLATE)
 MD2HTML = $(COMPILER) $(MD2HTMLOPTS)
 MD2TEX = $(COMPILER) $(MD2TEXOPTS)
 GIT = git

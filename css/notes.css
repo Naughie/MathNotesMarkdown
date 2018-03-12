@@ -1,76 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:500');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800,300italic,400italic,600italic,700italic,800italic');
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
 body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  color: #24292e;
-  font-family: "HiraginoSans-W3", sans-serif;
-  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  font-family: 'Open Sans', 'Noto Sans JP', sans-serif;
+  font-size: 1rem;
   line-height: 1.5;
   word-wrap: break-word;
 }
 
 h1, h2, h3,
-h4, h5, h6 {
-  font-family: "HiraginoSans", sans-serif;
+h5, h6 {
 }
 
 strong {
 }
 
+h4 {
+}
+
 em {
-  font-weight: bold;
-}
-
-.definition {
-}
-
-.example {
-}
-
-.lemma {
-}
-
-.theorem {
-}
-
-.proposition {
-}
-
-.proof {
 }
 
 code,
 kbd,
 pre {
-  font-family: "SourceHanCodeJP-Light", monospace;
-  font-size: 1em;
+  font-family: 'Source Code Pro', monospace;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.9em;
+  background: #f1f1f1;
+  color: #6e6b5e;
 }
 
 code > div,
 kbd > div,
 pre > div {
-  background-color: rgba(27,31,35,0.05);
-  background-color: #d6d8da;
 }
 
 code > span,
 kbd > span,
 pre > span {
-  font-family: "SourceHanCodeJP-LightIt", monospace;
-  border-bottom: solid 1px green;
 }
 
 code > em,
 kbd > em,
 pre > em {
-  font-family: "SourceHanCodeJP-LightIt", monospace;
-  border-bottom: none;
 }
 
 code > strong,
 kbd > strong,
 pre > strong {
-  font-family: "SourceHanCodeJP-Regular", monospace;
-  color: deeppink;
 }
 
 code > em > strong,
@@ -79,9 +63,6 @@ kbd > em > strong,
 kbd > strong > em,
 pre > em > strong,
 pre > strong > em {
-  font-family: "SourceHanCodeJP-RegularIt", monospace;
-  border-bottom: none;
-  color: deeppink;
 }
 
 .pl-c {
@@ -377,11 +358,6 @@ dd {
   margin-left: 0;
 }
 
-pre {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
 .octicon {
   vertical-align: text-bottom;
 }
@@ -454,8 +430,7 @@ blockquote,
 ul,
 ol,
 dl,
-table,
-pre {
+table {
   margin-top: 0;
   margin-bottom: 16px;
 }
@@ -641,12 +616,8 @@ img {
 }
 
 code {
-  padding: 0;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  margin: 0;
-  font-size: 85%;
-  background-color: rgba(27,31,35,0.05);
+  display: inline-block;
+  padding: 0.1em 0.3em;
   border-radius: 3px;
 }
 
@@ -661,13 +632,11 @@ pre {
 }
 
 pre>code {
-  padding: 0;
-  margin: 0;
-  font-size: 100%;
+  display: block;
+  padding: 0.5em;
+  overflow: auto;
   word-break: normal;
   white-space: pre;
-  background: transparent;
-  border: 0;
 }
 
 .highlight {
@@ -679,8 +648,7 @@ pre>code {
   word-break: normal;
 }
 
-.highlight pre,
-pre {
+.highlight pre {
   padding: 16px;
   overflow: auto;
   font-size: 85%;
@@ -690,15 +658,6 @@ pre {
 }
 
 pre code {
-  display: inline;
-  max-width: auto;
-  padding: 0;
-  margin: 0;
-  overflow: visible;
-  line-height: inherit;
-  word-wrap: normal;
-  background-color: transparent;
-  border: 0;
 }
 
 pre code::before,

@@ -121,7 +121,7 @@ T_f^{(n)} &= \sum_{k = 1}^n \frac{f_k}{3^k},&\quad T_f &= \sum_{k = 1}^\infty \f
 \end{align*}
 と定義する（$B$ はbinary，$T$ はternaryの頭文字）．このとき，$\beta \colon 2^{\bb N} \to (0, 1)$ は全射で $\tau \colon 2^{\bb N} \to (0, 1)$ は単射であることを示す．
 
-任意の実数 $r \in (0, 1)$ は2進少数展開 $r = \sum r_k 2^{-k}$ を持つ．そこで写像 $R \colon n \mapsto r_n$ を考えれば，$\beta(R) = B_R = r$．よって $\beta$ は全射．次に，$f, g \colon \bb N \to 2$ であって，$f \neq g,\ \tau(f) = \tau(g)$ なるものが存在したとする．もし $\tau(f) = \tau(g) = 2/3$ ならば，$T_f = T_g = 0$ より $f = g = 0$ が従うから，$\tau(f) = \tau(g) \neq 2/3$（$0 \le T_f \le 1/3$ に注意）．このとき $T_f = T_g$．$f \neq g$ であるから，$f_n \neq g_n$ となる $n \in \bb N$ が存在する．そのような $n$ のうち最小のものを $m$ とすると，
+任意の実数 $r \in (0, 1)$ は2進少数展開 $r = \sum r_k 2^{-k}$ を持つ．そこで写像 $R \colon n \mapsto r_n$ を考えれば，$\beta(R) = B_R = r$．よって $\beta$ は全射．次に，$f, g \colon \bb N \to 2$ であって，$f \neq g,\ \tau(f) = \tau(g)$ なるものが存在したとする．もし $\tau(f) = \tau(g) = 2/3$ ならば，$T_f = T_g = 0$ より $f = g = 0$ が従うから，$\tau(f) = \tau(g) \neq 2/3$（$0 \le T_f \le 1/2$ に注意）．このとき $T_f = T_g$．$f \neq g$ であるから，$f_n \neq g_n$ となる $n \in \bb N$ が存在する．そのような $n$ のうち最小のものを $m$ とすると，
 $$
 T_f^{(n)} = T_g^{(n)} \ (n \lt m), \quad T_f^{(m)} \neq T_g^{(m)}.
 $$
