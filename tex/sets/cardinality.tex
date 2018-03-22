@@ -1,19 +1,26 @@
 \PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[10pt,b5paper,pandoc]{bxjsarticle}
-\usepackage[]{cmbright}
+\documentclass[pandoc,base=10pt,b5j,precisetext]{bxjsarticle}
 \usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
+\usepackage{mathrsfs}
+\usepackage{textcomp}
+\usepackage{mathcomp}
+\usepackage{fouriernc}
+\usepackage{ifuptex,ifxetex,ifluatex}
+\ifuptex
+  \usepackage[hiragino-elcapitan-pron]{pxchfon}
+  \usepackage[uplatex,deluxe]{otf}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage[T1]{fontenc}
 \fi
+\usepackage{fixltx2e} % provides \textsubscript
+\ifluatex
+  \usepackage[hiragino-pron,match,deluxe]{luatexja-preset}
+  \usepackage{luatexja-otf}
+  \usepackage[lutf8x]{luainputenc}
+\else
+\usepackage{tikz}
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
@@ -69,12 +76,20 @@
 \setcounter{tocdepth}{3}
 \tableofcontents
 }
-\hypertarget{ux6fc3ux5ea6}{%
-\section{濃度}\label{ux6fc3ux5ea6}}
-
-集合論においては，集合の元が具体的に何であるかは重要ではない．したがって，\(\{ 0, 1, 2 \}\)
-と \(\{ 0, -1, -2 \}\)
-に違いはない．もちろん，集合としては異なるけれどこれらを区別することは本質ではない．このように，同じ個数の集合同士を区別する必要はない．集合の個数は濃度とよばれる．同じ濃度の集合は同じものとみなすのである．
+\newcommand{\deli}{\,:\,}
+\newcommand{\bb}[1]{\boldsymbol{#1}}
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\bar}[1]{\overline{#1}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\qset}[2]{{#1}/\!\,{#2}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\renewcommand{\cal}[1]{\mathcal{#1}}
+\newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\card}{\mathop{\mathrm{card}}\nolimits}
+\newcommand{\Span}{\mathop{\mathrm{span}}}
+\newcommand{\obj}{\mathop{\mathrm{obj}}}
+\newcommand{\Hom}{\mathop{\mathrm{Hom}}}
 
 \hypertarget{ux5b9aux7fa9}{%
 \paragraph{定義}\label{ux5b9aux7fa9}}
@@ -84,23 +99,23 @@
 への全単射が存在するとき\textbf{対等}（\emph{equivalent}）であるといい，\(X \cong Y\)
 と表す．この \(\cong\)
 は集合間の同値関係になる（ただし，「集合全体の集合」は存在しない．すべての集合を集めたものは\textbf{類}（\emph{class}）とよばれる．類においても集合と同じように同値関係を考えればよい）．集合
-\(X\) の同値類を \(\mathrm{card}(X)\) と書き，\(X\)
+\(X\) の同値類を \(\card(X)\) と書き，\(X\)
 の\textbf{濃度}（\emph{cardinality}, \emph{cardinal}）という． \(n\)
 個の元からなる有限集合 \(\{1, 2, \dotsc, n \}\) の濃度を \(n\)
-で表す．さらに，\(\aleph_0\) で \(\boldsymbol N\)
-の濃度を，\(\mathfrak c\) で \(\boldsymbol R\)
-の濃度を表し，\(\mathfrak c\) を\textbf{連続体濃度}（\emph{cardinality
-of the continuum}）という．濃度が \(\aleph_0\)
+で表す．さらに，\(\aleph_0\) で \(\bb N\) の濃度を，\(\mathfrak c\) で
+\(\bb R\) の濃度を表し，\(\mathfrak c\)
+を\textbf{連続体濃度}（\emph{cardinality of the
+continuum}）という．濃度が \(\aleph_0\)
 であるような集合は\textbf{可算集合}（\emph{countable
 set}）とよばれる．集合が有限集合か可算集合のいずれかであることを\textbf{高々可算}（\emph{at
 most
-countable}）であるという．\(\mathrm{card}(X) = \mathfrak m,\ \mathrm{card}(Y) = \mathfrak n\)
+countable}）であるという．\(\card(X) = \mathfrak m,\ \card(Y) = \mathfrak n\)
 であるような集合 \(X,\ Y\) に対して，\(Y^X\) の濃度を
 \(\mathfrak n^{\mathfrak m}\) で表す．
-\(\{ X_\lambda \,:\,\lambda \in \Lambda \}\)
+\(\{ X_\lambda \deli \lambda \in \Lambda \}\)
 を互いに素な集合族とするとき，濃度の和と積をそれぞれ \begin{align*}
-\sum_{\lambda \in \Lambda} \mathrm{card}(X_\lambda) &= \mathrm{card}(\coprod_{\lambda \in \Lambda} X_\lambda),\\
-\prod_{\lambda \in \Lambda} \mathrm{card}(X_\lambda) &= \mathrm{card}(\prod_{\lambda \in \Lambda} X_\lambda)
+\sum_{\lambda \in \Lambda} \card(X_\lambda) &= \card(\coprod_{\lambda \in \Lambda} X_\lambda),\\
+\prod_{\lambda \in \Lambda} \card(X_\lambda) &= \card(\prod_{\lambda \in \Lambda} X_\lambda)
 \end{align*} と定義する．\(\Box\)
 
 以下では，\protect\hyperlink{equivalence-of-existence-of-injection-and-surjection}{系}と\protect\hyperlink{bernstein-theorem}{Bernsteinの定理}は一々断らない．
@@ -109,13 +124,13 @@ countable}）であるという．\(\mathrm{card}(X) = \mathfrak m,\ \mathrm{car
 \paragraph{補題}\label{ux88dcux984c}}
 \addcontentsline{toc}{paragraph}{補題}
 
-濃度の和，積および冪乗はwell-definedである．すなわち，\(\{ X_\lambda \,:\,\lambda \in \Lambda \}, \{ Y_\lambda \,:\,\lambda \in \Lambda \}\)
+濃度の和，積および冪乗はwell-definedである．すなわち，\(\{ X_\lambda \deli \lambda \in \Lambda \}, \{ Y_\lambda \deli \lambda \in \Lambda \}\)
 をともに互いに素な集合族であって，各 \(\lambda \in \Lambda\) に対して
-\(\mathrm{card}(X_\lambda) = \mathrm{card}(Y_\lambda)\)
-なるものとすると， \begin{align*}
-\mathrm{card}(\coprod X_\lambda) &= \mathrm{card}(\coprod Y_\lambda),\\
-\mathrm{card}(\prod X_\lambda) &= \mathrm{card}(\prod Y_\lambda),\\
-\mathrm{card}(X_1^{X_2}) &= \mathrm{card}(Y_1^{Y_2}).\ \Box
+\(\card(X_\lambda) = \card(Y_\lambda)\) なるものとすると，
+\begin{align*}
+\card(\coprod X_\lambda) &= \card(\coprod Y_\lambda),\\
+\card(\prod X_\lambda) &= \card(\prod Y_\lambda),\\
+\card(X_1^{X_2}) &= \card(Y_1^{Y_2}).\ \Box
 \end{align*}
 
 \hypertarget{ux8a3cux660e}{%
@@ -123,7 +138,7 @@ countable}）であるという．\(\mathrm{card}(X) = \mathfrak m,\ \mathrm{car
 \addcontentsline{toc}{paragraph}{証明}
 
 仮定より，全単射の族
-\(\{ f_\lambda \colon X_\lambda \to Y_\lambda \,:\,\lambda \in \Lambda \}\)
+\(\{ f_\lambda \colon X_\lambda \to Y_\lambda \deli \lambda \in \Lambda \}\)
 が存在する．このとき \begin{align*}
 \coprod f_\lambda (x) &= f_{\mu}(x) \quad (\text{if}\ x \in X_\mu),\\
 \left(\prod f_\lambda (x)\right)_\mu &= f_\mu (x_\mu)
@@ -145,8 +160,8 @@ countable}）であるという．\(\mathrm{card}(X) = \mathfrak m,\ \mathrm{car
 \(\prod f_\lambda (x) = y\)．よって \(\prod f_\lambda\)
 は単射でもある．以上より，\(\coprod f_\lambda\) と \(\prod f_\lambda\)
 は全単射であるから， \begin{align*}
-\mathrm{card}(\coprod X_\lambda) &= \mathrm{card}(\coprod Y_\lambda),\\
-\mathrm{card}(\prod X_\lambda) &= \mathrm{card}(\prod Y_\lambda).
+\card(\coprod X_\lambda) &= \card(\coprod Y_\lambda),\\
+\card(\prod X_\lambda) &= \card(\prod Y_\lambda).
 \end{align*} 最後に，\(f \colon X_2 \to X_1\) に
 \(\hat f = f_1ff_2^{-1}\) を対応させれば，これが \(X_1^{X_2}\) から
 \(Y_1^{Y_2}\) への全単射となる．実際，\(\hat f = \hat g\) ならば
@@ -154,7 +169,7 @@ countable}）であるという．\(\mathrm{card}(X) = \mathfrak m,\ \mathrm{car
 となる．また，\(h \colon Y_2 \to Y_1\) に対して \(f = f_1^{-1}hf_2\)
 とおけば \(\hat f = h\) となる．よって写像 \(f \mapsto \hat f\)
 は全単射であり， \[
-\mathrm{card}(X_1^{X_2}) = \mathrm{card}(Y_1^{Y_2})
+\card(X_1^{X_2}) = \card(Y_1^{Y_2})
 \] が言える．\(\Box\)
 
 \hypertarget{ux88dcux984c-1}{%
@@ -162,10 +177,10 @@ countable}）であるという．\(\mathrm{card}(X) = \mathfrak m,\ \mathrm{car
 \addcontentsline{toc}{paragraph}{補題}
 
 集合 \(X\) と \(Y\)
-が与えられたとし，\(\mathfrak m = \mathrm{card}(X),\ \mathfrak n = \mathrm{card}(Y)\)
+が与えられたとし，\(\mathfrak m = \card(X),\ \mathfrak n = \card(Y)\)
 とおく．単射 \(\colon X \to Y\) が存在するとき
-\(\mathfrak m \leqslant\mathfrak n\)
-とすると，これは濃度の順序関係を定める．また，\(\mathfrak m \leqslant\mathfrak n\)
+\(\mathfrak m \le \mathfrak n\)
+とすると，これは濃度の順序関係を定める．また，\(\mathfrak m \le \mathfrak n\)
 であるための必要十分条件は全射 \(\colon Y \to X\)
 が存在することである．\(\Box\)
 
@@ -173,37 +188,36 @@ countable}）であるという．\(\mathrm{card}(X) = \mathfrak m,\ \mathrm{car
 \paragraph{証明}\label{ux8a3cux660e-1}}
 \addcontentsline{toc}{paragraph}{証明}
 
-\(\mathfrak m \leqslant\mathfrak n\) の必要十分条件が全射
-\(\colon Y \to X\) の存在であることはよい． \(\leqslant\)
+\(\mathfrak m \le \mathfrak n\) の必要十分条件が全射 \(\colon Y \to X\)
+の存在であることはよい． \(\le\)
 が順序関係であることを確かめる．まず，全単射 \(1_X \colon X \to X\)
-が存在するから \(\mathfrak m \leqslant\mathfrak m\)
-である．\(\mathfrak m \leqslant\mathfrak n\) かつ
-\(\mathfrak n \leqslant\mathfrak m\) のとき単射 \(\colon X \to Y\)
-および \(\colon Y \to X\) が存在するから，全単射 \(\colon X \to Y\)
+が存在するから \(\mathfrak m \le \mathfrak m\)
+である．\(\mathfrak m \le \mathfrak n\) かつ
+\(\mathfrak n \le \mathfrak m\) のとき単射 \(\colon X \to Y\) および
+\(\colon Y \to X\) が存在するから，全単射 \(\colon X \to Y\)
 が存在する． 従って \(\mathfrak m = \mathfrak n\)．最後に，\(X, Y, Z\)
 は集合で
-\(\mathfrak m = \mathrm{card}(X),\ \mathfrak n = \mathrm{card}(Y),\ \mathfrak l = \mathrm{card}(Z)\)
-とおき，\(\mathfrak m \leqslant\mathfrak n\) かつ
-\(\mathfrak n \leqslant\mathfrak l\) とする．このとき2つの単射
+\(\mathfrak m = \card(X),\ \mathfrak n = \card(Y),\ \mathfrak l = \card(Z)\)
+とおき，\(\mathfrak m \le \mathfrak n\) かつ
+\(\mathfrak n \le \mathfrak l\) とする．このとき2つの単射
 \(f \colon X \to Y\) および \(g \colon Y \to Z\)
 が存在する．\(gf \colon X \to Z\) は単射である．実際，\(gf(x) = gf(x')\)
 ならば \(f(x) = f(x')\)，従って \(x = x'\)．よって \(X\) から \(Z\)
-への単射が存在するから \(\mathfrak m \leqslant\mathfrak l\)． 以上で
-\(\leqslant\) が順序関係であることを示せた．\(\Box\)
+への単射が存在するから \(\mathfrak m \le \mathfrak l\)． 以上で \(\le\)
+が順序関係であることを示せた．\(\Box\)
 
 \hypertarget{ux547dux984c}{%
 \paragraph{命題}\label{ux547dux984c}}
 \addcontentsline{toc}{paragraph}{命題}
 
-\(a, b \in \boldsymbol R,\ a \lt b\) とする． \begin{align}
-&\mathrm{card}(\boldsymbol Z) = \mathrm{card}(\boldsymbol Q) = \aleph_0,\\
-&\mathrm{card}([a, b]) = \mathrm{card}((a, b)) = \mathfrak c,\\
+\(a, b \in \bb R,\ a \lt b\) とする． \begin{align}
+&\card(\bb Z) = \card(\bb Q) = \aleph_0,\\
+&\card([a, b]) = \card((a, b)) = \mathfrak c,\\
 &2^{\aleph_0} = \mathfrak c,\\
-&2 \leqslant\mathfrak n \Longrightarrow \mathfrak m \lt \mathfrak n^{\mathfrak m}.
-\end{align}
-ここで，\([a,b] = \{ x \in \boldsymbol R \,:\,a \leqslant x \leqslant b \}\)
+&2 \le \mathfrak n \Longrightarrow \mathfrak m \lt \mathfrak n^{\mathfrak m}.
+\end{align} ここで，\([a,b] = \{ x \in \bb R \deli a \le x \le b \}\)
 を\textbf{閉区間}（\emph{closed
-interval}）といい，\((a, b) = \{ x \in \boldsymbol R \,:\,a \lt x \lt b \}\)
+interval}）といい，\((a, b) = \{ x \in \bb R \deli a \lt x \lt b \}\)
 を\textbf{開区間}（\emph{open interval}）という．
 
 ここから特に，\(\aleph_0 \lt \mathfrak c\) が分かる．
@@ -216,12 +230,10 @@ interval}）といい，\((a, b) = \{ x \in \boldsymbol R \,:\,a \lt x \lt b \}\
 \subparagraph{(1)の証明}\label{ux306eux8a3cux660e}}
 \addcontentsline{toc}{subparagraph}{(1)の証明}
 
-\(n \in \boldsymbol N\)
-に対して，\(\phi(2n - 1) = -n,\ \phi(2n) = n - 1\)
-とすれば，\(\phi \colon \boldsymbol N \to \boldsymbol Z\)
-は全単射となる．よって
-\(\mathrm{card}(\boldsymbol Z) = \aleph_0\)．\(\boldsymbol N\) から
-\(\boldsymbol Q\) への全単射を式で表すのは難しい．有理数列 \(\{ a_n \}\)
+\(n \in \bb N\) に対して，\(\phi(2n - 1) = -n,\ \phi(2n) = n - 1\)
+とすれば，\(\phi \colon \bb N \to \bb Z\) は全単射となる．よって
+\(\card(\bb Z) = \aleph_0\)．\(\bb N\) から \(\bb Q\)
+への全単射を式で表すのは難しい．有理数列 \(\{ a_n \}\)
 を次の数列とする： \[
 0, 1, \frac 12,  \frac 13, \frac 23, \frac 34, \frac 14, \frac 15, \frac 25, \frac 35, \frac 45, \frac 56, \frac 16, \frac 17, \frac 27, \dotsc
 \] 具体的には以下の手順で求める：
@@ -230,7 +242,7 @@ interval}）といい，\((a, b) = \{ x \in \boldsymbol R \,:\,a \lt x \lt b \}\
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \(n/m\ (m, n \in \boldsymbol N,\ 1 \leqslant n \leqslant m)\)
+  \(n/m\ (m, n \in \bb N,\ 1 \le n \le m)\)
   の形の有理数を，\(1 / (2q - 1), \dotsc, (2q - 1) / (2q - 1), 2q / 2q, \dotsc, 1 / 2q\)
   の順番で並べる．
 \item
@@ -240,84 +252,79 @@ interval}）といい，\((a, b) = \{ x \in \boldsymbol R \,:\,a \lt x \lt b \}\
 \end{enumerate}
 
 こうして \(\{ a_n \}\)
-を得る．この構成から分かるように，\(\boldsymbol Q' = \{ x \in \boldsymbol Q \,:\,0 \leqslant x \leqslant 1 \}\)
-とおくと，写像 \(n \mapsto a_n\) は \(\boldsymbol N\) から
-\(\boldsymbol Q'\) への全単射になる．あとは \(\boldsymbol Q'\) と
-\(\boldsymbol Q\) が対等であることを示せばよい．\(\boldsymbol Q'\) は
-\(\boldsymbol Q\) の部分集合である \(\boldsymbol Q'\)
-自身と対等であるのは明らかだから，\(\boldsymbol Q\) から
-\(\boldsymbol Q'' = \{ x \in \boldsymbol Q \,:\,0 \lt x \lt 1 \} \subset \boldsymbol Q'\)
-への全単射の存在を言う．\(x \in \boldsymbol Q''\) に対して，
-\begin{align*}
-\psi(x) = \left\{ \begin{array}{ll} \frac{x - 1/2}x = 1 - \frac 1{2x} & (\text{if}\ x \leqslant\frac 12),\\
+を得る．この構成から分かるように，\(\bb Q' = \{ x \in \bb Q \deli 0 \le x \le 1 \}\)
+とおくと，写像 \(n \mapsto a_n\) は \(\bb N\) から \(\bb Q'\)
+への全単射になる．あとは \(\bb Q'\) と \(\bb Q\)
+が対等であることを示せばよい．\(\bb Q'\) は \(\bb Q\) の部分集合である
+\(\bb Q'\) 自身と対等であるのは明らかだから，\(\bb Q\) から
+\(\bb Q'' = \{ x \in \bb Q \deli 0 \lt x \lt 1 \} \subset \bb Q'\)
+への全単射の存在を言う．\(x \in \bb Q''\) に対して， \begin{align*}
+\psi(x) = \left\{ \begin{array}{ll} \frac{x - 1/2}x = 1 - \frac 1{2x} & (\text{if}\ x \le \frac 12),\\
 \frac{x - 1/2}{1 - x} = -1 + \frac 1{2(1 - x)} & (\text{if}\ x \gt \frac 12) \end{array} \right.
-\end{align*} とすると，\(\psi \colon \boldsymbol Q'' \to \boldsymbol Q\)
+\end{align*} とすると，\(\psi \colon \bb Q'' \to \bb Q\)
 は全単射である．実際，\(x \lt x' \lt 1/2 \lt y \lt y'\) のとき
 \(\psi(x) \lt \psi(x') \lt \psi(1/2) = 0 \lt \psi(y) \lt \psi(y')\)
-だから，\(\psi\) は単射．また，任意に \(z \in \boldsymbol Q\)
+だから，\(\psi\) は単射．また，任意に \(z \in \bb Q\)
 を取ると，\(z \gt 0\) ならば \[
 \frac 12 \lt \frac{2z + 1}{2(z + 1)} \lt 1,\quad \psi\left( \frac{2z + 1}{2(z + 1)} \right) = z
 \] となり，\(z \lt 0\) ならば \[
 0 \lt \frac 1{2(1 - z)} \lt \frac 12,\quad \psi\left( \frac 1{2(1 - z)} \right) = z
-\] となるから，\(\psi\) は全射でもある．よって \(\boldsymbol Q''\) と
-\(\boldsymbol Q\) は対等であり，従って
-\(\mathrm{card}(\boldsymbol Q) = \mathrm{card}(\boldsymbol Q') = \aleph_0\)．
+\] となるから，\(\psi\) は全射でもある．よって \(\bb Q''\) と \(\bb Q\)
+は対等であり，従って \(\card(\bb Q) = \card(\bb Q') = \aleph_0\)．
 
 \hypertarget{ux306eux8a3cux660e-1}{%
 \subparagraph{(2)の証明}\label{ux306eux8a3cux660e-1}}
 \addcontentsline{toc}{subparagraph}{(2)の証明}
 
-まず \(\mathrm{card}((a, b)) = \mathfrak c\) は， \[
+まず \(\card((a, b)) = \mathfrak c\) は， \[
 f(x) = \tan\left( \frac \pi2 \cdot \frac{2x - (a + b)}{b - a} \right)
-\] によって定まる写像 \(f \colon (a, b) \to \boldsymbol R\)
-が全単射であることから分かる．次に
-\(\mathrm{card}([a, b]) = \mathfrak c\) を考える．\(\boldsymbol R\) と
-\((a, b) \subset [a, b]\) が対等であることは示した．当然 \([a, b]\) は
-\([a, b] \subset \boldsymbol R\) と対等だから，結局 \([a, b]\) と
-\(\boldsymbol R\) は対等で，\(\mathrm{card}([a, b]) = \mathfrak c\)．
+\] によって定まる写像 \(f \colon (a, b) \to \bb R\)
+が全単射であることから分かる．次に \(\card([a, b]) = \mathfrak c\)
+を考える．\(\bb R\) と \((a, b) \subset [a, b]\)
+が対等であることは示した．当然 \([a, b]\) は \([a, b] \subset \bb R\)
+と対等だから，結局 \([a, b]\) と \(\bb R\)
+は対等で，\(\card([a, b]) = \mathfrak c\)．
 
 \hypertarget{ux306eux8a3cux660e-2}{%
 \subparagraph{(3)の証明}\label{ux306eux8a3cux660e-2}}
 \addcontentsline{toc}{subparagraph}{(3)の証明}
 
-\(2^{\boldsymbol N}\) から開区間 \((0, 1)\)
+\(2^{\bb N}\) から開区間 \((0, 1)\)
 への単射と全射をそれぞれ構成する．以下，簡単のため \(2 = \{ 0, 1 \}\)
-と書く．写像 \(f \colon \boldsymbol N \to 2\) に対して \begin{align*}
+と書く．写像 \(f \colon \bb N \to 2\) に対して \begin{align*}
 B_f^{(n)} &= \sum_{k = 1}^n \frac{f_k}{2^k},&\quad B_f &= \sum_{k = 1}^\infty \frac{f_k}{2^k},\\
 T_f^{(n)} &= \sum_{k = 1}^n \frac{f_k}{3^k},&\quad T_f &= \sum_{k = 1}^\infty \frac{f_k}{3^k},\\
 \end{align*} とおき， \begin{align*}
 \beta(f) &= \left\{ \begin{array}{ll} B_f & (\text{if}\ B_f \in (0, 1)),\\ \frac 12 & (\text{if}\ B_f \notin (0, 1)), \end{array} \right. \\
 \tau(f) &= \left\{ \begin{array}{ll} T_f & (\text{if}\ T_f \in (0, 1)),\\ \frac 23 & (\text{if}\ T_f \notin (0, 1)), \end{array} \right. \\
 \end{align*} と定義する（\(B\) はbinary，\(T\)
-はternaryの頭文字）．このとき，\(\beta \colon 2^{\boldsymbol N} \to (0, 1)\)
-は全射で \(\tau \colon 2^{\boldsymbol N} \to (0, 1)\)
-は単射であることを示す．
+はternaryの頭文字）．このとき，\(\beta \colon 2^{\bb N} \to (0, 1)\)
+は全射で \(\tau \colon 2^{\bb N} \to (0, 1)\) は単射であることを示す．
 
 任意の実数 \(r \in (0, 1)\) は2進少数展開 \(r = \sum r_k 2^{-k}\)
 を持つ．そこで写像 \(R \colon n \mapsto r_n\)
 を考えれば，\(\beta(R) = B_R = r\)．よって \(\beta\)
-は全射．次に，\(f, g \colon \boldsymbol N \to 2\)
+は全射．次に，\(f, g \colon \bb N \to 2\)
 であって，\(f \neq g,\ \tau(f) = \tau(g)\)
 なるものが存在したとする．もし \(\tau(f) = \tau(g) = 2/3\)
 ならば，\(T_f = T_g = 0\) より \(f = g = 0\)
-が従うから，\(\tau(f) = \tau(g) \neq 2/3\)（\(0 \leqslant T_f \leqslant 1/2\)
+が従うから，\(\tau(f) = \tau(g) \neq 2/3\)（\(0 \le T_f \le 1/2\)
 に注意）．このとき \(T_f = T_g\)．\(f \neq g\)
-であるから，\(f_n \neq g_n\) となる \(n \in \boldsymbol N\)
+であるから，\(f_n \neq g_n\) となる \(n \in \bb N\)
 が存在する．そのような \(n\) のうち最小のものを \(m\) とすると， \[
 T_f^{(n)} = T_g^{(n)} \ (n \lt m), \quad T_f^{(m)} \neq T_g^{(m)}.
 \] そこで，\(f_m = 1 \gt 0 = g_m\) としてもよく，そのとき
 \(T_f^{(m)} \gt T_g^{(m)}\) が成立つ．さて，新しい写像
-\(f', g' \colon \boldsymbol N \to 2\) を， \begin{align*}
-f'_n &= f_n \ (n \leqslant m), &\quad f'_n &= 0 \ (n \gt m),\\
-g'_n &= g_n \ (n \leqslant m), &\quad g'_n &= 1 \ (n \gt m)
+\(f', g' \colon \bb N \to 2\) を， \begin{align*}
+f'_n &= f_n \ (n \le m), &\quad f'_n &= 0 \ (n \gt m),\\
+g'_n &= g_n \ (n \le m), &\quad g'_n &= 1 \ (n \gt m)
 \end{align*} と定義する．すると，簡単な計算より， \begin{align*}
 T_{f'} &= T_f^{(m - 1)} + \frac 1{3^m},\\
 T_{g'} &= T_g^{(m - 1)} + \frac 1{2 \cdot 3^m},\\
-\end{align*} が分かる．ここから
-\(T_g \leqslant T_{g'} \lt T_{f'} \leqslant T_f\)
+\end{align*} が分かる．ここから \(T_g \le T_{g'} \lt T_{f'} \le T_f\)
 となるから，\(T_f \neq T_g\)．従って \(\tau\) の単射性が示された．
 
-以上より \(2^{\aleph_0} = \mathrm{card}((0, 1)) = \mathfrak c\) となる．
+以上より \(2^{\aleph_0} = \card((0, 1)) = \mathfrak c\) となる．
 
 \hypertarget{ux306eux8a3cux660e-3}{%
 \subparagraph{(4)の証明}\label{ux306eux8a3cux660e-3}}
@@ -325,13 +332,13 @@ T_{g'} &= T_g^{(m - 1)} + \frac 1{2 \cdot 3^m},\\
 
 この証明は\textbf{Cantorの対角線論法}（\emph{Cantor's diagonal
 argument}）とよばれる．\(X, Y\)
-を集合として，\(\mathfrak m = \mathrm{card}(X),\ \mathfrak n = \mathrm{card}(Y)\)
-とおく．\(\mathfrak n \geqslant 2\) とする．単射 \(\colon X \to Y^X\)
+を集合として，\(\mathfrak m = \card(X),\ \mathfrak n = \card(Y)\)
+とおく．\(\mathfrak n \ge 2\) とする．単射 \(\colon X \to Y^X\)
 の存在はすぐに分かる．たとえば \(Y\) の異なる2元 \(a, b \in Y\)
-を選び（\(\mathfrak n \geqslant 2\)
-だから選ぶことができる），\(x \in X\) に対して
-\(\chi_x(x) = a\)，\(y \neq x\) のとき \(\chi_x(y) = b\) とすれば，写像
-\(x \mapsto \chi_x\) が単射である． 全射 \(\colon X \to Y^X\)
+を選び（\(\mathfrak n \ge 2\) だから選ぶことができる），\(x \in X\)
+に対して \(\chi_x(x) = a\)，\(y \neq x\) のとき \(\chi_x(y) = b\)
+とすれば，写像 \(x \mapsto \chi_x\) が単射である． 全射
+\(\colon X \to Y^X\)
 が存在しないことを示すために，\(f \colon X \to Y^X\) を全射とする．
 
 ここで，写像 \(g \colon X \to Y\) を，\(f(x)(x) = a\) のとき

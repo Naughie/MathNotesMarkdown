@@ -4,9 +4,18 @@ author: 'M. Nakata'
 ---
 \newcommand{\deli}{\,:\,}
 \newcommand{\bb}[1]{\boldsymbol{#1}}
-\renewcommand{\bar}{\overline}
-\renewcommand{\scr}{\mathscr}
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\bar}[1]{\overline{#1}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\qset}[2]{{#1}/\!\,{#2}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\renewcommand{\cal}[1]{\mathcal{#1}}
 \newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\card}{\mathop{\mathrm{card}}\nolimits}
+\newcommand{\Span}{\mathop{\mathrm{span}}}
+\newcommand{\obj}{\mathop{\mathrm{obj}}}
+\newcommand{\Hom}{\mathop{\mathrm{Hom}}}
 
 # 参考文献
 - Loring W. Tu. *An Introduction to Manifolds*. Springer.

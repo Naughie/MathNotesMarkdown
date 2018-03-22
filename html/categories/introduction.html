@@ -50,18 +50,18 @@
 <p>圏論とは，群，環，ベクトル空間，集合，位相空間などの数学的構造を一般化したものである．今ではその応用の範囲は広く及ぶ．</p>
 <h2 id="圏"><span class="header-section-number">2.1</span> 圏</h2>
 <h4 id="定義" class="definition unnumbered">定義</h4>
-<p><strong>圏</strong>（<em>category</em>）<span class="math inline">\(\mathscr C\)</span> は，以下の要素から構成される：</p>
+<p><strong>圏</strong>（<em>category</em>）<span class="math inline">\(\mathscr{C}\)</span> は，以下の要素から構成される：</p>
 <ol type="i">
-<li><strong>対象</strong>（<em>object</em>）とよばれるものからなる類 <span class="math inline">\(\mathrm{obj}\,\mathscr C\)</span>，</li>
-<li>各対象 <span class="math inline">\(A, B \in \mathrm{obj}\,\mathscr C\)</span> に対し，集合 <span class="math inline">\(\mathrm{Hom}\,(A, B)\)</span> が対応する．<span class="math inline">\(\mathrm{Hom}\,(A,B)\)</span> の元 <span class="math inline">\(f \in \mathrm{Hom}\,(A,B)\)</span> を <span class="math inline">\(A\)</span> から <span class="math inline">\(B\)</span> への<strong>射</strong>（<em>morphism</em>）といい，<span class="math inline">\(f \colon A \to B\)</span> あるいは <span class="math inline">\(A \xrightarrow{f} B\)</span> と表す．</li>
+<li><strong>対象</strong>（<em>object</em>）とよばれるものからなる類 <span class="math inline">\(\mathop{\mathrm{obj}}\mathscr{C}\)</span>，</li>
+<li>各対象 <span class="math inline">\(A, B \in \mathop{\mathrm{obj}}\mathscr{C}\)</span> に対し，集合 <span class="math inline">\(\mathop{\mathrm{Hom}}(A, B)\)</span> が対応する．<span class="math inline">\(\mathop{\mathrm{Hom}}(A,B)\)</span> の元 <span class="math inline">\(f \in \mathop{\mathrm{Hom}}(A,B)\)</span> を <span class="math inline">\(A\)</span> から <span class="math inline">\(B\)</span> への<strong>射</strong>（<em>morphism</em>）といい，<span class="math inline">\(f \colon A \to B\)</span> あるいは <span class="math inline">\(A \xrightarrow{f} B\)</span> と表す．</li>
 </ol>
 <p>さらに，次の性質をみたす：</p>
 <ol type="1">
-<li>各対象 <span class="math inline">\(A, B, A&#39;, B&#39; \in \mathrm{obj}\,\mathscr C\)</span> に対し，<span class="math inline">\(A \neq A&#39;\)</span> または <span class="math inline">\(B \neq B&#39;\)</span> ならば <span class="math inline">\(\mathrm{Hom}\,(A, B) \cap \mathrm{Hom}\,(A&#39;, B&#39;) = \emptyset\)</span> である．</li>
-<li><span class="math inline">\(\mathscr C\)</span> における2つの射 <span class="math inline">\(f \colon A \to B\)</span> と <span class="math inline">\(g \colon B \to C\)</span> に対し，<span class="math inline">\(f\)</span> と <span class="math inline">\(g\)</span> の<strong>合成射</strong>（<em>composite</em>）とよばれる射 <span class="math inline">\(gf \colon A \to C\)</span> が存在し結合律をみたす．すなわち，<span class="math inline">\(A \xrightarrow f B \xrightarrow g C \xrightarrow h D\)</span> のとき <span class="math inline">\(h(gf) = (hg)f\)</span> が成立つ．</li>
-<li>各対象 <span class="math inline">\(A \in \mathrm{obj}\,\mathscr C\)</span> に対し<strong>恒等射</strong>（<em>identity</em>）とよばれる射 <span class="math inline">\(1_A \colon A \to A\)</span> が存在し，<span class="math inline">\(f \colon A \to B\)</span> ならば <span class="math inline">\(f1_A = f\)</span> および <span class="math inline">\(1_ B f = f\)</span> が成立つ．</li>
+<li>各対象 <span class="math inline">\(A, B, A&#39;, B&#39; \in \mathop{\mathrm{obj}}\mathscr{C}\)</span> に対し，<span class="math inline">\(A \neq A&#39;\)</span> または <span class="math inline">\(B \neq B&#39;\)</span> ならば <span class="math inline">\(\mathop{\mathrm{Hom}}(A, B) \cap \mathop{\mathrm{Hom}}(A&#39;, B&#39;) = \emptyset\)</span> である．</li>
+<li><span class="math inline">\(\mathscr{C}\)</span> における2つの射 <span class="math inline">\(f \colon A \to B\)</span> と <span class="math inline">\(g \colon B \to C\)</span> に対し，<span class="math inline">\(f\)</span> と <span class="math inline">\(g\)</span> の<strong>合成射</strong>（<em>composite</em>）とよばれる射 <span class="math inline">\(gf \colon A \to C\)</span> が存在し結合律をみたす．すなわち，<span class="math inline">\(A \xrightarrow f B \xrightarrow g C \xrightarrow h D\)</span> のとき <span class="math inline">\(h(gf) = (hg)f\)</span> が成立つ．</li>
+<li>各対象 <span class="math inline">\(A \in \mathop{\mathrm{obj}}\mathscr{C}\)</span> に対し<strong>恒等射</strong>（<em>identity</em>）とよばれる射 <span class="math inline">\(1_A \colon A \to A\)</span> が存在し，<span class="math inline">\(f \colon A \to B\)</span> ならば <span class="math inline">\(f1_A = f\)</span> および <span class="math inline">\(1_ B f = f\)</span> が成立つ．</li>
 </ol>
-<p><span class="math inline">\(\mathrm{obj}\,\mathscr C\)</span> が小さい類のとき，すなわち <span class="math inline">\(\mathrm{obj}\,\mathscr C\)</span> が集合のとき圏 <span class="math inline">\(\mathscr C\)</span> は<strong>小さい</strong>（<em>small</em>）という．</p>
+<p><span class="math inline">\(\mathop{\mathrm{obj}}\mathscr{C}\)</span> が小さい類のとき，すなわち <span class="math inline">\(\mathop{\mathrm{obj}}\mathscr{C}\)</span> が集合のとき圏 <span class="math inline">\(\mathscr{C}\)</span> は<strong>小さい</strong>（<em>small</em>）という．</p>
 <h4 id="例" class="example unnumbered">例</h4>
 </body>
 </html>

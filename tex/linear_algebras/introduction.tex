@@ -1,19 +1,26 @@
 \PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[10pt,b5paper,pandoc]{bxjsarticle}
-\usepackage[]{cmbright}
+\documentclass[pandoc,base=10pt,b5j,precisetext]{bxjsarticle}
 \usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
+\usepackage{mathrsfs}
+\usepackage{textcomp}
+\usepackage{mathcomp}
+\usepackage{fouriernc}
+\usepackage{ifuptex,ifxetex,ifluatex}
+\ifuptex
+  \usepackage[hiragino-elcapitan-pron]{pxchfon}
+  \usepackage[uplatex,deluxe]{otf}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage[T1]{fontenc}
 \fi
+\usepackage{fixltx2e} % provides \textsubscript
+\ifluatex
+  \usepackage[hiragino-pron,match,deluxe]{luatexja-preset}
+  \usepackage{luatexja-otf}
+  \usepackage[lutf8x]{luainputenc}
+\else
+\usepackage{tikz}
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
@@ -69,6 +76,21 @@
 \setcounter{tocdepth}{3}
 \tableofcontents
 }
+\newcommand{\deli}{\,:\,}
+\newcommand{\bb}[1]{\boldsymbol{#1}}
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\bar}[1]{\overline{#1}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\qset}[2]{{#1}/\!\,{#2}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\renewcommand{\cal}[1]{\mathcal{#1}}
+\newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\card}{\mathop{\mathrm{card}}\nolimits}
+\newcommand{\Span}{\mathop{\mathrm{span}}}
+\newcommand{\obj}{\mathop{\mathrm{obj}}}
+\newcommand{\Hom}{\mathop{\mathrm{Hom}}}
+
 \hypertarget{ux53c2ux8003ux6587ux732e}{%
 \section{参考文献}\label{ux53c2ux8003ux6587ux732e}}
 
@@ -111,11 +133,10 @@ space}）あるいは\textbf{線形空間}（\emph{linear space}）という：
 の元を\textbf{スカラー}（\emph{scalar}）とよぶ．\(F\)
 のことを\textbf{係数体}（\emph{coefficient field}）とよび，\(F\)
 による作用を\textbf{スカラー倍}（\emph{scalar
-multiple}）という．\(F = \boldsymbol R\)
+multiple}）という．\(F = \bb R\)
 のとき，とくに\textbf{実ベクトル空間}（\emph{real vector
-space}），\(F = \boldsymbol C\)
-のとき\textbf{複素ベクトル空間}（\emph{complex vector
-space}）という．\(\Box\)
+space}），\(F = \bb C\) のとき\textbf{複素ベクトル空間}（\emph{complex
+vector space}）という．\(\Box\)
 
 \hypertarget{linear-subspace}{%
 \paragraph{定義}\label{linear-subspace}}
@@ -136,10 +157,10 @@ subspace}）であるとは，\(0 \in U\) であって任意のベクトル \(u,
 \(V\) を体 \(F\) 上のベクトル空間とする．ベクトル \(v \in V\)，スカラー
 \(\lambda \in F\) および \(V\) の2つの線型部分空間
 \(U_1, U_2 \subset V\) に対して \begin{align*}
-Fv &= \{ \lambda' v \,:\,\lambda' \in F \},\\
-\lambda U_1 &= \{ \lambda u \,:\,u \in U_1 \},\\
-U_1 + U_2 &= \{ u_1 + u_2 \,:\,u_1 \in U_1,\ u_2 \in U_2 \},\\
-U_1 - U_2 &= \{ u_1 - u_2 \,:\,u_1 \in U_1,\ u_2 \in U_2 \}
+Fv &= \{ \lambda' v \deli \lambda' \in F \},\\
+\lambda U_1 &= \{ \lambda u \deli u \in U_1 \},\\
+U_1 + U_2 &= \{ u_1 + u_2 \deli u_1 \in U_1,\ u_2 \in U_2 \},\\
+U_1 - U_2 &= \{ u_1 - u_2 \deli u_1 \in U_1,\ u_2 \in U_2 \}
 \end{align*} とおく．\(\Box\)
 
 \hypertarget{linear-independence}{%
@@ -161,19 +182,18 @@ dependent}）であるという．\(\Box\)
 
 \(V\) を体 \(F\) 上のベクトル空間とする．\(V\) の部分集合
 \(U \subset V\) に対して， \[
-\mathrm{span}\,U = \{ \sum_{i = 1}^n \lambda_i u_i \,:\,n \in \boldsymbol N,\ \lambda_i \in F,\ u_i \in U \ (1 \le i \le n) \}
+\Span U = \{ \sum_{i = 1}^n \lambda_i u_i \deli n \in \bb N,\ \lambda_i \in F,\ u_i \in U \ (1 \le i \le n) \}
 \] とおく．\(U\) が有限個のベクトル \(\{ u_1, \dotsc, u_n \}\)
 から成るとき， \[
-\mathrm{span}\,U = \sum Fu_i
+\Span U = \sum Fu_i
 \]
 である．\(\sum_{i = 1}^n \lambda_i u_i \ (\lambda_i \in F, u_i \in U)\)
-で表される \(\mathrm{span}\,U\) の各ベクトルのことを
-\(u_1, \dotsc, u_n\) の\textbf{線形結合}（\emph{linear
-combination}）とよぶ．
+で表される \(\Span U\) の各ベクトルのことを \(u_1, \dotsc, u_n\)
+の\textbf{線形結合}（\emph{linear combination}）とよぶ．
 
-\(\mathrm{span}\,U\) を \(U\)
+\(\Span U\) を \(U\)
 によって\textbf{張られる}（\emph{spanned}）空間といい，\(U\) は
-\(\mathrm{span}\,U\) を\textbf{張る}（\emph{spans}）という．\(\Box\)
+\(\Span U\) を\textbf{張る}（\emph{spans}）という．\(\Box\)
 
 \hypertarget{basis-for-vector-space}{%
 \paragraph{定義}\label{basis-for-vector-space}}
@@ -227,7 +247,7 @@ v_i = \sum_{j = 1}^n v_i^{(j)} e_j \quad (i = 1, \dotsc, n + 1)
 は\textbf{有限次元}（\emph{finite
 dimensional}）であるといい，\(\dim V \lt \infty\) とも表す．
 
-どのような自然数 \(n \in \boldsymbol N\) に対しても，\(|B| = n\)
+どのような自然数 \(n \in \bb N\) に対しても，\(|B| = n\)
 となる線形独立な部分集合 \(B \subset V\) が存在するとき，\(V\)
 は\textbf{無限次元}（\emph{infinite
 dimensional}）といい，\(\dim V = \infty\) と表す．\(\Box\)
@@ -265,9 +285,9 @@ map}）あるいは\textbf{線形作用素}（\emph{linear operator}）という
 
 \(T(u)\) を \(Tu\) や \(\langle T, u \rangle\) のようにも書く．
 
-\(V\) から \(W\) への線形写像全体の集合を \(\mathcal L(V, W)\)
+\(V\) から \(W\) への線形写像全体の集合を \(\cal L(V, W)\)
 と表す．また，\(W = F\) を \(F\)
-上の1次元ベクトル空間とみたとき，\(V^* = \mathcal L(V, F)\) を \(V\)
+上の1次元ベクトル空間とみたとき，\(V^* = \cal L(V, F)\) を \(V\)
 の\textbf{双対空間}（\emph{dual space}）という．\(\Box\)
 
 \hypertarget{ux4f8b}{%

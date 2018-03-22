@@ -1,19 +1,26 @@
 \PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[10pt,b5paper,pandoc]{bxjsarticle}
-\usepackage[]{cmbright}
+\documentclass[pandoc,base=10pt,b5j,precisetext]{bxjsarticle}
 \usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
+\usepackage{mathrsfs}
+\usepackage{textcomp}
+\usepackage{mathcomp}
+\usepackage{fouriernc}
+\usepackage{ifuptex,ifxetex,ifluatex}
+\ifuptex
+  \usepackage[hiragino-elcapitan-pron]{pxchfon}
+  \usepackage[uplatex,deluxe]{otf}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage[T1]{fontenc}
 \fi
+\usepackage{fixltx2e} % provides \textsubscript
+\ifluatex
+  \usepackage[hiragino-pron,match,deluxe]{luatexja-preset}
+  \usepackage{luatexja-otf}
+  \usepackage[lutf8x]{luainputenc}
+\else
+\usepackage{tikz}
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
@@ -69,6 +76,21 @@
 \setcounter{tocdepth}{3}
 \tableofcontents
 }
+\newcommand{\deli}{\,:\,}
+\newcommand{\bb}[1]{\boldsymbol{#1}}
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\bar}[1]{\overline{#1}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\qset}[2]{{#1}/\!\,{#2}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\renewcommand{\cal}[1]{\mathcal{#1}}
+\newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\card}{\mathop{\mathrm{card}}\nolimits}
+\newcommand{\Span}{\mathop{\mathrm{span}}}
+\newcommand{\obj}{\mathop{\mathrm{obj}}}
+\newcommand{\Hom}{\mathop{\mathrm{Hom}}}
+
 \hypertarget{ux53c2ux8003ux6587ux732e}{%
 \section{参考文献}\label{ux53c2ux8003ux6587ux732e}}
 
@@ -93,19 +115,17 @@
 \paragraph{定義}\label{ux5b9aux7fa9}}
 \addcontentsline{toc}{paragraph}{定義}
 
-\textbf{圏}（\emph{category}）\(\mathscr C\)
-は，以下の要素から構成される：
+\textbf{圏}（\emph{category}）\(\scr C\) は，以下の要素から構成される：
 
 \begin{enumerate}
 \def\labelenumi{\roman{enumi})}
 \tightlist
 \item
   \textbf{対象}（\emph{object}）とよばれるものからなる類
-  \(\mathrm{obj}\,\mathscr C\)，
+  \(\obj \scr C\)，
 \item
-  各対象 \(A, B \in \mathrm{obj}\,\mathscr C\) に対し，集合
-  \(\mathrm{Hom}\,(A, B)\) が対応する．\(\mathrm{Hom}\,(A,B)\) の元
-  \(f \in \mathrm{Hom}\,(A,B)\) を \(A\) から \(B\)
+  各対象 \(A, B \in \obj \scr C\) に対し，集合 \(\Hom (A, B)\)
+  が対応する．\(\Hom(A,B)\) の元 \(f \in \Hom(A,B)\) を \(A\) から \(B\)
   への\textbf{射}（\emph{morphism}）といい，\(f \colon A \to B\)
   あるいは \(A \xrightarrow{f} B\) と表す．
 \end{enumerate}
@@ -116,27 +136,25 @@
 \def\labelenumi{\arabic{enumi})}
 \tightlist
 \item
-  各対象 \(A, B, A', B' \in \mathrm{obj}\,\mathscr C\)
-  に対し，\(A \neq A'\) または \(B \neq B'\) ならば
-  \(\mathrm{Hom}\,(A, B) \cap \mathrm{Hom}\,(A', B') = \emptyset\)
+  各対象 \(A, B, A', B' \in \obj \scr C\) に対し，\(A \neq A'\) または
+  \(B \neq B'\) ならば \(\Hom(A, B) \cap \Hom(A', B') = \emptyset\)
   である．
 \item
-  \(\mathscr C\) における2つの射 \(f \colon A \to B\) と
+  \(\scr C\) における2つの射 \(f \colon A \to B\) と
   \(g \colon B \to C\) に対し，\(f\) と \(g\)
   の\textbf{合成射}（\emph{composite}）とよばれる射
   \(gf \colon A \to C\)
   が存在し結合律をみたす．すなわち，\(A \xrightarrow f B \xrightarrow g C \xrightarrow h D\)
   のとき \(h(gf) = (hg)f\) が成立つ．
 \item
-  各対象 \(A \in \mathrm{obj}\,\mathscr C\)
+  各対象 \(A \in \obj \scr C\)
   に対し\textbf{恒等射}（\emph{identity}）とよばれる射
   \(1_A \colon A \to A\) が存在し，\(f \colon A \to B\) ならば
   \(f1_A = f\) および \(1_ B f = f\) が成立つ．
 \end{enumerate}
 
-\(\mathrm{obj}\,\mathscr C\) が小さい類のとき，すなわち
-\(\mathrm{obj}\,\mathscr C\) が集合のとき圏 \(\mathscr C\)
-は\textbf{小さい}（\emph{small}）という．
+\(\obj \scr C\) が小さい類のとき，すなわち \(\obj \scr C\)
+が集合のとき圏 \(\scr C\) は\textbf{小さい}（\emph{small}）という．
 
 \hypertarget{ux4f8b}{%
 \paragraph{例}\label{ux4f8b}}

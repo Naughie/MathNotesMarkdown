@@ -3,11 +3,19 @@ title: '線形空間'
 author: 'M. Nakata'
 ---
 \newcommand{\deli}{\,:\,}
-\newcommand{\bb}{\boldsymbol}
-\renewcommand{\bar}{\overline}
-\renewcommand{\scr}{\mathscr}
-\renewcommand{\cal}{\mathcal}
-\newcommand{\span}{\mathrm{span}\,}
+\newcommand{\bb}[1]{\boldsymbol{#1}}
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\bar}[1]{\overline{#1}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\qset}[2]{{#1}/\!\,{#2}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\renewcommand{\cal}[1]{\mathcal{#1}}
+\newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\card}{\mathop{\mathrm{card}}\nolimits}
+\newcommand{\Span}{\mathop{\mathrm{span}}}
+\newcommand{\obj}{\mathop{\mathrm{obj}}}
+\newcommand{\Hom}{\mathop{\mathrm{Hom}}}
 
 # 参考文献
 - 斎藤正彦『線型代数入門』（東京大学出版会）
@@ -45,15 +53,15 @@ $V$ を体 $F$ 上のベクトル空間とする．$V$ の部分集合 $\{ u_1, 
 #### 定義 {#spanned-space .definition .unnumbered}
 $V$ を体 $F$ 上のベクトル空間とする．$V$ の部分集合 $U \subset V$ に対して，
 $$
-\span U = \{ \sum_{i = 1}^n \lambda_i u_i \deli n \in \bb N,\ \lambda_i \in F,\ u_i \in U \ (1 \le i \le n) \}
+\Span U = \{ \sum_{i = 1}^n \lambda_i u_i \deli n \in \bb N,\ \lambda_i \in F,\ u_i \in U \ (1 \le i \le n) \}
 $$
 とおく．$U$ が有限個のベクトル $\{ u_1, \dotsc, u_n \}$ から成るとき，
 $$
-\span U = \sum Fu_i
+\Span U = \sum Fu_i
 $$
-である．$\sum_{i = 1}^n \lambda_i u_i \ (\lambda_i \in F, u_i \in U)$ で表される $\span U$ の各ベクトルのことを $u_1, \dotsc, u_n$ の**線形結合**（*linear combination*）とよぶ．
+である．$\sum_{i = 1}^n \lambda_i u_i \ (\lambda_i \in F, u_i \in U)$ で表される $\Span U$ の各ベクトルのことを $u_1, \dotsc, u_n$ の**線形結合**（*linear combination*）とよぶ．
 
-$\span U$ を $U$ によって**張られる**（*spanned*）空間といい，$U$ は $\span U$ を**張る**（*spans*）という．$\Box$
+$\Span U$ を $U$ によって**張られる**（*spanned*）空間といい，$U$ は $\Span U$ を**張る**（*spans*）という．$\Box$
 
 #### 定義 {#basis-for-vector-space .definition .unnumbered}
 $V$ を体 $F$ 上のベクトル空間，$B \subset V$ をその部分集合とする．$B$ が線形独立でかつ $V$ を張るとき，$B$ を $V$ の**基底**（*basis*）という．$B$ の各ベクトルが $\Lambda$ を添字集合として $e_\lambda \ (\lambda \in \Lambda)$ と書けるとき，$B$ を $(e_\lambda)_{\lambda \in \Lambda}$ あるいは単に $(e_\lambda)$ と表す．$\Box$

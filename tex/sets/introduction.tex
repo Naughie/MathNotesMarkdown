@@ -1,19 +1,26 @@
 \PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[10pt,b5paper,pandoc]{bxjsarticle}
-\usepackage[]{cmbright}
+\documentclass[pandoc,base=10pt,b5j,precisetext]{bxjsarticle}
 \usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
+\usepackage{mathrsfs}
+\usepackage{textcomp}
+\usepackage{mathcomp}
+\usepackage{fouriernc}
+\usepackage{ifuptex,ifxetex,ifluatex}
+\ifuptex
+  \usepackage[hiragino-elcapitan-pron]{pxchfon}
+  \usepackage[uplatex,deluxe]{otf}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage[T1]{fontenc}
 \fi
+\usepackage{fixltx2e} % provides \textsubscript
+\ifluatex
+  \usepackage[hiragino-pron,match,deluxe]{luatexja-preset}
+  \usepackage{luatexja-otf}
+  \usepackage[lutf8x]{luainputenc}
+\else
+\usepackage{tikz}
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
@@ -69,6 +76,21 @@
 \setcounter{tocdepth}{3}
 \tableofcontents
 }
+\newcommand{\deli}{\,:\,}
+\newcommand{\bb}[1]{\boldsymbol{#1}}
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\bar}[1]{\overline{#1}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\qset}[2]{{#1}/\!\,{#2}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\renewcommand{\cal}[1]{\mathcal{#1}}
+\newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\card}{\mathop{\mathrm{card}}\nolimits}
+\newcommand{\Span}{\mathop{\mathrm{span}}}
+\newcommand{\obj}{\mathop{\mathrm{obj}}}
+\newcommand{\Hom}{\mathop{\mathrm{Hom}}}
+
 \hypertarget{ux53c2ux8003ux6587ux732e}{%
 \section{参考文献}\label{ux53c2ux8003ux6587ux732e}}
 
@@ -123,15 +145,15 @@ set}）といい，\(X \subsetneq Y\) と書く．\(X\)
 における補集合を表す．
 
 集合 \(X\) の元がある条件 \(P\)
-をみたすもの全体であるとき，\(X = \{ a \,:\,P \}\)
+をみたすもの全体であるとき，\(X = \{ a \deli P \}\)
 と表す．\(X = \{ a \mid P \}\)
 と書くこともある．\(\alpha, \beta, \gamma, \dotsc\) 等で \(X\)
 の元を代表して \(X = \{ \alpha, \beta, \gamma, \dotsc \}\)
 などと書いてもよい．これによれば，和集合，共通部分，補集合はそれぞれ
 \begin{align}
-X \cup Y &= \{ a \,:\,a \in X \ \text{または} \ a \in Y \},\\
-X \cap Y &= \{ a \,:\,a \in X \ \text{かつ}   \ a \in Y \},\\
-X \setminus Y &= \{ a \,:\,a \in X \ \text{かつ} \ a \notin Y \}
+X \cup Y &= \{ a \deli a \in X \ \text{または} \ a \in Y \},\\
+X \cap Y &= \{ a \deli a \in X \ \text{かつ}   \ a \in Y \},\\
+X \setminus Y &= \{ a \deli a \in X \ \text{かつ} \ a \notin Y \}
 \end{align} となる．集合 \(X \setminus X\) を \(\emptyset\)
 と書き，\textbf{空集合}（\emph{empty set}, \emph{void set}）とよぶ．
 
@@ -143,59 +165,58 @@ X \setminus Y &= \{ a \,:\,a \in X \ \text{かつ} \ a \notin Y \}
 \def\labelenumi{\roman{enumi})}
 \tightlist
 \item
-  \(\boldsymbol N = \{ 1, 2, 3, \dotsc \}\)．自然数全体の集合．
+  \(\bb N = \{ 1, 2, 3, \dotsc \}\)．自然数全体の集合．
 \item
-  \(\boldsymbol Z = \{ \dotsc, -3, -2, -1, 0, 1, 2, 3, \dotsc \}\)．整数全体の集合．
+  \(\bb Z = \{ \dotsc, -3, -2, -1, 0, 1, 2, 3, \dotsc \}\)．整数全体の集合．
 \item
-  \(\boldsymbol Q = \{ m / n \,:\,m \in \boldsymbol Z, \ n \in \boldsymbol N \}\)．有理数全体の集合．
+  \(\bb Q = \{ m / n \deli m \in \bb Z, \ n \in \bb N \}\)．有理数全体の集合．
 \item
-  \(\boldsymbol R = \{ a \,:\,a \ \text{は実数}\}\)．実数全体の集合．\(r \in \boldsymbol R\)
-  に対して，\(\boldsymbol R_{>r}\) で \(r\)
-  より大きい実数全体の集合を表す．\(\boldsymbol Q\) や \(\boldsymbol Z\)
-  なども同様．
+  \(\bb R = \{ a \deli a \ \text{は実数}\}\)．実数全体の集合．\(r \in \bb R\)
+  に対して，\(\bb R_{>r}\) で \(r\)
+  より大きい実数全体の集合を表す．\(\bb Q\) や \(\bb Z\) なども同様．
 \item
-  \(\boldsymbol C = \{ a + b \mathrm{i}\} \,:\,a, b \in \boldsymbol R \}\)．複素数全体の集合．ただし，\(\mathrm{i}= \sqrt{-1}\)
+  \(\bb C = \{ a + b \i \} \deli a, b \in \bb R \}\)．複素数全体の集合．ただし，\(\i = \sqrt{-1}\)
   は虚数単位．
 \item
   \(A = \{ 1, 2, 3\}, B = \{3, 0, \pi\}\)
-  のとき，\(A \cup B = \{ 0, 1, 2, 3, \pi \},\ A \cap B = \{ 3 \},\ A \setminus B = \{ 1, 2 \}\)．また，\(A \subset \boldsymbol N, B \subset \boldsymbol C\)．
+  のとき，\(A \cup B = \{ 0, 1, 2, 3, \pi \},\ A \cap B = \{ 3 \},\ A \setminus B = \{ 1, 2 \}\)．また，\(A \subset \bb N, B \subset \bb C\)．
 \item
-  \(\boldsymbol N \subset \boldsymbol Z \subset \boldsymbol Q \subset \boldsymbol R \subset \boldsymbol C\)．
+  \(\bb N \subset \bb Z \subset \bb Q \subset \bb R \subset \bb C\)．
 \end{enumerate}
 
-\(\boldsymbol N, \boldsymbol Z, \boldsymbol Q\)
-は集合論によって定義できる．\(\boldsymbol Q\) から \(\boldsymbol R\)
-を造り出す操作を\textbf{完備化}（\emph{completion}）という．\(\boldsymbol R\)
-から \(\boldsymbol C\) は，\textbf{代数拡大}（\emph{algebraic
+\(\bb N, \bb Z, \bb Q\) は集合論によって定義できる．\(\bb Q\) から
+\(\bb R\)
+を造り出す操作を\textbf{完備化}（\emph{completion}）という．\(\bb R\)
+から \(\bb C\) は，\textbf{代数拡大}（\emph{algebraic
 extension}）によって得られる．\(\Box\)
 
 集合を要素とする集合を，\textbf{集合族}（\emph{family of
 sets}）あるいは\textbf{集合系}（\emph{system of
 sets}）とよぶ．集合族は，それに属する個々の集合を明示するために\textbf{インデックス}（\emph{index}）を付して表されることが多い．たとえばインデックスの集合を
-\(\Lambda\) としたとき，\(\{ A_\lambda \,:\,\lambda \in \Lambda \}\)
+\(\Lambda\) としたとき，\(\{ A_\lambda \deli \lambda \in \Lambda \}\)
 あるいは単に \(\{ A_\lambda \}\) のように書く．このとき \(\Lambda\)
 を\textbf{添字集合}（\emph{index
-set}）といい，\(\{ A_\lambda \,:\,\lambda \in \Lambda \}\) を
+set}）といい，\(\{ A_\lambda \deli \lambda \in \Lambda \}\) を
 \(\Lambda\) によって\textbf{添字付けられた集合族}（\emph{family of sets
 indiced by \(\Lambda\)}）という．集合族の各元 \(A_\lambda\)
 がすべて共通の集合 \(X\) の部分集合のとき，すなわちすべての
 \(A_\lambda\) に対して \(A_\lambda \subset X\)
-のとき，\(\{ A_\lambda \,:\,\lambda \in \Lambda \}\) を \(X\)
+のとき，\(\{ A_\lambda \deli \lambda \in \Lambda \}\) を \(X\)
 の\textbf{部分集合族}（\emph{family of
 subsets}）とよぶ．任意の相異なるインデックス
 \(\lambda, \mu \in \Lambda\) に対して
 \(A_\lambda \cap A_\mu = \emptyset\) であるとき，集合族
-\(\{ A_\lambda \,:\,\lambda \in \Lambda \}\)
+\(\{ A_\lambda \deli \lambda \in \Lambda \}\)
 は\textbf{互いに素}（\emph{pairwise disjoint}）という．集合族
-\(\{ A_\lambda \,:\,\lambda \in \Lambda \}\)
+\(\{ A_\lambda \deli \lambda \in \Lambda \}\)
 に対して，その\textbf{和集合}と\textbf{共通部分}を2つの集合の場合と同様に定義できる．すなわち，和集合とは少なくとも1つの
 \(A_\lambda\) に属する元の集合，共通部分はすべての \(A_\lambda\)
 に属する元の集合である．和集合は
-\(\bigcup \{ A_\lambda \,:\,\lambda \in \Lambda \}\) または
+\(\bigcup \{ A_\lambda \deli \lambda \in \Lambda \}\) または
 \(\bigcup_{\lambda \in \Lambda} A_\lambda\) や単に \(\bigcup A_\lambda\)
-と書く．共通部分も，\(\bigcap \{ A_\lambda \,:\,\lambda \in \Lambda \}\)
+と書く．共通部分も，\(\bigcap \{ A_\lambda \deli \lambda \in \Lambda \}\)
 や \(\bigcap_{\lambda \in \Lambda} A_\lambda\)，\(\bigcap A_\lambda\)
-のように書く．\(\{ A_\lambda \,:\,\lambda \in \Lambda \}\)
+のように書く．\(\{ A_\lambda \deli \lambda \in \Lambda \}\)
 が互いに素なとき，その和集合を\textbf{非交和}（\emph{disjoint
 union}）といい \(\coprod_{\lambda \in \Lambda} A_\lambda\)
 のように書くこともある．和集合，共通部分，補集合について次の重要な定理が成立つ．
@@ -205,7 +226,7 @@ union}）といい \(\coprod_{\lambda \in \Lambda} A_\lambda\)
 \addcontentsline{toc}{paragraph}{定理}
 
 \(\Lambda\) を添字集合とした，集合 \(X\) の部分集合族
-\(\{ A_\lambda \,:\,\lambda \in \Lambda \}\) と \(X\) の部分集合
+\(\{ A_\lambda \deli \lambda \in \Lambda \}\) と \(X\) の部分集合
 \(B \subset X\) に対して次が成立つ： \begin{align}
 &B \cup \left( \bigcup A_\lambda \right) = \bigcup ( B \cup A_\lambda ), &\quad & B \cap \left( \bigcap A_\lambda \right) = \bigcap ( B \cap A_\lambda );\\
 &B \cup \left( \bigcap A_\lambda \right) = \bigcap ( B \cup A_\lambda ), &\quad & B \cap \left( \bigcup A_\lambda \right) = \bigcup ( B \cap A_\lambda );\\
@@ -340,7 +361,7 @@ laws}）とよぶ．\(\Box\)
 pair}）という．ここで，「順序付けられた」とは，\(a\) と \(b\)
 を並べる順序を入れ替えることができないことをいう．すなわち，\((a,b)\) と
 \((b,a)\)
-は一般には一致しない．そこで，\(X \times Y = \{ (a,b) \,:\,a \in X,\ b \in Y \}\)
+は一般には一致しない．そこで，\(X \times Y = \{ (a,b) \deli a \in X,\ b \in Y \}\)
 とおき，これを \(X\) と \(Y\) の直積とする．\(X \times Y\) の2つの元
 \((a,b), (a',b') \in X \times Y\) は，\(a = a'\) かつ \(b = b'\)
 のとき等しいとする．したがって，\(a = b\) のとき，かつそのときに限り
@@ -359,21 +380,19 @@ pair}）という．ここで，「順序付けられた」とは，\(a\) と \(
 \(f \colon X \to Y\) と書いて \(f\) を \(X\) から \(Y\)
 への\textbf{写像}（\emph{map},
 \emph{mapping}），\textbf{関数}（\emph{function}）あるいは\textbf{対応}（\emph{correspondence}）という．関数という語は，主に
-\(Y = \boldsymbol R\) や \(Y = \boldsymbol C\) のときに用いる． \(afb\)
-のとき \(f(a) = b\) や \(fa = b\)，\(f \colon a \mapsto b\)
-などと書き，\(b\) を \(a\) での \(f\)
-の\textbf{値}（\emph{value}）あるいは \(a\) の \(f\)
-による\textbf{像}（\emph{image}）という．\(X = \boldsymbol N\) のときは
-\(f(a)\) を \(f_a\) と書いて \(f\) を \(Y\)
-上の点列ということも多い．\(f(a)\) を``\(f\) of
-\(a\)''なとという．また，\(f\) は \(a\) を \(b\)
+\(Y = \bb R\) や \(Y = \bb C\) のときに用いる． \(afb\) のとき
+\(f(a) = b\) や \(fa = b\)，\(f \colon a \mapsto b\) などと書き，\(b\)
+を \(a\) での \(f\) の\textbf{値}（\emph{value}）あるいは \(a\) の \(f\)
+による\textbf{像}（\emph{image}）という．\(X = \bb N\) のときは \(f(a)\)
+を \(f_a\) と書いて \(f\) を \(Y\) 上の点列ということも多い．\(f(a)\)
+を``\(f\) of \(a\)''なとという．また，\(f\) は \(a\) を \(b\)
 に\textbf{写像する}（\emph{maps \(a\) to \(b\)}, \emph{assigns \(b\) to
 \(a\)}），\(b\) は \(a\) に\textbf{対応する}（\emph{corresponds to
 \(a\)}）ともいう． \(X\) の部分集合 \(A \subset X\)
-に対し，\(f(A) = \{ f(a) \,:\,a \in A \} \subset Y\) とおいて \(f\)
+に対し，\(f(A) = \{ f(a) \deli a \in A \} \subset Y\) とおいて \(f\)
 による \(A\) の\textbf{像}（\emph{image}）という．とくに，\(f(X)\) は
 \(f\) の値域となる．\(Y\) の部分集合 \(B \subset Y\)
-に対して，\(f^{-1}(B) = \{ x \in X \,:\,f(x) \in B \} \subset X\) を
+に対して，\(f^{-1}(B) = \{ x \in X \deli f(x) \in B \} \subset X\) を
 \(f\) による \(B\) の\textbf{逆像}（\emph{inverse
 image}）とよぶ．シングルトン \(\{ y \} \subset Y\)
 に対してはその逆像を単に \(f^{-1}(y)\) で表す． \(f\) の値域が \(Y\)
@@ -440,7 +459,7 @@ correspondence}）という．
 に対して \(gf \colon X \to Z\) が全単射になることもまた簡単に分かる．
 
 \(\Lambda\) を添字集合とする集合族
-\(\{ A_\lambda \,:\,\lambda \in \Lambda \}\) を考える．\(\Lambda\) から
+\(\{ A_\lambda \deli \lambda \in \Lambda \}\) を考える．\(\Lambda\) から
 \(\bigcup A_\lambda\) への写像
 \(f \colon \Lambda \to \bigcup A_\lambda\) で，各
 \(\lambda \in \Lambda\) に対して \(f(\lambda) \in A_\lambda\)
@@ -464,7 +483,7 @@ product}）といい，\(\prod_{\lambda \in \Lambda} A_\lambda\)
 \addcontentsline{toc}{paragraph}{定理}
 
 2つの集合 \(X, Y\) と \(X\) の部分集合族
-\(\{A_\lambda \subset X \,:\,\lambda \in \Lambda \}\) および \(X\) から
+\(\{A_\lambda \subset X \deli \lambda \in \Lambda \}\) および \(X\) から
 \(Y\) への写像 \(f \colon X \to Y\)
 が与えられたとする．このとき次が成立つ：
 
@@ -476,7 +495,7 @@ product}）といい，\(\prod_{\lambda \in \Lambda} A_\lambda\)
 \end{align}
 
 さらに \(f\) が全単射のときは，\(Y\) の部分集合族
-\(\{B_\lambda \subset Y \,:\,\lambda \in \Lambda \}\)
+\(\{B_\lambda \subset Y \deli \lambda \in \Lambda \}\)
 に対して次が成立つ：
 
 \begin{align}
@@ -768,7 +787,7 @@ function}）とよばれる写像 \(\chi_A \colon X \to \{ 0, 1 \}\)
 が一対一に対応する．\(A\) の特性関数は，\(x \in A\) のとき
 \(\chi_A(x) = 1\)，\(x \notin A\) のとき \(\chi_A(x) = 0\)
 と定義される．逆に写像 \(\chi \colon X \to \{ 0, 1 \}\) が与えられたとき
-\(A = \{ x \in X \,:\,\chi(x) = 1 \}\) とおくことで，\(\chi\)
+\(A = \{ x \in X \deli \chi(x) = 1 \}\) とおくことで，\(\chi\)
 を特性関数とする部分集合 \(A\) が定まる．
 
 \hypertarget{ux540cux5024ux95a2ux4fc2}{%
@@ -808,13 +827,12 @@ relation}）という．反射的で推移的な反対称関係を\textbf{半順
 order}）といい，半順序関係が1つ定まった集合を\textbf{半順序集合}（\emph{partially
 ordered set},
 \emph{poset}）という．誤解のない場合は，半順序関係，半順序集合をそれぞれ単に\textbf{順序関係}（\emph{order}），\textbf{順序集合}（\emph{ordered
-set}）という．半順序はよく \(\leqslant\) で表される． \((X, \leqslant)\)
-を半順序集合とするとき，2つの元 \(x, y \in X\) であって
-\(x \leqslant y\) でも \(y \leqslant x\)
-でもないようなものが存在することもある．\(X\) の2元 \(x, y \in X\)
-は，\(x \leqslant y\) または \(y \leqslant x\)
+set}）という．半順序はよく \(\le\) で表される． \((X, \le)\)
+を半順序集合とするとき，2つの元 \(x, y \in X\) であって \(x \le y\) でも
+\(y \le x\) でもないようなものが存在することもある．\(X\) の2元
+\(x, y \in X\) は，\(x \le y\) または \(y \le x\)
 であるとき\textbf{比較可能}（\emph{comparable}）といい，比較可能でないとき\textbf{比較不可能}（\emph{incomparable}）という．\(X\)
-の任意の2元が比較可能であるとき，半順序 \(\leqslant\)
+の任意の2元が比較可能であるとき，半順序 \(\le\)
 を\textbf{全順序}（\emph{total order}）といい，\(X\)
 を\textbf{全順序集合}（\emph{totally ordered set}）という．\(\Box\)
 
@@ -826,18 +844,17 @@ set}）という．半順序はよく \(\leqslant\) で表される． \((X, \le
 \def\labelenumi{\roman{enumi})}
 \tightlist
 \item
-  実数上の相等関係 \(=\) は同値関係で，通常の順序 \(\leqslant\)
-  は全順序である．\(\geqslant\) も全順序である．
+  実数上の相等関係 \(=\) は同値関係で，通常の順序 \(\le\)
+  は全順序である．\(\ge\) も全順序である．
 \item
-  \(n \in \boldsymbol Z_{> 0}\) を1つ固定する．\(\boldsymbol Z\)
+  \(n \in \bb Z_{> 0}\) を1つ固定する．\(\bb Z\)
   上に，\(n \mid (x - y)\) によって定まる2項関係
   \(\equiv \ (\mathrm{mod}\ n)\) は同値関係である（\(a \mid b\) は \(a\)
   が \(b\) を割り切ることを表す．\(a\) divides \(b\).）．また
-  \(x \mid y\) は \(\boldsymbol Z_{> 0}\)
-  上の半順序であるが全順序ではない．
+  \(x \mid y\) は \(\bb Z_{> 0}\) 上の半順序であるが全順序ではない．
 \item
   \(X\) を集合として，\(X\) の部分集合全体の集合を
-  \(2^X = \{ A \,:\,A \subset X \}\) と書く．\(X\)
+  \(2^X = \{ A \deli A \subset X \}\) と書く．\(X\)
   の部分集合間の包含関係 \(\subset\) は \(2^X\)
   上の半順序であるが全順序ではない．\(X\) の部分集合 \(A, B \subset X\)
   に対して \(A \sim B\) を \(A\) から \(B\)
@@ -847,35 +864,34 @@ set}）という．半順序はよく \(\leqslant\) で表される． \((X, \le
   三角形全体の集合を \(T\) とする．三角形の合同関係 \(\equiv\)
   および相似関係 \(\approx\) はともに \(T\) 上の同値関係となる．
 \item
-  \(\boldsymbol R^{n\times} = \boldsymbol R^n \setminus \{0\}\)
-  とおく．\(x = (x_1, \dotsc, x_n), y = (y_1, \dotsc, y_n) \in \boldsymbol R^{n \times}\)
+  \(\bb R^{n\times} = \bb R^n \setminus \{0\}\)
+  とおく．\(x = (x_1, \dotsc, x_n), y = (y_1, \dotsc, y_n) \in \bb R^{n \times}\)
   に対して，\(x \sim y\) をある正数 \(c, c'\) が存在して \(cx = c'y\)
-  とできることとする．すなわち，\(x \sim y \Leftrightarrow \exists c, c' \in \boldsymbol R_{> 0},\ (c x_1, \dotsc, c x_n) = (c' y_1, \dotsc, c' y_n)\)．このとき，\(\sim\)
-  は \(\boldsymbol R^{n \times}\) 上の同値関係を定める．\(\Box\)
+  とできることとする．すなわち，\(x \sim y \Leftrightarrow \exists c, c' \in \bb R_{> 0},\ (c x_1, \dotsc, c x_n) = (c' y_1, \dotsc, c' y_n)\)．このとき，\(\sim\)
+  は \(\bb R^{n \times}\) 上の同値関係を定める．\(\Box\)
 \end{enumerate}
 
 大雑把に言えば，同値関係は集合の元が「同じと見なせる」ことを定める．厳密には異なる元でも本質的には変わらないなら区別する必要はない，という考え方を定式化したのが同値関係であり同値類である．
 
 今集合 \(X\) 上に同値関係 \(\sim\) が1つ定まっているとする．\(X\) の元
-\(x \in X\) に対して，「\(x\) と本質的に同じ」元の集合を \(\overline x\)
+\(x \in X\) に対して，「\(x\) と本質的に同じ」元の集合を \(\bar x\)
 あるいは \([x]\) と書き \(x\) の\textbf{同値類}（\emph{equivalence
 class}）という．すなわち， \[
-\overline x = [x] = \{ y \in X \,:\,x \sim y \}
+\bar x = [x] = \{ y \in X \deli x \sim y \}
 \] を \(x\) の同値類とよぶ．同値類全体の集合
-\(\{ \overline x \,:\,x \in X \}\) を \(X\) の \(\sim\)
-による\textbf{商集合}（\emph{quotient set}）といい，\({X}/\!\,{\sim}\)
+\(\{ \bar x \deli x \in X \}\) を \(X\) の \(\sim\)
+による\textbf{商集合}（\emph{quotient set}）といい，\(\qset X \sim\)
 と書く．定義より， \[
-\overline x = \overline y \Longleftrightarrow x \sim y
-\] が分かる．\(X\) から \({X}/\!\,{\sim}\) への写像
-\(x \mapsto \overline x\)
+\bar x = \bar y \Longleftrightarrow x \sim y
+\] が分かる．\(X\) から \(\qset X \sim\) への写像 \(x \mapsto \bar x\)
 は全射である．これを\textbf{標準的全射}（\emph{canonical
 surjection}）あるいは\textbf{標準的射影}（\emph{canonical
 projection}）とよぶ．各同値類 \([x]\) から1つ元を選ぶ写像
-\(s \colon {X}/\!\,{\sim }\to X\)
+\(s \colon \qset X \sim \to X\)
 を\textbf{切断}（\emph{section}）とよぶ（正確には，\(s\)
-は切断の1つである）．すなわち，\(s \colon {X}/\!\,{\sim }\to X\)
-が切断であるとは，任意の \(c \in {X}/\!\,{\sim}\) に対して
-\(\overline{s(c)} = c\) となることをいう．\(s(c)\) を \(c\)
+は切断の1つである）．すなわち，\(s \colon \qset X \sim \to X\)
+が切断であるとは，任意の \(c \in \qset X \sim\) に対して
+\(\bar{s(c)} = c\) となることをいう．\(s(c)\) を \(c\)
 の\textbf{代表元}（\emph{representative}）という．
 
 \hypertarget{ux4f8b-3}{%
@@ -886,17 +902,16 @@ projection}）とよぶ．各同値類 \([x]\) から1つ元を選ぶ写像
 \def\labelenumi{\roman{enumi})}
 \tightlist
 \item
-  \(n \in \boldsymbol Z_{> 0}\) とする．\(\boldsymbol Z\) の
-  \(\equiv\ (\mathrm{mod}\ n)\) による商集合を
-  \(\boldsymbol Z/ n \boldsymbol Z\)
-  と書く．\(\boldsymbol Z / n \boldsymbol Z = \{ \overline 0, \overline 1, \dotsc, \overline{n - 1} \}\)
-  である．\(\overline k\) は \(k + (n)\)
-  とも書かれる．これは環論における記法である．また \(\overline k\)
-  を単に \(k\) と書くこともある．
+  \(n \in \bb Z_{> 0}\) とする．\(\bb Z\) の
+  \(\equiv\ (\mathrm{mod}\ n)\) による商集合を \(\bb Z/ n \bb Z\)
+  と書く．\(\bb Z / n \bb Z = \{ \bar 0, \bar 1, \dotsc, \bar{n - 1} \}\)
+  である．\(\bar k\) は \(k + (n)\)
+  とも書かれる．これは環論における記法である．また \(\bar k\) を単に
+  \(k\) と書くこともある．
 \item
-  先の例v.における \(\boldsymbol R^{n \times}\) 上の同値関係 \(\sim\)
-  については，\(\overline x = \{ k x \,:\,k \in \boldsymbol R_{> 0} \}\)
-  となる．\(\overline x\) の代表元としては，\(\| x \| = 1\)
+  先の例v.における \(\bb R^{n \times}\) 上の同値関係 \(\sim\)
+  については，\(\bar x = \{ k x \deli k \in \bb R_{> 0} \}\)
+  となる．\(\bar x\) の代表元としては，\(\| x \| = 1\)
   となるように選ぶ．量子力学では実際にこの場合を考えている．\(\Box\)
 \end{enumerate}
 
@@ -908,8 +923,8 @@ projection}）とよぶ．各同値類 \([x]\) から1つ元を選ぶ写像
 x \sim_f y \Longleftrightarrow f(x) = f(y) \quad (x, y \in X)
 \] によって \(f\) の\textbf{同値核}（\emph{equivalence
 kernel}）とよばれる \(X\) 上の同値関係 \(\sim_f\) を定義する．このとき
-\(\overline f(\overline x) = f(x)\) によって写像
-\(\overline f \colon {X}/\!\,{\sim}_f \to Y\) が定まる．\(\overline f\)
+\(\bar f(\bar x) = f(x)\) によって写像
+\(\bar f \colon \qset X \sim_f \to Y\) が定まる．\(\bar f\)
 は全単射であり，\(f\) から\textbf{誘導された}（\emph{induced from
 \(f\)}）全単射という．\(\Box\)
 
@@ -919,14 +934,14 @@ kernel}）とよばれる \(X\) 上の同値関係 \(\sim_f\) を定義する．
 
 商集合を圏論的に考える．2つの全射
 \(f \colon X \to Y,\ g \colon X \to Z\) に対して， \[
-f \leqslant g \Longleftrightarrow \exists w \colon Z \to Y,\ f = wg
-\] として，\(f \sim g\) を \(f \leqslant g\) かつ \(g \leqslant f\)
-とすれば \(\sim\) は
-\(\{ (Y, f \colon X \to Y) \,:\,Y \ \text{is a set}, \ f \ \text{is surjective} \}\)
-上の同値関係になる．そこで同値類 \(\overline{(Y, f)}\)
-を考えると，これは \(f \colon X \to Y\)
+f \le g \Longleftrightarrow \exists w \colon Z \to Y,\ f = wg
+\] として，\(f \sim g\) を \(f \le g\) かつ \(g \le f\) とすれば
+\(\sim\) は
+\(\{ (Y, f \colon X \to Y) \deli Y \ \text{is a set}, \ f \ \text{is surjective} \}\)
+上の同値関係になる．そこで同値類 \(\bar{(Y, f)}\) を考えると，これは
+\(f \colon X \to Y\)
 の同値核による商集合となる．厳密にいえば，（全射とは限らない）写像
-\(f \colon X \to Y\) に対して，\(({X}/\!\,{\sim}_f, \overline f)\)
+\(f \colon X \to Y\) に対して，\((\qset X \sim_f, \bar f)\)
 が代表元となる．\(\Box\)
 
 \end{document}

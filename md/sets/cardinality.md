@@ -3,16 +3,19 @@ title: '集合論'
 author: 'M. Nakata'
 ---
 \newcommand{\deli}{\,:\,}
-\newcommand{\bb}{\boldsymbol}
-\newcommand{\i}{\mathrm{i}}
-\newcommand{\bar}{\overline}
-\newcommand{\le}{\leqslant}
-\newcommand{\ge}{\geqslant}
+\newcommand{\bb}[1]{\boldsymbol{#1}}
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\bar}[1]{\overline{#1}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
 \newcommand{\qset}[2]{{#1}/\!\,{#2}}
-\newcommand{\card}{\mathrm{card}}
-
-# 濃度
-集合論においては，集合の元が具体的に何であるかは重要ではない．したがって，$\{ 0, 1, 2 \}$ と $\{ 0, -1, -2 \}$ に違いはない．もちろん，集合としては異なるけれどこれらを区別することは本質ではない．このように，同じ個数の集合同士を区別する必要はない．集合の個数は濃度とよばれる．同じ濃度の集合は同じものとみなすのである．
+\newcommand{\scr}[1]{\mathscr{#1}}
+\renewcommand{\cal}[1]{\mathcal{#1}}
+\newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\card}{\mathop{\mathrm{card}}\nolimits}
+\newcommand{\Span}{\mathop{\mathrm{span}}}
+\newcommand{\obj}{\mathop{\mathrm{obj}}}
+\newcommand{\Hom}{\mathop{\mathrm{Hom}}}
 
 #### 定義 {.definition .unnumbered}
 2つの集合 $X$ と $Y$ は，$X$ から $Y$ への全単射が存在するとき**対等**（*equivalent*）であるといい，$X \cong Y$ と表す．この $\cong$ は集合間の同値関係になる（ただし，「集合全体の集合」は存在しない．すべての集合を集めたものは**類**（*class*）とよばれる．類においても集合と同じように同値関係を考えればよい）．集合 $X$ の同値類を $\card(X)$ と書き，$X$ の**濃度**（*cardinality*, *cardinal*）という．

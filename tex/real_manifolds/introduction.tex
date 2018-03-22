@@ -1,19 +1,26 @@
 \PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[10pt,b5paper,pandoc]{bxjsarticle}
-\usepackage[]{cmbright}
+\documentclass[pandoc,base=10pt,b5j,precisetext]{bxjsarticle}
 \usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
+\usepackage{mathrsfs}
+\usepackage{textcomp}
+\usepackage{mathcomp}
+\usepackage{fouriernc}
+\usepackage{ifuptex,ifxetex,ifluatex}
+\ifuptex
+  \usepackage[hiragino-elcapitan-pron]{pxchfon}
+  \usepackage[uplatex,deluxe]{otf}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage[T1]{fontenc}
 \fi
+\usepackage{fixltx2e} % provides \textsubscript
+\ifluatex
+  \usepackage[hiragino-pron,match,deluxe]{luatexja-preset}
+  \usepackage{luatexja-otf}
+  \usepackage[lutf8x]{luainputenc}
+\else
+\usepackage{tikz}
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
@@ -69,6 +76,21 @@
 \setcounter{tocdepth}{3}
 \tableofcontents
 }
+\newcommand{\deli}{\,:\,}
+\newcommand{\bb}[1]{\boldsymbol{#1}}
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\bar}[1]{\overline{#1}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\qset}[2]{{#1}/\!\,{#2}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\renewcommand{\cal}[1]{\mathcal{#1}}
+\newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\card}{\mathop{\mathrm{card}}\nolimits}
+\newcommand{\Span}{\mathop{\mathrm{span}}}
+\newcommand{\obj}{\mathop{\mathrm{obj}}}
+\newcommand{\Hom}{\mathop{\mathrm{Hom}}}
+
 \hypertarget{ux53c2ux8003ux6587ux732e}{%
 \section{参考文献}\label{ux53c2ux8003ux6587ux732e}}
 
@@ -89,7 +111,7 @@
 \(M\) を \(n\) 次元多様体として，その点 \(p \in M\) における接空間を
 \(T_pM\)，余接空間を \(T^*_p M\) と書く．\((x^1, \dotsc, x^n)\) を点
 \(p\) の近傍での局所座標系とすると， \(X \in T_pM\) に対して \[
-X = \sum a^i \frac{\partial }{\partial x^i}
+X = \sum a^i \pfrac{}{x^i}
 \] のとき \(X = (x^1(p), \dotsc, x^n(p), a^1, \dotsc, a^n)\)
 として，\(TM = \bigcup_{p \in M} T_pM\)
 に局所座標系を定めることができる．\(T^*M = \bigcup_{p \in M} T^*_p M\)
@@ -112,7 +134,7 @@ X = \sum a^i \frac{\partial }{\partial x^i}
   上の\textbf{ファイバー}（\emph{fiber}）という．
 \item
   各点 \(x \in M\) とその近傍 \(U \subset M\) に対して，微分同相
-  \(\varphi \colon \pi^{-1}(U) \to U \times \boldsymbol{R}^r\)
+  \(\varphi \colon \pi^{-1}(U) \to U \times \bb R^r\)
   が存在して，\(\{ y \} \subset M\) への制限が線形同型となる．
 \end{enumerate}
 
@@ -129,8 +151,8 @@ X = \sum a^i \frac{\partial }{\partial x^i}
   とすればこれはファイバーを与え，\(\pi^{-1}(p) = T_pM\) と \(R^n\)
   は線形同型となる．\(T^*M\) も同様．
 \item
-  \textbf{直積束}（\emph{product
-  bundle}）\(E = M \times \boldsymbol{R}^r\) はベクトル束である．
+  \textbf{直積束}（\emph{product bundle}）\(E = M \times \bb R^r\)
+  はベクトル束である．
 \end{enumerate}
 
 \hypertarget{ux5b9aux7fa9-1}{%
@@ -138,14 +160,14 @@ X = \sum a^i \frac{\partial }{\partial x^i}
 \addcontentsline{toc}{paragraph}{定義}
 
 \(\{ U_\alpha \} \subset M\) を \(M\) の被覆とすると各
-\(\pi^{-1}(U_\alpha)\) は \(U_\alpha \times \boldsymbol{R}^r\)
+\(\pi^{-1}(U_\alpha)\) は \(U_\alpha \times \bb R^r\)
 と同型になる．よって，\(x \in U_\alpha \cap U_\beta\) に対して２つの同型
 \[
-\varphi_\alpha(x) \colon E_x \to \boldsymbol{R}^r\quad \varphi_\beta(x) \colon E_x \to \boldsymbol{R}^r
+\varphi_\alpha(x) \colon E_x \to \bb R^r\quad \varphi_\beta(x) \colon E_x \to \bb R^r
 \]
 が存在する．このとき，\(\psi_{\alpha\beta}(x) = \varphi_\alpha(x) \varphi_\beta(x)^{-1}\)
 によって
-\(\psi_{\alpha\beta} \colon U_\alpha \cap U_\beta \to GL(r, \boldsymbol{R})\)
+\(\psi_{\alpha\beta} \colon U_\alpha \cap U_\beta \to GL(r, \bb R)\)
 が定まる．これらの写像の族 \(\{ \psi_{\alpha\beta} \}\) を被覆
 \(\{ U_\alpha \}\) に対する \(E\) の\textbf{変換関数}（\emph{transition
 functions}）とよぶ．
